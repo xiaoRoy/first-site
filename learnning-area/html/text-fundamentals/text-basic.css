@@ -1,0 +1,21 @@
+h1, h2 {
+    color: lightskyblue;
+}
+
+p {
+    color: gray;
+}
+
+ol {
+    border: 2px solid limegreen;
+}
+
+ol, ul {
+    padding: 5px, 20px;
+    border-radius: 4px;
+}
+
+h1, strong {
+    color: yellow;
+}
+
