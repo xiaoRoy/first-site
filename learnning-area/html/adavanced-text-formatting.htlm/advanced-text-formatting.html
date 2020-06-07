@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Advanced Text Formatting</title>
+    <link rel="stylesheet" href="advanced-text-formatting.css">
 </head>
 
 <body>
+    <h1>Description List</h1>
     <dl>
         <dt>soliloquy</dt>
         <dd>In drama, where a character speaks to themselves, representing their inner thoughts or feelings and in the
@@ -17,9 +19,11 @@
             characters present.
             aside</dd>
         <dt>aside</dt>
-        <dd>In drama, where a character shares a comment only with the audience for humorous or dramatic effect. This is usually a feeling, thought or piece of additional background information
+        <dd>In drama, where a character shares a comment only with the audience for humorous or dramatic effect. This is
+            usually a feeling, thought or piece of additional background information
         </dd>
-        <dd>In writing, a section of content that is related to the current topic, but doesn't fit directly into the main flow of content so is presented nearby (often in a box off to the side.)</dd>
+        <dd>In writing, a section of content that is related to the current topic, but doesn't fit directly into the
+            main flow of content so is presented nearby (often in a box off to the side.)</dd>
     </dl>
 
     <dl>
@@ -32,11 +36,96 @@
         <dd>A light brown color.</dd>
     </dl>
 
+    <h1>Quotation</h1>
+
     <p>Here below is a blockquote..</p>
+    <p>According to the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote"><cite>MDN
+                blockquote page</cite></a></p>
     <blockquote cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote">
-        <p>The <strong>HTML <code>&lt;blockquote&gt;</code>Element</strong> (or <em></em>)</p>
+        <p>The <strong>HTML <code>&lt;blockquote&gt;</code>Element</strong> (or <em>HTML Block Qutation Element</em>)
+            indicates that the enclosed text is an extension quotation.</p>
     </blockquote>
-    <p><em>123</em> <strong> 323</strong></p>
+    <p>The quote element - <code>&lt;q&gt;</code> - is <q
+            cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q">intendted for short quotation that don't
+            require paragraph breaks.</q>
+        -- <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q"><cite>MDN q Page</cite></a>
+    </p>
+
+    <p>Hello and welcome to my motivation page. <a
+            href="http://www.brainyquote.com/quotes/authors/c/confucius.html"><cite>As Confucius' quotes site
+                says:</cite></a></p>
+    <blockquote cite="http://www.brainyquote.com/quotes/authors/c/confucius.html">
+        <p>It does not matter how slowly you go as long as you do not stop.</p>
+    </blockquote>
+    <p>I also love the concept of positive thinking, and <q cite="http://www.affirmationsforpositivethinking.com "> The
+            Need To Eliminate Negative Self Talk </q> (as mentioned in <a href="as mentioned in
+        Affirmations for Positive Thinking."><cite>Affirmations for Positive Thinkin</cite></a>)
+    </p>
+
+    <h1>Abbreviations</h1>
+    <p>We use <abbr title="Hyptertext Markup Language">HTML</abbr>to sturcture our web documents.</p>
+    <p>I think <abbr title="Reverend">Rev.</abbr> Green did it in the kitchen with the chainsaw.</p>
+    <p><abbr title="National Aeronautics and Space Administration">NASA</abbr> sure does some exciting work.</p>
+    <h1>Marking up contact details</h1>
+    <address>
+        <p>Chris Mills, Manchester, The Grim North, UK</p>
+    </address>
+    <address>
+        <p>
+            Chris Mills <br>
+            Manchester <br>
+            The Grim North <br>
+            UK
+        </p>
+
+        <ul>
+            <li>Tel: 01234 567 999</li>
+            <li>Email: what@where.com</li>
+        </ul>
+    </address>
+    <h1>SuperScript and SubScript</h1>
+    <p>My birthday is on the 25<sup>th</sup> of May 2001.</p>
+    <p>Caffeine's chemical formular is C<sub>8</sub>H<sub>10</sub>N<sub>4</sub>O<sub>2</sub>.</p>
+    <p>If x<sup>2</sup> is 9, x must equal 3 or -3.</p>
+
+    <h1>Representing Computer Code</h1>
+    <pre><code>
+        var paragraphA = document.querySeletor('p');
+        paragraphA.onClick = function() {
+            alert('Owww, stop poking me!');
+        };
+    </code></pre>
+    <p>You shouldn't use presentational element like <code>&lt;font&gt;</code> and <code>&lt;center&gt;</code>.</p>
+    <p>In the above JavaScript examle, <var>paragraphA</var> represents a paragraph element.</p>
+    <p>Select all the text with <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>A</kbd>.</p>
+    <pre>$ <kbd>ping mozilla.com</kbd>
+    <samp>PING mozilla.org (63.245.215.20): 56 data bytes
+    64 bytes from 63.245.215.20: icmp_seq=0 ttl=40 time=158.233 ms</samp></pre>
+
+    <h1>Marking up times and datas</h1>
+    <p><time datetime="2016-01-20">20 January 2016</time></p>
+    <p><time datetime="2016-01-20T19:30">7.30pm, 20 January 2016</time></p>
+    <p><time datetime="2016-01-20T19:30+01:00">7.30pm, 20 January 2016 is 8.30pm in France</time></p>
+
+    <H1>Test your Skills</H1>
+    <h2>Task 1</h2>
+    <dl>
+        <dt>Llama</dt>
+        <dd>Tall, wooly quadraped, pointy ears. Sometimes rideable, but grumpy and spits a lot. Big fan of list items.</dd>
+        <dt>Anaconda</dt>
+        <dd>A very large constrictor snake; travels rapidly by way of anchors to sneak up on his prey.</dd>
+        <dt>Hiphopapotamus</dt>
+        <dd>His description is bottomless.</dd>
+    </dl>
+
+    <h2>Task 2</h2>
+    <p>Let's start with a quote:</p>
+    <blockquote cite="https://developer.mozilla.org/en-US/docs/Learn/Accessibility">
+        <P>By default, HTML is accessible, if used correctly.</P>
+    </blockquote>
+    <p><abbr title="Cascading Style Sheet">CSS</abbr> can also be used to make web pages more, or less, accessible.</p>
+    <p>Chemical Formulae: H<sub>2</sub>O (Water), C<sub>2</sub>H<sub>6</sub>O (Ethanol).</p>
+    <p>Dates:<time datetime="2019-12-25">December 25<sup>th</sup> 2019</time> (Christmas Day), <time datetime="2019-11-2">November 2<sup>nd</sup> 2019</time>(Día de los Muertos).</p>
 </body>
 
 </html>
