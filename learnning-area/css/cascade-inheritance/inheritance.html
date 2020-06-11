@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="inheritance.css">
+    <title>Inheritance</title>
+</head>
+<body>
+    <ul class="main">
+        <li>Item One</li>
+        <li>Item Two
+            <ul>
+                <li>2.1</li>
+                <li>2.2</li>
+            </ul>
+        </li>
+        <li>
+            Item Three
+            <ul>
+                <li>3.1
+                    <ul class="special">
+                        <li>3.1.1</li>
+                        <li>3.1.2</li>
+                    </ul>
+                </li>
+                <li>3.2</li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul class="link">
+        <li>Default <a href="#">Link</a> color</li>
+        <li class="first">Inherit the <a href="#">Link</a> color</li>
+        <li class="second">Reset the <a href="#">Link</a> color</li>
+        <li class="third">Unset the <a href="#">Link</a> color</li>
+    </ul>
+
+    <h2>Inheritance</h2>
+    <blockquote>
+        <p>This blockquote is styled.</p>
+    </blockquote>
+
+    <blockquote class="no-style">
+        <p>This blockqute is not styled.</p>
+    </blockquote>
+
+    <h3>Cascade</h3>
+    <h3>Heading with no class</h3>
+    <h3 class="small">Heading with small class</h3>
+    <h3 class="bright">Heading with class of bright</h3>
+
+    <H3>Specificity</H3>
+    <div id="outer" class="container">
+        <div id="inner" class="container">
+            <ul>
+                <li class="nav"><a href="#">One</a></li>
+                <li class="nav"><a href="#">Two</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

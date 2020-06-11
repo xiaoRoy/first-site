@@ -1,0 +1,95 @@
+.main {
+    color: pink;
+    border: 2px solid #ccc;
+    padding: 1em;
+}
+
+.special {
+    color: black;
+    font-weight: bold;
+}
+
+.link {
+ color: green;   
+}
+.first {
+    color: inherit;
+}
+.second {
+    color: initial;
+}
+.third {
+    color: unset;
+}
+
+blockquote {
+    background-color: thistle;
+    border: 2px solid green;
+}
+
+.no-style {
+    all: unset;
+}
+
+h3 {
+    font-size: 2em;
+    color: #000;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.small {
+    font-size: 1em;
+}
+
+.bright {
+    color: turquoise;
+}
+
+li a {
+    display: inline-block;
+    text-decoration: none;
+    line-height: 40px;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* specificity: 0101 */
+#outer a {
+    background-color: red;
+}
+
+/* specificity: 0201 */
+#outer #inner a{
+    background-color: royalblue;
+}
+/* specificity: 0104*/
+#outer div ul li a {
+    color: yellow;
+}
+
+/* specificity: 0113 */
+#outer div ul .nav a {
+    color: white;
+}
+
+/*  */
+div li:nth-child(2) a:hover {
+    border: 10px dashed black;
+}
+
+div div li:nth-child(2) a:hover {
+    border: 10px solid black;
+}
+
+div div .nav:nth-child(c) a:hover {
+    border: 10px double black   ;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
