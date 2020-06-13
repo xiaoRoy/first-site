@@ -93,3 +93,45 @@ ul {
 li {
     list-style-type: none;
 }
+
+p {
+    background-color: blue;
+    color: wheat;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+
+#winning {
+    background-color: red;
+    border: 1px solid black;
+}
+
+.better {
+    background-color: gray;
+    border: none !important;
+}
+
+#parent div ul .navigation a {
+    background-color: blue;
+    padding: 5px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+#parent div ul .navigation a {
+    background-color: inherit;
+}
+
+#parent div ul .navigation a {
+    background-color: initial;
+}
+
+#parent div ul .navigation a {
+    background-color: unset;
+}
+
+div div li a.what {
+    color: yellow;
+}
