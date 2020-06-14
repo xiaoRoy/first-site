@@ -1,0 +1,74 @@
+span {
+    background-color: yellow;
+}
+
+strong, em {
+    color: royalblue;
+}
+
+a[title] {
+    background-color: royalblue;
+}
+
+a[href ="../how-css-work/info.html"] {
+    background-color: seagreen;
+} 
+
+a:hover {
+    background-color: unset;
+}
+
+
+p.long-paragrph::first-letter {
+    color: violet;
+}
+#universal-selector *{
+    background-color: wheat;
+    margin: 0;
+}
+
+article *:first-child {
+    color: coral;
+}
+.highlight {
+    background-color: palegoldenrod;
+}
+
+h2.highlight {
+    background-color: palegreen;
+}
+.notebox {
+    border: 4px solid #666;
+    padding: .5em;
+    margin: 10px;
+}
+
+.notebox.warning {
+    border-color: orange;
+    font-weight: bold;
+}
+
+.notebox.danger {
+    border-color: red;
+    font-weight: bold;
+}
+
+#selector-header {
+    color: sandybrown;
+}
+
+p#one {
+    background-color: springgreen;
+}
+
+li[class] {
+    font-size: 200%;
+}
+
+li[class = "location"] {
+    background-color: yellow;
+}
+
+li[class~="location"] {
+    color: red;
+}
