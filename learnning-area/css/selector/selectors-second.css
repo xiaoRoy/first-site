@@ -1,0 +1,53 @@
+article p:first-child::first-line {
+    font-weight: bold;
+    font-size: 120%;
+    color: plum;
+}
+
+a:visited {
+    color: olivedrab;
+    font-weight: bold;
+}
+
+a:hover {
+    color: orchid;
+}
+
+/* article p::first-line {
+    font-size: 120%;
+    color: plum;
+} */
+
+p.box::before {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-color: silver;
+    border: 1px solid black;
+}
+p.box::after {
+    content: " Haaaaa!➥" ;
+}
+
+.box p {
+    color: blanchedalmond;
+}
+
+ul > li {
+    border-top: 5px solid gainsboro;
+}
+
+h1 + p {
+    font-weight: bold;
+    background-color: #333333;
+    color: #ffffff;
+    padding: .5em;
+}
+
+#second-article h1 ~ p {
+    font-weight: bold;
+    background-color: #333333;
+    color: #ffffff;
+    padding: .5em;
+}

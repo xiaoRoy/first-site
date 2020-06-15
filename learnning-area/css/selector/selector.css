@@ -61,7 +61,7 @@ p#one {
     background-color: springgreen;
 }
 
-li[class] {
+ul li[class] {
     font-size: 200%;
 }
 
@@ -71,4 +71,20 @@ li[class = "location"] {
 
 li[class~="location"] {
     color: red;
+}
+
+li[class|="what"] {
+    color: tomato;
+}
+
+ol li[class*="a"] {
+    color: indianred;
+}
+
+ol li[class^="a" i] {
+    font-size: 200%;
+}
+
+ol li[class$="a"] {
+    background-color: yellow;
 }
