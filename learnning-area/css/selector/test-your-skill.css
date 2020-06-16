@@ -1,0 +1,63 @@
+div.container h1 {
+    color: blue;
+}
+
+div.container h2 {
+    background-color: blue;
+    color: white;
+}
+
+div.container span {
+    font-size: 200%;
+}
+
+div.test-second #special {
+    background-color:yellow;
+}
+
+div.test-second .alert {
+    border: 1px solid gray;
+}
+
+div.test-second .alert.stop {
+    background-color: red;
+}
+
+div.test-second .alert.go {
+    background-color: green;
+}
+
+div.test-third a:link{
+    color: orange;
+}
+
+div.test-third a:visited {
+    color: green;
+}
+
+div.test-third a:hover {
+    text-decoration: none;
+}
+
+div.test-third p:first-child {
+    font-size: 150%;
+}
+
+div.test-third > p:first-child::first-line {
+    color: red;
+}
+
+div.text-third table {
+    border-collapse: collapse;
+    width: 300px;
+}
+
+div.test-third table td,th{
+    padding: 0.2em;
+    text-align: left; 
+
+}
+div.test-third table tr:nth-child(2n) {
+    background-color: #333;
+    color: white;
+}
