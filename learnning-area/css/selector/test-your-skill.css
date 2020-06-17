@@ -61,3 +61,38 @@ div.test-third table tr:nth-child(2n) {
     background-color: #333;
     color: white;
 }
+
+div.container-fourth h2 + p {
+    color:red;
+}
+
+div.container-fourth ul.list > li {
+    list-style-type: none;
+    border-bottom: 1px solid gray;
+}
+
+div.container-fifth ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+div.container-fifth li {
+    margin: 0 0 0.5em 0;
+}
+
+div.container-fifth a {
+    display: block;
+    padding: 0.5em;
+    border: 5px solid gray;
+}
+div.container-fifth a[title] {
+    border-color: pink;
+}
+
+div.container-fifth a[href*="contact"] {
+    border-color: orange;
+}
+
+div.container-fifth a[href^="https"] {
+    border-color: green;
+}
