@@ -1,0 +1,37 @@
+#one p, #one ul {
+    border: 2px solid rebeccapurple;
+    padding: .5em;
+}
+#one .block, #one li {
+    border: 2px solid blue;
+    padding: .5em;
+}
+
+#one ul {
+    display: flex;
+    list-style: none;
+}
+
+#one .block {
+    display: block;
+}
+
+#two p,
+#two ul {
+    border: 2px solid rebeccapurple;
+}
+
+#two span,
+#two li {
+    border: 2px solid blue;
+}
+
+#two ul {
+    display: inline-flex;
+    list-style: none;
+    padding: 0;
+}
+
+#two .inline {
+    display: inline;
+}
