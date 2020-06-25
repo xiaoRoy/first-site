@@ -1,0 +1,32 @@
+#one .box {
+    border: 5px solid rebeccapurple;
+    background-color: lightcyan;
+    padding: 40px;
+    margin: 40px;
+    width: 300px;
+    height: 150px;
+}
+
+#one .alternate {
+    box-sizing: border-box;
+    width: 390px;
+    height: 240px;
+}
+
+#box-two {
+    border: 5px dotted black;
+    padding: 1em;
+    margin-top: 20px;
+    margin-right: 1em;
+    margin-bottom: 40px;
+    margin-left: 2em    ;
+}
+
+#box-three span {
+    background-color: pink;
+    border: 5px solid black;
+    padding: 1em;
+    margin-left: 20px;
+    margin-bottom: 30px;
+    display: inline-block;
+}
