@@ -1,0 +1,7 @@
+#task-one div {
+    border: 5px solid black;
+    padding: 1em;
+    height: 150px;
+    width: 300px;
+    overflow: auto;
+}
