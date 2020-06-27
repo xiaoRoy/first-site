@@ -1,0 +1,47 @@
+body {
+    width: 500px;
+    margin: 0 auto;
+}
+
+p {
+    background-color: rgb(207, 232, 220);
+    border: 2px solid rgb(79, 185, 227);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+.special-positioning {
+    background: rgba(255, 84, 104, .3);
+    border: 2px solid rgb(255, 84, 104);
+    top: 30px;
+    left: 30px;
+}
+
+#relative {
+    position: relative;
+}
+
+#absolute {
+    position: absolute;
+}
+
+#fixed-container {
+    position: fixed;
+}
+
+#sticky-container {
+    top: 30px;
+    position: sticky;
+}
+
+#multiple-column-container {
+    column-width:200px;
+}
+#multiple-column-container p{
+    all: initial
+}
