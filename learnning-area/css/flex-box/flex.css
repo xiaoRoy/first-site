@@ -1,0 +1,28 @@
+.box {
+    border: 1px solid slategrey;
+    margin: 4px;
+}
+#flex-grow-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#box-one {
+    flex-grow: 2;
+    background-color: tan;
+}
+
+#box-two {
+    flex-grow: 2;
+    background-color: tomato;
+}
+
+#box-three {
+    flex-grow: 1;
+    background-color: slateblue;
+}
+
+#box-four {
+    background-color: seagreen;
+}

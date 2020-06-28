@@ -1,0 +1,72 @@
+html {
+    font-family: sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    background: royalblue;
+    height: 100px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    line-height: 100px;
+    margin: 0;
+}
+
+.section-header {
+    padding: 10px;
+    margin: 10px;
+}
+
+article {
+    padding: 10px;
+    margin: 10px;
+    color: whitesmoke;
+    background:cornflowerblue;
+}
+
+#flex {
+    display: flex;
+}
+
+#no-warpping {
+    display: flex;
+}
+
+#wrapping {
+    display: flex;
+    flex-wrap: wrap;  
+}
+
+#wrapping article {
+    flex: 200px;
+}
+
+#flex-item {
+    display: flex;
+}
+
+/* #flex-item article {
+    flex: 1;
+} */
+
+#flex-item-first {
+
+    background-color: violet;
+    /* background-color: violet; */
+    flex: 1;
+}
+
+#flex-item-second {
+    background-color: steelblue;
+    flex:3;
+}
+
+#flex-item-third {
+    background: salmon;
+}
