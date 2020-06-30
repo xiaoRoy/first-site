@@ -105,3 +105,25 @@
     content: 'fill';
 }
 
+#antoher-container {
+    background-color: #eeeeee;
+    border: .75em solid;
+    padding: .75em;
+    width: 80%;
+    max-height: 300px;
+    display: flex;
+}
+
+#antoher-container > div {
+    background-color: rgba(0, 0, 255, .2);
+    border: 3px solid #0000ff;
+    margin: 10px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+}
+
+div#target-element {
+    background: salmon;
+    flex-grow:10;
+}
