@@ -26,12 +26,7 @@
         </div>
     </section>
 
-    <section id="flex-grop-three">
-        <h2>flex-groth: auto versu 0</h2>
-        <div id="auto-container">
-            
-        </div>
-    </section>
+    
 
     <section id="flex-basis">
         <h2>flex-basis</h2>
@@ -46,6 +41,36 @@
         <ul class="flex-basis-container">
             <li class="flex flex6">6: flex-basis test</li>
         </ul>
+    </section>
+
+    <section id="flex-basic-two">
+        <h2>flex-grow: auto versu 0</h2>
+        <p>These are flex items marked with auto.</p>
+        <div id="auto-container" class="flex-basic-two-container">
+            <div class="flex-word">short</div>
+            <div class="flex-word">very very long</div>
+            <div class="flex-word special-flex-word">short</div>
+        </div>
+        <p>These are flex items marked with zero.</p>
+        <div id="zero-container" class="flex-basic-two-container">
+            <div class="flex-word">short</div>
+            <div class="flex-word">very very long</div>
+            <div class="flex-word special-flex-word">short</div>
+        </div>
+    </section>
+
+    <section id="flex-shrink">
+        <head>flex shrink</head>
+        <p>The width of content is 500px; the flex-basis of the flex items is 120px</p>
+        <p>A, B, C have flex-shrink:1 set. D and E have flex-shrink:2 set</p>
+        <p>The width of D and E is less than the others.</p>
+        <div id="shrink-container">
+            <div class="shrink-box"></div>
+            <div class="shrink-box"></div>
+            <div class="shrink-box"></div>
+            <div class="shrink-box"></div>
+            <div class="shrink-box"></div>
+        </div>
     </section>
 </body>
 </html>
