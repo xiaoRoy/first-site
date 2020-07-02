@@ -109,7 +109,7 @@
     background-color: #eeeeee;
     border: .75em solid;
     padding: .75em;
-    width: 80%;
+    width: 200px;
     max-height: 300px;
     display: flex;
 }
@@ -181,4 +181,29 @@ div#target-element {
 #shrink-container div:nth-child(5){
     background-color: lightgreen;
     flex-shrink: 0;
+}
+
+#shrink-container-second {
+    width: 500px;
+    display: flex;
+}
+#shrink-container-second div:nth-child(1) {
+    background-color: sandybrown;
+    /* width: 150px; */
+    flex-basis: 150px;
+    flex-shrink: 1;
+}
+
+#shrink-container-second div:nth-child(2) {
+    background-color:seagreen;
+    /* width: 200px; */
+    flex-basis: 200px;
+    flex-shrink: 1;
+}
+
+#shrink-container-second div:nth-child(3) {
+    background-color: skyblue;
+    /* width: 300px; */
+    flex-basis: 300px;
+    flex-shrink: 1;
 }
