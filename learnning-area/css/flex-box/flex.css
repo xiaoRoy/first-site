@@ -207,3 +207,24 @@ div#target-element {
     flex-basis: 300px;
     flex-shrink: 1;
 }
+#shrink-container-zero {
+    display: flex;
+    border:1px solid black;
+    width: 500px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#shrink-container-zero div:nth-child(1) {
+    flex-basis:700px;
+    background-color: tomato;
+    flex-shrink: 0;
+}
+#shrink-container-zero div:nth-child(2) {
+    flex-basis: 100px;
+    background-color: aqua;
+}
+#shrink-container-zero div:nth-child(3) {
+    flex-basis: 100px;
+    background-color: brown;
+}
