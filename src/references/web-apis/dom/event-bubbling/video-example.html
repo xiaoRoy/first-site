@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Event Bubbling Video Example</title>
+    <link rel="stylesheet" href="./styles/video-example.css">
+  </head>
+  <body>
+    <button>Display video</button>
+    <div class="hidden">
+      <video>
+        <source
+          src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+          type="video/webm"
+        />
+      </video>
+      <p>
+        Your browser doesn't support HTML5 video. Here is a
+        <a href="./vidoes/rabbit320.mp4">link to video</a> instead.
+      </p>
+    </div>
+
+    <script src="scripts/video-example.js"></script>
+  </body>
+</html>
