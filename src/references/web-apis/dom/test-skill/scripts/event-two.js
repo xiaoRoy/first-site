@@ -3,11 +3,11 @@ const context = canvas.getContext("2d");
 
 function drawCircle(x, y, size) {
   context.clearRect(0, 0, canvas.width, canvas.height);
-  context.fillStyle = "blue";
+  context.fillStyle = "white";
   context.fillRect(0, 0, canvas.width, canvas.height);
 
   context.beginPath();
-  context.fillStyle = "green";
+  context.fillStyle = "pink";
   context.arc(x, y, size, 0, 2 * Math.PI);
   context.fill();
 }
@@ -26,3 +26,24 @@ drawCircle(x, y, size);
 // drawCircle(x + 40, y + 100, 70);
 // Add your code here
 // drawRect();
+
+document.addEventListener("keydown", (event) => {
+  const pressedKey = event.key;
+  switch (pressedKey) {
+    case "w":
+      y--;
+      break;
+    case "a":
+      x--;
+      break;
+    case "s":
+      y++;
+      break;
+    case "d":
+      x++;
+      break;
+    default:
+    //do not bother to run.
+  }
+  drawCircle(x, y, size);
+});
