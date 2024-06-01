@@ -12,7 +12,7 @@
       <h1>Sample flexbox example</h1>
     </header>
 
-    <section>
+    <section id="article-section">
       <article>
         <h2>First article</h2>
 
@@ -60,5 +60,17 @@
         </p>
       </article>
     </section>
+
+    <div id="display-selector">
+        <label>Choose a display type:
+            <select name="display" id="display">
+                <option value="none">none</option>
+                <option value="block">block</option>
+                <option value="flex">flex</option>
+            </select>
+        </label>
+    </div>
+
+    <script src="./scripts/flex-box.js"></script>
   </body>
 </html>

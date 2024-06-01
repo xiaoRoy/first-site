@@ -23,3 +23,9 @@ article {
   margin: 10px;
   background: aqua;
 }
+
+#display-selector {
+  margin-bottom: 48px;
+  background: burlywood;
+  padding: 10px;
+}
