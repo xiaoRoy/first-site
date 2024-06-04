@@ -68,3 +68,25 @@
 .flex5::after {
   content: "content";
 }
+
+.f {
+  display: flex;
+}
+.f div {
+  border: 1px solid;
+}
+.zero {
+  flex-basis: 0;
+}
+.auto {
+  flex-basis: auto;
+}
+
+#numbers {
+  display: flex
+}
+
+#numbers div {
+  /* flex-grow: 1; */
+  /* flex: 0 auto; */
+}
