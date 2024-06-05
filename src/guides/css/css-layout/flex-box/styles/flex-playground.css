@@ -28,3 +28,19 @@
 .none {
   flex: none;
 }
+
+.initial {
+  flex: initial;
+}
+
+.four {
+  flex: 4;
+}
+
+.two {
+  flex: 2;
+}
+
+.one {
+  flex: 1;
+}

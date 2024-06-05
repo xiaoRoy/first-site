@@ -83,10 +83,12 @@
 }
 
 #numbers {
-  display: flex
+  display: flex;
 }
 
 #numbers div {
+  border: 1px solid blanchedalmond;
+  flex: 100px;
   /* flex-grow: 1; */
   /* flex: 0 auto; */
 }
