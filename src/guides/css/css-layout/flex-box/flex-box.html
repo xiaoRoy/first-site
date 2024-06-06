@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>Flexbox 0 — starting code</title>
 
-    <link rel="stylesheet" href="./styles/flex-box.css">
+    <link rel="stylesheet" href="./styles/flex-box.css" />
   </head>
   <body>
     <header>
@@ -39,7 +39,14 @@
         </p>
       </article>
 
-      <article>
+      <article id="third-article">
+        <div id="third-nested-container">
+          <button>Smile</button>
+          <button>Laugh</button>
+          <button>Wink</button>
+          <button>Shrug</button>
+          <button>Blush</button>
+        </div>
         <h2>Third article</h2>
 
         <p>
@@ -62,13 +69,14 @@
     </section>
 
     <div id="display-selector">
-        <label>Choose a display type:
-            <select name="display" id="display">
-                <option value="none">none</option>
-                <option value="block">block</option>
-                <option value="flex">flex</option>
-            </select>
-        </label>
+      <label
+        >Choose a display type:
+        <select name="display" id="display">
+          <option value="none">none</option>
+          <option value="block">block</option>
+          <option value="flex">flex</option>
+        </select>
+      </label>
     </div>
 
     <script src="./scripts/flex-box.js"></script>

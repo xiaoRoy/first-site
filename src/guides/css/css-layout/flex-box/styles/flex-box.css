@@ -37,3 +37,25 @@ article {
 article:nth-of-type(3) {
   flex: 2;
 }
+
+article:nth-of-type(3) {
+  flex: 3 200px;
+  display: flex;
+  flex-flow: column;
+}
+
+article:nth-of-type(3) div:first-child {
+  background: silver;
+  flex: 1 100px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+button {
+  flex: 1 auto;
+  margin: 5px;
+  font-size: 18px;
+  line-height: 1.5;
+}

@@ -1,15 +1,15 @@
 #content {
-    display: flex;
-    justify-content: space-around;
-    align-items: stretch;
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
 }
 
 .small {
-    flex-grow: 1;
-    border: 3px solid rgb(0 0 0 / 20%);
-  }
-  
-  .double {
-    flex-grow: 2;
-    border: 3px solid rgb(0 0 0 / 20%);
-  }
+  flex-grow: 1;
+  border: 3px solid rgb(0 0 0 / 20%);
+}
+
+.double {
+  flex-grow: 2;
+  border: 3px solid rgb(0 0 0 / 20%);
+}
