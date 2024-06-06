@@ -6,6 +6,7 @@ body {
   width: 70%;
   max-width: 960px;
   margin: 20px auto;
+  background: burlywood;
 }
 
 button {
