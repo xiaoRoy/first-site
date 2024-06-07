@@ -1,0 +1,42 @@
+article {
+  max-width: 90%;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin: 0 auto;
+}
+
+.float-start {
+  width: 300px;
+  float: inline-start;
+  margin-inline-end: 10px;
+  padding: 10px;
+}
+
+p:nth-of-type(2),
+p:nth-of-type(3),
+p:nth-of-type(4) {
+  background-color: orange;
+}
+
+footer {
+  margin: 0 auto;
+  clear: both;
+  width: 90%;
+  height: 48px;
+  background: #123f71;
+}
+footer nav {
+  margin: 0 auto;
+  max-width: 1248px;
+  width: 90%;
+}
+
+.float-end {
+  width: 300px;
+  float: inline-end;
+  margin: 6px;
+}
+
+article img {
+  width: 100%;
+}

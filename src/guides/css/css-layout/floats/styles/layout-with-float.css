@@ -1,0 +1,56 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100vh;
+  overflow: hidden; 
+  /* To clear floats */
+}
+
+.header {
+  background-color: #4caf50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.sidebar {
+  float: left;
+  width: 25%;
+  background-color: #f4f4f4;
+  padding: 20px;
+  height: 50%;
+  box-sizing: border-box;
+}
+
+.content {
+  float: left;
+  width: 75%;
+  padding: 20px;
+  background: olivedrab;
+  box-sizing: border-box;
+}
+
+.footer {
+  clear: both;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sidebar,
+  .content {
+    float: none;
+    width: 100%;
+  }
+}
