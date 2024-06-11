@@ -1,4 +1,4 @@
-<style > body {
+body {
   background-color: #fff;
   color: #333;
   font: 1.2em / 1.5 Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -23,9 +23,8 @@
 }
 .float {
   float: left;
-  
 }
 
 .below {
-  clear: left;
+  clear: l;
 }
