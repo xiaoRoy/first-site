@@ -26,3 +26,21 @@ span {
   left: 30px;
   background: yellow;
 }
+
+.absolute {
+  position: absolute;
+  background: yellow;
+  top: 40px;
+  left: 40px;
+}
+
+.paragraph-first {
+  position: absolute;
+  background: lime;
+  top: 10px;
+  right: 30px;
+}
+
+.container-paragraph {
+  position: relative;
+}

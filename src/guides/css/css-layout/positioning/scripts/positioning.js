@@ -1,13 +1,14 @@
 "use strict";
-const allPositionValue = ["static", "relative"];
+const allPositionValues = new Set(["static", "relative", "absolute"]);
 const positioningForm = document.querySelector("#positioning-form");
 const title = document.querySelector("#title");
-const paragraph = document.querySelector("#paragraph-second");
+const paragraphSecond = document.querySelector("#paragraph-second");
+const paragraphFirst = document.querySelector("#paragraph-first");
 const staticPositionInput = document.querySelector("#positioning-static");
 staticPositionInput.checked = true;
 title.textContent = "static position"
 updateParagraph(staticPositionInput.value);
-console.log(paragraph);
+
 
 
 positioningForm.addEventListener("change", (event) => {
@@ -23,16 +24,23 @@ positioningForm.addEventListener("change", (event) => {
 
 
 function updatePositioning(positioning) {
-    // console.log(positioning);
     title.textContent = `${positioning} positioning`
+    if ("absolute" === positioning) {
+        paragraphFirst.classList.add("paragraph-first");
+        paragraphFirst.style.zIndex = 1;
+    } else {
+        paragraphFirst.classList.remove("paragraph-first");
+        paragraphFirst.style.zIndex = "auto"
+    }
 }
 
 function updateParagraph(positioning) {
-    console.log(`Position to update:${positioning}`);
-    const toRemove = Array.from(allPositionValue).pop(positioning);
-    console.log(`Paragraph to remove: ${toRemove}`);
-    paragraph.classList.remove(...toRemove)
-    paragraph.classList.add(positioning);
-    // console.log(`Paragraph ${paragraph.classList}`);
+    const toRemove = Array.from(allPositionValues);
+    const index = toRemove.indexOf(positioning);
+    if (index > -1) {
+        toRemove.splice(index, 1);
+    }
+    paragraphSecond.classList.remove(...toRemove);
+    paragraphSecond.classList.add(positioning);
 
 }
