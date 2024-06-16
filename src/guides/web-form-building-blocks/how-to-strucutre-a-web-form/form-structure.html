@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>fieldset and legend example</title>
+  </head>
+
+  <body>
+    <form action="">
+      <h1>Payment form</h1>
+      <p>
+        Required fields are followed by
+        <strong><span aria-label="Required">*</span></strong>
+      </p>
+      <section>
+        <h2>Contact Information</h2>
+        <fieldset>
+          <legend>Title</legend>
+          <ul>
+            <li>
+              <label for="title-one">
+                <input type="radio" name="title" id="title-one" value="A" />
+                Ace
+              </label>
+            </li>
+            <li>
+              <label for="title-two">
+                <input type="radio" name="title" id="title-two" value="K" />
+                King
+              </label>
+            </li>
+            <li>
+              <label for="title-three">
+                <input type="radio" name="title" id="title-three" value="Q" />
+                Queen
+              </label>
+            </li>
+          </ul>
+        </fieldset>
+      </section>
+    </form>
+  </body>
+</html>
