@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>fieldset and legend example</title>
+    <link rel="stylesheet" href="./styles/form-structure.css" />
   </head>
 
   <body>
@@ -19,25 +20,43 @@
           <legend>Title</legend>
           <ul>
             <li>
-              <label for="title-one">
-                <input type="radio" name="title" id="title-one" value="A" />
-                Ace
-              </label>
+              <input type="radio" name="title" id="title-one" value="A" />
+              <label for="title-one"> Ace </label>
             </li>
             <li>
-              <label for="title-two">
-                <input type="radio" name="title" id="title-two" value="K" />
-                King
-              </label>
+              <input type="radio" name="title" id="title-two" value="K" />
+              <label for="title-two"> King </label>
             </li>
             <li>
-              <label for="title-three">
-                <input type="radio" name="title" id="title-three" value="Q" />
-                Queen
-              </label>
+              <input type="radio" name="title" id="title-three" value="Q" />
+              <label for="title-three"> Queen </label>
             </li>
           </ul>
         </fieldset>
+
+        <p>
+          <label for="username">
+            <span>Name:</span>
+            <strong><span aria-label="required">*</span></strong>
+          </label>
+          <input type="text" name="username" id="username" required />
+        </p>
+
+        <p>
+          <label for="email">
+            <span>Email:</span>
+            <strong><span aria-label="required">*</span></strong>
+          </label>
+          <input type="text" name="email" id="email" required />
+        </p>
+
+        <p>
+          <label for="password">
+            <span>Password:</span>
+            <strong><span aria-label="required">*</span></strong>
+          </label>
+          <input type="text" name="password" id="password" required />
+        </p>
       </section>
     </form>
   </body>
