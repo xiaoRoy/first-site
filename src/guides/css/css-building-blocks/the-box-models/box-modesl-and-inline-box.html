@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Box models and inline box</title>
+    <link rel="stylesheet" href="./styles/box-modesl-and-inline-box.css" />
+  </head>
+
+  <body>
+    <p>
+      I am a paragraph and this is a <span id="target-span">span</span> inside
+      that paragraph. A span is an inline element and so does not respect width
+      and height.
+    </p>
+
+    <form action="" id="display-form">
+      <fieldset>
+        <legend>Demonstration of inline block</legend>
+
+        <input type="radio" name="display" id="block" value="block" />
+        <label for="block">block</label>
+
+        <input type="radio" name="display" id="inline" value="inline" />
+        <label for="inline">inline</label>
+
+        <input
+          type="radio"
+          name="display"
+          id="inline-block"
+          value="inline-block"
+        />
+        <label for="inline-block">inline-block</label>
+      </fieldset>
+    </form>
+
+    <script src="./scripts/box-model-and-inline-box.js"></script>
+  </body>
+</html>
