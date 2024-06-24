@@ -1,0 +1,48 @@
+body {
+  width: 90%;
+  max-width: 900px;
+  margin: 2em auto;
+  font: 0.9em/1.2 Arial, Helvetica, sans-serif;
+}
+
+header,
+footer {
+  border-radius: 5px;
+  padding: 10px;
+  background-color: rgb(207 232 220);
+  border: 2px solid rgb(79 185 227);
+}
+header {
+  grid-area: header;
+}
+
+aside {
+  border-right: 1px solid #999;
+  grid-area: sidebar;
+  padding-right: 10px;
+  font-size: 0.8em;
+}
+
+footer {
+  grid-area: footer;
+}
+.container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar content"
+    "footer footer";
+  grid-template-columns: 1fr 3fr;
+  gap: 20px;
+}
+.articles {
+  display: grid;
+  grid-template-rows: 2fr 1fr 1fr;
+  gap: inherit;
+}
+
+article {
+  padding: 10px;
+  border: 2px solid rgb(79 185 227);
+  border-radius: 5px;
+}
