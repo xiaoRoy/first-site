@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Text Input States</title>
+    <link rel="stylesheet" href="./styles/text-input-states.css" />
+  </head>
+
+  <body>
+    <form>
+      <p>
+        <label for="default">Default</label>
+        <input
+          type="text"
+          id="default"
+          name="default"
+          value="I'm a default text field"
+        />
+      </p>
+
+      <p>
+        <label for="Focus">Focus</label>
+        <input
+          type="text"
+          id="focus"
+          name="focus"
+          value="I'm a focus text field"
+          autofocus
+        />
+      </p>
+
+      <p>
+        <label for="default">Disabled</label>
+        <input
+          type="text"
+          id="disabled"
+          name="disabled"
+          value="I'm a disabled text field"
+          disabled
+        />
+      </p>
+    </form>
+  </body>
+</html>
