@@ -1,0 +1,8 @@
+button,
+input {
+  display: none;
+}
+.buttondemo button,
+.buttondemo input {
+  all: revert;
+}
