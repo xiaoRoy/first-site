@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>File Picker Examples</title>
+    <link rel="stylesheet" href="./styles/file-picker.css" />
+  </head>
+
+  <body>
+    <form>
+      <p>
+        <label for="default-file-picker">Default:</label>
+        <input
+          id="default-file-picker"
+          name="default-file-picker"
+          type="file"
+          accept="image/*;capture=camera"
+          multiple
+        />
+      </p>
+
+      <p>
+        <label for="focus-file-picker">Focus:</label>
+        <input
+          id="focus-file-picker"
+          name="focus-file-picker"
+          type="file"
+          accept="video/*;capture=camcorder"
+          autofocus
+        />
+      </p>
+
+      <p>
+        <label for="disabled-file-picker"></label>
+        <input
+          id="disabled-file-picker"
+          name="disabled-file-picker"
+          type="file"
+          accept="audio/*;capture=microphone"
+          disabled
+        />
+      </p>
+    </form>
+  </body>
+</html>

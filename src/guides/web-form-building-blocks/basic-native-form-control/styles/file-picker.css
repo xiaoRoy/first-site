@@ -1,0 +1,7 @@
+form {
+  display: flex;
+}
+
+p {
+  flex: 2 2 10%;
+}
