@@ -1,0 +1,9 @@
+div {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+label {
+  display: inline-block;
+  width: 300px;
+}
