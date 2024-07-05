@@ -2,7 +2,7 @@
   background-color: rgb(148 255 172);
   padding: 10px;
   color: purple;
-  display: flow-root;
+  /* display: flow-root; */
 }
 body {
   width: 90%;
@@ -20,4 +20,8 @@ body {
   background-color: rgb(207 232 220);
   padding: 1em;
   color: black;
+}
+
+#inside-paragraph {
+  clear: both;
 }
