@@ -3,7 +3,7 @@ div {
   position: relative;
 }
 
-input[type="number"] {
+input {
   width: 100px;
 }
 

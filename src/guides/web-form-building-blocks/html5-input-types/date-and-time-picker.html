@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>Month example</title>
+    <link rel="stylesheet" href="./styles/date-and-time-picker.css" />
+  </head>
+  <body>
+    <form>
+      <div>
+        <label for="month"
+          >What Month would you like to visit us? (Summer months only.)</label
+        >
+        <input
+          id="month"
+          type="month"
+          name="month"
+          min="2017-06"
+          max="2017-09"
+          required
+        />
+        <span class="validity"></span>
+      </div>
+
+      <div>
+        <label for="appt-time"
+          >Choose an appointment time (opening hours 12:00 to 18:00):
+        </label>
+        <input
+          id="appt-time"
+          type="time"
+          name="appt-time"
+          min="12:00"
+          max="18:00"
+          required
+        />
+        <span class="validity"></span>
+      </div>
+
+      <div>
+        <label for="week">What week would you like to start?</label>
+        <input
+          type="week"
+          name="week"
+          id="week"
+          min="2017-W01"
+          max="2017-W52"
+          required
+        />
+
+        <span class="validity"></span>
+      </div>
+
+      <div>
+        <input type="submit" value="Submit form" />
+      </div>
+    </form>
+  </body>
+</html>
