@@ -41,6 +41,9 @@ textarea:focus {
 textarea {
   vertical-align: top;
   height: 5em;
+  max-width: 500px;
+  max-height: 130px;
+  resize: none;
 }
 
 .button {
