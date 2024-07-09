@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Drop down content examples</title>
+    <link rel="stylesheet" href="styles/drop-down.css" />
+  </head>
+
+  <body>
+    <form action="">
+      <div>
+        <label for="color">Select a color</label>
+        <select name="color" id="color">
+          <option value="black">Black</option>
+          <option value="green">Green</option>
+          <option value="blue">Blue</option>
+          <option value="red">Red</option>
+        </select>
+        <output id="color-output" for="color"></output>
+      </div>
+
+      <div>
+        <label for="fruits-and-vegetables">Fruits and Vegetables</label>
+        <select id="fruits-and-vegetables" name="groups">
+          <optgroup label="fruits">
+            <option>Banana</option>
+            <option selected>Cherry</option>
+            <option>Lemon</option>
+          </optgroup>
+          <optgroup label="vegetables">
+            <option>Carrot</option>
+            <option>Eggplant</option>
+            <option>Potato</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <div>
+        <label for="multi">Fruits and Vegetables</label>
+        <select id="multi" name="multi" multiple size="2">
+          <optgroup label="fruits">
+            <option>Banana</option>
+            <option selected>Cherry</option>
+            <option>Lemon</option>
+          </optgroup>
+          <optgroup label="vegetables">
+            <option>Carrot</option>
+            <option>Eggplant</option>
+            <option>Potato</option>
+          </optgroup>
+        </select>
+        <output id="multi-output" for="multi"></output>
+      </div>
+    </form>
+    <script src="./scripts/drop-down.js"></script>
+  </body>
+</html>
