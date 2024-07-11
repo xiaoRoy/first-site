@@ -1,0 +1,22 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: crimson;
+}
+
+.small-heading {
+  text-transform: uppercase;
+}
+
+#quote-by-author {
+  background: lightgrey;
+  padding: 10px;
+  line-height: 1.75;
+}
+
+article p {
+    line-height: 2;
+}
