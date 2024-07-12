@@ -18,5 +18,43 @@ h6 {
 }
 
 article p {
-    line-height: 2;
+  line-height: 2;
+}
+
+.list > li {
+  color: chocolate;
+}
+
+.list > li ul {
+  color: initial;
+}
+
+header + p {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+header ~ img {
+    border: 4px solid crimson;
+}
+
+a:link {
+    color: #1d70b8;
+}
+
+a:visited {
+    color: #422c92;
+}
+
+a:hover {
+    color: #003078;
+}
+
+a:focus {
+    outline: solid 1px crimson;
+}
+
+header + P::first-letter {
+    color: crimson;
+    font-style: italic;
 }
