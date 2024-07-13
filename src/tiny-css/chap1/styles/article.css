@@ -58,3 +58,7 @@ header + P::first-letter {
     color: crimson;
     font-style: italic;
 }
+
+[lang="it"]::before {
+    content: "\1F1EE\1F1F9";
+}
