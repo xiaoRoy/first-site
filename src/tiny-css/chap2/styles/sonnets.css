@@ -8,9 +8,49 @@ body {
 }
 
 main {
-  margin: 24px;
   display: grid;
   grid-template-columns: repeat(2, minmax(auto, 1fr)) 250px;
+  grid-template-areas:
+    "header  header  header"
+    "content content author"
+    "content content aside "
+    "plays      .    aside "
+    "footer  footer  footer";
+  gap: 20px;
+}
+
+@media (min-width: 955px) {
+  main {
+    /* margin: 24px; */
+    /* display: grid; */
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "header header header"
+      "content content author"
+      "content content aside"
+      "plays . aside"
+      "footer footer footer";
+    /* gap: 20px; */
+  }
+}
+
+header {
+  grid-area: header;
+}
+article {
+  grid-area: content;
+}
+aside {
+  grid-area: aside;
+}
+.author-details {
+  grid-area: author;
+}
+.plays {
+  grid-area: plays;
+}
+footer {
+  grid-area: footer;
 }
 
 img {
@@ -18,10 +58,10 @@ img {
   margin: 12px 12px 12px 0;
 }
 
-main > * {
+/* main > * {
   border: solid 1px #bfbfbf;
   padding: 12px;
-}
+} */
 
 main > *,
 section {
