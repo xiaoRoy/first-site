@@ -1,0 +1,13 @@
+div {
+  background-color: yellow;
+  width: 120px;
+  height: auto;
+  border: 1px solid green;
+}
+
+
+p {
+    margin: 0;
+    margin-block: 20px 440px;
+    background-color: tan;
+}
