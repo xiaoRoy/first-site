@@ -1,0 +1,18 @@
+::before, ::after, * {
+    box-sizing: border-box;
+}
+
+
+#navbar {
+    width: 20vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: antiquewhite;
+}
+
+#main-doc {
+    margin-left: 20vw;
+    height: 100vh;
+}
