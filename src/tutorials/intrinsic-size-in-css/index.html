@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intrinsic Size in CSS</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+  </head>
+  <body>
+    <section class="demo">
+      <header>default size</header>
+      <div>
+        <p class="demo-default">
+          What point is there in admitting that the stories fed to gullible
+          publics are false?
+        </p>
+      </div>
+    </section>
+    <hr />
+    <section class="demo">
+      <header>minimum intrinsic size</header>
+      <div>
+        <p class="demo-min-content">
+          Text wraps, making the element only as wide as its longest word.
+        </p>
+      </div>
+    </section>
+    <hr />
+    <section class="demo">
+      <header>maximum intrinsic size</header>
+      <div>
+        <p class="demo-max-content">
+          This paragraph may be wider than the width of the entire page and yet
+          it won't wrap because <code>width: max-content</code> is set. It
+          therefore may overflow its container.
+        </p>
+      </div>
+    </section>
+    <hr />
+    <section class="demo">
+      <header>fit content</header>
+      <div>
+        <p class="demo-fit-content">
+          The fit-content keyword is equivalent to fit-content(stretch). In
+          practice, this means that the box will use the available space, but
+          never more than max-content.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <header>A image with caption demo</header>
+      <div class="wrapper">
+        <figure>
+          <img
+            class="c-card__media"
+            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/182774/blueberry-cheesecake-x.png"
+            alt=""
+          />
+          <figcaption>
+            A photo for a blueberry cheesecake which sounds very delicious.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+  </body>
+</html>

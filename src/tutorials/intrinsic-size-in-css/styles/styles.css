@@ -1,0 +1,57 @@
+.demo-min-content {
+  background-color: palegoldenrod;
+  width: min-content;
+}
+
+.demo-default {
+  background-color: aqua;
+}
+
+.demo-max-content {
+  width: max-content;
+  background-color: cadetblue;
+}
+
+.demo-fit-content {
+  width: fit-content;
+  background-color: goldenrod;
+}
+
+header {
+  font-size: 22px;
+}
+
+.wrapper {
+  max-width: 800px;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+figure {
+  width: max-content;
+  margin: 0 auto;
+  background: #e2deed;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+figcaption {
+  margin-top: 0.5rem;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+body {
+  background: #fafafa;
+  line-height: 1.5;
+  font-family: "Arial";
+  padding: 4rem;
+}
+
+* {
+  box-sizing: border-box;
+}
