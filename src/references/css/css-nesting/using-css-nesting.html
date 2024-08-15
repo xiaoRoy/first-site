@@ -1,0 +1,26 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using-CSS-Nesting</title>
+    <link rel="stylesheet" href="./styles/with-selector.css" />
+  </head>
+  <body>
+    <form>
+      <label for="name"
+        >Name:
+        <input type="text" id="name" />
+      </label>
+      <label for="email">email:</label>
+      <input type="text" id="email" />
+    </form>
+
+    <div>
+      <header>Example with &</header>
+      <p class="example">
+        This paragraph <a href="#">contains a <span>link</span></a>, try hovering or focusing
+        it.
+      </p>
+    </div>
+  </body>
+</html>

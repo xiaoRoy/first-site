@@ -1,0 +1,78 @@
+form,
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+input {
+  /* styles for input not in a label  */
+  border: tomato 2px solid;
+}
+label {
+  /* styles for label */
+  font-family: system-ui;
+  font-size: 1.25rem;
+  & input {
+    /* styles for input in a label  */
+    border: blue 2px dashed;
+  }
+}
+
+/* .example {
+  font-family: system-ui;
+  font-size: 1.2rem;
+  & > a {
+    color: tomato;
+    &:hover,
+    &:focus {
+      color: ivory;
+      background-color: tomato;
+    }
+  }
+} */
+
+.example {
+  font-family: system-ui;
+  font-size: 1.2rem;
+}
+
+/* using & */
+.example > a {
+  color: tomato;
+  &:hover,
+  &:focus {
+    color: ivory;
+    background-color: tomato;
+  }
+}
+
+.example > a {
+  color: tomato;
+}
+
+.example > a:hover,
+a:focus {
+  color: ivory;
+  background-color: tomato;
+}
+
+/* not using & */
+
+.example > a {
+  color: tomato;
+  :hover,
+  :focus {
+    color: ivory;
+    background-color: tomato;
+  }
+}
+
+.example > a {
+  color: tomato;
+}
+
+.example > a *:hover,
+a *:focus {
+  color: ivory;
+  background-color: tomato;
+}
