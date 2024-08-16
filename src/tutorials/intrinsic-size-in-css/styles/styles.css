@@ -28,7 +28,7 @@ header {
 }
 
 figure {
-  width: max-content;
+  width: fit-content;
   margin: 0 auto;
   background: #e2deed;
   padding: 1rem;
@@ -54,4 +54,99 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+#title-in-different-lines {
+  h2 {
+    text-align: center;
+    position: relative;
+    font-size: 1.25rem;
+  }
+
+  h2 span {
+    position: relative;
+    top: -8px;
+    display: inline-block;
+    padding: 0 1rem;
+    background: #fafafa;
+    width: min-content;
+  }
+
+  h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    z-index: -1;
+    width: 100%;
+    height: 150px;
+    border: 4px solid;
+    border-bottom: 0;
+  }
+}
+
+#title-with-underline {
+  h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto;
+    border-bottom: 3px solid #e2deed;
+    width: fit-content;
+  }
+}
+
+#demo-navigation {
+  header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    background: #eee;
+    padding: 1rem;
+    border-radius: 5px;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+  }
+
+  li {
+    margin-left: 1rem;
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+#demo-filter-list {
+  display: flex;
+  justify-content: space-evenly;
+
+  .grid {
+    height: 250px;
+    width: 40%;
+    display: grid;
+    background: lightgreen;
+    grid-template-rows: min-content auto min-content;
+  }
+
+  .header-filter {
+    background: orange;
+  }
+
+  .result-list {
+ 
+
+    overflow: auto;
+  }
+
+  .footer-pagination {
+    background: lightblue;
+  }
 }
