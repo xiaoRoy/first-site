@@ -30,6 +30,26 @@ a {
   margin: 0 auto;
 }
 
+.btn {
+  padding: 0 20px;
+  height: 40px;
+  font-size: 1em;
+  text-transform: uppercase;
+  font-weight: 900;
+  border: 3px black solid;
+  border-radius: 2px;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* .grid {
+    display: flex;
+} */
+
+/* 
+header section
+ */
+
 header {
   display: flex;
   justify-content: space-between;
@@ -40,60 +60,58 @@ header {
   left: 0;
   min-height: 75px;
   padding: 0px 20px;
-  background-color: #eee;
-}
-
-/* main {
-  margin-top: 50px;
+  background-color: transparent;
+  /* border: 1px solid #000; */
 }
 
 .logo {
   width: 60vw;
-}
-
-.logo > img {
-  width: 100%;
-  height: 100%;
   max-width: 300px;
-  display: flex;
-  justify-content: center;
-  text-align: center;
   margin-left: 20px;
 }
-
-nav {
-    font-weight: 400;
-}
-
- */
-
-.logo {
-  width: 60vw;
-}
-
-img {
-  width: 100%;
-  height: 100%;
-  max-width: 300px;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  margin-left: 20px;
-}
-
-/* img {
-    width: 100%;
-    height: 100%;
-    max-width: 300px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin-left: 20px;
-  } */
 
 nav > ul {
   width: 35vw;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+nav {
+  font-weight: 400;
+}
+
+/* hero section */
+main {
+  margin-top: 50px;
+}
+
+#hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 200px;
+  justify-content: center;
+  background-color: coral;
+}
+
+#hero > h2 {
+  margin-bottom: 20px;
+  word-wrap: break-word;
+}
+
+#hero input[type='email'] {
+    max-width: 275px;
+    width: 100%;
+    padding: 5px;
+}
+
+#hero input[type='submit'] {
+    max-width: 150px;
+    width: 100%;
+    height: 30px;
+    margin: 15px 0;
+    border: 0;
+    background-color: #f1c40f;
 }
