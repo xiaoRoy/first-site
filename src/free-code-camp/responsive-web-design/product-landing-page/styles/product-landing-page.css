@@ -93,7 +93,7 @@ main {
   text-align: center;
   height: 200px;
   justify-content: center;
-  background-color: coral;
+  /* background-color: coral; */
 }
 
 #hero > h2 {
@@ -114,4 +114,40 @@ main {
     margin: 15px 0;
     border: 0;
     background-color: #f1c40f;
+
+    &:hover {
+        background-color: orange;
+        transition: background-color 1s;
+    }
+}
+
+/* features */
+
+#features {
+    margin-top: 30px;
+    background-color: #f1c40f;
+
+
+    .desc {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 125px;
+        width: 70vw;
+        padding: 5px;
+        background-color: aqua;
+    }
+}
+
+
+
+.feature-layout {
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid black;
+}
+
+.icon {
+    align-self: center;
+    width: 20vw;
 }
