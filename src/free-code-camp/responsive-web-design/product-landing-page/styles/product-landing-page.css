@@ -24,7 +24,7 @@ a {
   text-decoration: none;
 }
 
-.container {
+.container, main {
   max-width: 1000px;
   width: 100%;
   margin: 0 auto;
@@ -101,53 +101,116 @@ main {
   word-wrap: break-word;
 }
 
-#hero input[type='email'] {
-    max-width: 275px;
-    width: 100%;
-    padding: 5px;
+#hero input[type="email"] {
+  max-width: 275px;
+  width: 100%;
+  padding: 5px;
 }
 
-#hero input[type='submit'] {
-    max-width: 150px;
-    width: 100%;
-    height: 30px;
-    margin: 15px 0;
-    border: 0;
-    background-color: #f1c40f;
+#hero input[type="submit"] {
+  max-width: 150px;
+  width: 100%;
+  height: 30px;
+  margin: 15px 0;
+  border: 0;
+  background-color: #f1c40f;
 
-    &:hover {
-        background-color: orange;
-        transition: background-color 1s;
-    }
+  &:hover {
+    background-color: orange;
+    transition: background-color 1s;
+  }
 }
 
 /* features */
 
 #features {
-    margin-top: 30px;
-    background-color: #f1c40f;
+  margin-top: 30px;
+}
 
+.feature-layout {
+  display: flex;
+  justify-content: space-around;
 
-    .desc {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: 125px;
-        width: 70vw;
-        padding: 5px;
-        background-color: aqua;
+  .icon {
+    align-self: center;
+    flex: 1;
+    color: darkorange;
+  }
+
+  .desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 125px;
+    flex: 4;
+    padding: 5px;
+  }
+}
+
+/* how it works */
+
+/* pricing */
+
+#pricing {
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  display: flex;
+  /* justify-content: center; */
+}
+
+.product {
+    flex: 1;
+    text-align: center;
+    margin: 10px;
+    border: 1px solid #000;
+    border-radius: 3px;
+
+    & > .level {
+        background-color: #ddd;
+        color: black;
+        padding: 15px 0;
+        width: 100%;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    h2 {
+        margin-top: 15px;
+    }
+
+    ol {
+        margin-top: 15px 0;
+    }
+
+    ol > li {
+        padding: 5px 0;
+    }
+
+    button {
+        border: 0;
+        margin: 15px 0;
+        background-color: #f1c40f;
+        font-weight: 400;
+
+        &:hover {
+            background-color: orange;
+            transition: background-color 1s;
+        }
     }
 }
 
+/* footer */
 
-
-.feature-layout {
+/* footer {
     display: flex;
-    justify-content: space-around;
-    border: 1px solid black;
-}
+    padding: 20px;
+    margin-top: 30px;
+    background-color: #ddd;
+    flex-direction: column;
+    align-items: flex-end;
 
-.icon {
-    align-self: center;
-    width: 20vw;
-}
+    & > span  {
+        display: flex;
+        justify-content: flex-end;
+    }
+} */
