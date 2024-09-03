@@ -1,7 +1,7 @@
 :root {
   --penguin-face: white;
   --penguin-picorna: orange;
-  --penguin-skin:gray;
+  --penguin-skin: gray;
 }
 
 body {
@@ -55,10 +55,16 @@ body {
   border: 1px solid black;
   position: relative;
   z-index: 4;
+  transition: 1s ease-in-out 0ms;
 }
 
 .penguin * {
   position: absolute;
+}
+
+.penguin:active {
+  transform: scale(150%);
+  cursor: not-allowed;
 }
 
 .penguin-head {
@@ -170,19 +176,19 @@ body {
 }
 
 .shirt {
-    font-size: 25px;
-    font-family: Helvetica, sans-serif;
-    font-weight: bold;
-    top:165px;
-    left:127.5px;
-    z-index: 1;
-    color: #6a6969;
+  font-size: 25px;
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+  top: 165px;
+  left: 127.5px;
+  z-index: 1;
+  color: #6a6969;
 }
 
 .shirt div {
-    font-weight: initial;
-    top:22.5px;
-    left:12px;
+  font-weight: initial;
+  top: 22.5px;
+  left: 12px;
 }
 
 .penguin-body::before {
@@ -198,48 +204,49 @@ body {
 }
 
 .arm {
-    width: 30%;
-    height: 60%;
-    background: linear-gradient(90deg, var(--penguin-skin), rgb(209, 210, 199));
-    border-radius: 30% 30% 30% 120%;
-    z-index: -1;
+  width: 30%;
+  height: 60%;
+  background: linear-gradient(90deg, var(--penguin-skin), rgb(209, 210, 199));
+  border-radius: 30% 30% 30% 120%;
+  z-index: -1;
 }
 
 .arm.left {
-    top:35%;
-    left:5%;
-    transform-origin: 0% 0%;
-    transform: rotate(130deg) scaleX(-1);
+  top: 35%;
+  left: 5%;
+  transform-origin: 0% 0%;
+  transform: rotate(130deg) scaleX(-1);
+  animation: 3s linear infinite wave;
 }
 
 .arm.right {
-    top:0%;
-    right: -5%;
-    transform: rotate(-45deg);
+  top: 0%;
+  right: -5%;
+  transform: rotate(-45deg);
 }
 
 .foot {
-    width: 15%;
-    height: 30%;
-    background-color: var(--penguin-picorna);
-    top:85%;
-    border-radius: 50%;
-    z-index: -1;
+  width: 15%;
+  height: 30%;
+  background-color: var(--penguin-picorna);
+  top: 85%;
+  border-radius: 50%;
+  z-index: -1;
 }
 
 .foot.left {
-    left:25%;
-    transform: rotate(80deg);
+  left: 25%;
+  transform: rotate(80deg);
 }
 
 .foot.right {
-    right: 25%;
-    transform: rotate(-80deg);
+  right: 25%;
+  transform: rotate(-80deg);
 }
 
 .ground {
   width: 100vw;
-  height: 400px;
+  height: calc(100vh - 300px);
   background: linear-gradient(90deg, rgb(88, 175, 236), rgb(182, 255, 255));
   z-index: 3;
   position: absolute;
@@ -253,12 +260,12 @@ body {
   }
 
   20% {
-
+    transform: rotate(130deg) scaleX(-1);
   }
   30% {
-    
+    transform: rotate(110deg) scaleX(-1);
   }
   40% {
-
+    transform: rotate(130deg) scaleX(-1);
   }
 }
