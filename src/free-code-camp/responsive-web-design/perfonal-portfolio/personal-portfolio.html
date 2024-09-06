@@ -21,7 +21,7 @@
     />
   </head>
   <body>
-    <nav class="nav">
+    <nav id="navbar" class="nav">
       <ul class="nav-list">
         <li><a href="#about">About</a></li>
         <li><a href="#work">Work</a></li>
@@ -139,33 +139,65 @@
           href="https://codepen.io/FreeCodeCamp/"
           class="btn btn-show-all"
           target="_blank"
-          >Show all <i class="fas fa-chevron-right"></i></a
-        >
+          >Show all <i class="fas fa-chevron-right"></i
+        ></a>
       </section>
 
-      <section id="contact">
-        <h1>Let's work together...</h1>
-        <p>How do you take your coffee?</p>
-        <div>
-          <ul>
-            <li>
-              <a href="https://www.facebook.com/freecodecamp/">Facebook</a>
-            </li>
-            <li><a href="https://github.com/freecodecamp">Github</a></li>
-            <li><a href="https://twitter.com/freecodecamp/">Twitter</a></li>
-            <li><a href="mailto:example@example.com">Send a mail</a></li>
-            <li><a href="tel:555-555-555">Call me</a></li>
-          </ul>
+      <section id="contact" class="contact-section">
+        <div class="contact-section-header">
+          <h2>Let's work together...</h2>
+          <p>How do you take your coffee?</p>
         </div>
+
+        <ul class="contact-links">
+          <li>
+            <a
+              href="https://www.facebook.com/freecodecamp/"
+              target="_blank"
+              class="btn contact-details"
+              ><i class="fab fa-facebook-square"></i>Facebook</a
+            >
+          </li>
+          <li>
+            <a
+              id="profile-link"
+              href="https://github.com/freecodecamp"
+              target="_blank"
+              class="btn contact-details"
+              ><i class="fab fa-github"></i>Github</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://twitter.com/freecodecamp/"
+              target="_blank"
+              class="btn contact-details"
+              ><i class="fab fa-twitter"></i>Twitter</a
+            >
+          </li>
+          <li>
+            <a href="mailto:example@example.com" class="btn contact-details"
+              ><i class="fas fa-at"></i>Send a mail</a
+            >
+          </li>
+          <li>
+            <a href="tel:555-555-555" class="btn contact-details"
+              ><i class="fas fa-mobile-alt"></i>Call me</a
+            >
+          </li>
+        </ul>
       </section>
-      <hr />
       <footer>
         <p>
           **This is just a fake portfolio. All the projects and contact details
           given are not real.
         </p>
         <p>
-          © Created for <a href="https://www.freecodecamp.com/">freeCodeCamp</a>
+          &copy; Created for
+          <a href="https://www.freecodecamp.com/" target="_blank"
+            >freeCodeCamp
+            <i class="fab fa-free-code-camp"></i>
+          </a>
         </p>
       </footer>
     </main>
