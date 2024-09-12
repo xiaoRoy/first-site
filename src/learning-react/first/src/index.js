@@ -1,17 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import Title from './chapters/chap2/nestingElements';
-import reportWebVitals from './reportWebVitals';
-import TitleDiv from './chapters/chap2/siblingDiv';
-import TitleFragment from './chapters/chap2/siblingFragment';
-import Links from './chapters/chap2/link';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import DemoApp from "./chapters/demoApp";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Links />
+    <DemoApp />
   </React.StrictMode>
 );
 
