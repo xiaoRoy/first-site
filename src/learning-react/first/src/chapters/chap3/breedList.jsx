@@ -14,6 +14,15 @@ class BreedList extends React.Component {
       </dl>
     );
   }
+
+  static use() {
+    const breedList = [
+      { breed: "Chihuahua", description: "Small breed of dog." },
+      { breed: "Corgi", description: "Cute breed of dog." },
+      { breed: "Cumberland Sheepdog", description: "Extinct breed of dog." },
+    ];
+    return <BreedList breedList={breedList}></BreedList>;
+  }
 }
 
 export default BreedList;
