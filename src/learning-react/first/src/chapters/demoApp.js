@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import Alert from "./chap3/alert";
+import use from "./chap4/menuFunctionBased";
+
+
 
 
 class DemoApp extends Component {
   render() {
-    return Alert.use();
+    return use();
   }
 }
 

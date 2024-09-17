@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+
+
+.menu {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  gap: 1em;
+}
+
+.menu-link {
+  text-decoration: none;
+  border: 1px solid #ccc;
+  padding: 0.25em 0.5em;
+  color: #222;
+
+  &:hover {
+    background-color: #eee;
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid;
+  box-sizing: border-box;
+  width: 100vw;
+  padding: 1em;
+}
+
