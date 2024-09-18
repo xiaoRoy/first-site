@@ -2,20 +2,22 @@ import React from "react";
 import "./styles/menu.css";
 
 function MenuItem(props) {
-  const { href, label } = props;
+  const { href, label, ...rest } = props;
   return (
     <li>
-      <a className="menu-link" href={href}>
+      <a className="menu-link" href={href} {...rest}>
         {label}
       </a>
     </li>
   );
 }
 
-function MenuItemSecond({ href, label, target = "_self" }) {
+//de-structure rest property
+function MenuItemSecond({ href, label, ...rest }) {
   return (
     <li>
-      <a className="menu-link" href={href} target={target}>
+      {/* spread operator */}
+      <a className="menu-link" href={href} {...rest}>
         {label}
       </a>
     </li>
@@ -28,8 +30,8 @@ function Menu() {
       <h1 className="title">TheMenuCompany</h1>
       <ul className="menu">
         <MenuItem label="Home" href="/" />
-        <MenuItemSecond label="About" href="/about/" />
-        <MenuItemSecond label="Blog" href="/blog" target="_blank"/>
+        <MenuItemSecond label="About" href="/about/" id="about-link"/>
+        <MenuItemSecond label="Blog" href="/blog" target="_blank" id="blog-link"/>
       </ul>
     </nav>
   );
