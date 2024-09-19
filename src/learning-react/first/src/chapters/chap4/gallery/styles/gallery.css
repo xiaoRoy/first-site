@@ -1,0 +1,7 @@
+.gallery {
+  display: flex;
+}
+
+.image {
+    margin: 5px;
+}

@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import use from "./chap4/menuFunctionBased";
-
+import showGallery from "./chap4/gallery/galleryFunctionBased";
 
 
 
 class DemoApp extends Component {
   render() {
-    return use();
+    return showGallery();
   }
 }
 
