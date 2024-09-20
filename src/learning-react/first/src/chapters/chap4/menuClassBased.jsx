@@ -26,7 +26,7 @@ class Menu extends Component {
     );
   }
 
-  static use() {
+  static showMenu() {
     return (
       <main>
         <Menu></Menu>

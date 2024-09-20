@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import showGallery from "./chap4/gallery/galleryFunctionBased";
-
-
+import Counter from "./chap5/counter";
+import showCounter from "./chap5/counter";
 
 class DemoApp extends Component {
   render() {
-    return showGallery();
+    return showCounter();
   }
 }
 

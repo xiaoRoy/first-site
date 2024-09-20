@@ -37,7 +37,7 @@ function Menu() {
   );
 }
 
-function use() {
+function showMenu() {
   return (
     <main>
       <Menu></Menu>
@@ -45,4 +45,4 @@ function use() {
   );
 }
 
-export default use;
+export default showMenu;
