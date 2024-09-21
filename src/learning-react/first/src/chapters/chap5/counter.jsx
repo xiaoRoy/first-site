@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 
 function Counter({ start, isVisible = true }) {
-    // const [counter, setCounter] = useState(offsetStart(start));
+  // const [counter, setCounter] = useState(offsetStart(start));
   const [counter, setCounter] = useState(() => offsetStart(start));
   if (!isVisible) {
     return null;
@@ -12,6 +12,8 @@ function Counter({ start, isVisible = true }) {
       <button onClick={() => setCounter((value) => value + 1)}>
         Increment
       </button>
+
+      <button onClick={() => setCounter(0)}>Reset</button>
     </main>
   );
 }
