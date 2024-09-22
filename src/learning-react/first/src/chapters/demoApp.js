@@ -1,10 +1,9 @@
 import { Component } from "react";
-import showCalculator from "./chap5/calculator";
-import showCounter from "./chap5/counter";
+import showToDoList from "./chap5/todoListWithFilter";
 
 class DemoApp extends Component {
   render() {
-    return showCounter();
+    return showToDoList();
   }
 }
 
