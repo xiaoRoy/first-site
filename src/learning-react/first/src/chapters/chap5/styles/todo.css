@@ -1,0 +1,20 @@
+.container {
+  width: 50%;
+  margin: 32px auto;
+}
+
+.filter-button {
+  border: 1px solid dimgray;
+  padding: 4px 10px;
+}
+
+.todo-item {
+  border-left: 2px solid;
+}
+
+.todo-check {
+  border: none;
+  background: transparent;
+  display: inline;
+  color: inherit;
+}

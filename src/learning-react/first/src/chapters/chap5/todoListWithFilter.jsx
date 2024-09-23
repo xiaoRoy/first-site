@@ -1,17 +1,5 @@
 import { Fragment, useState } from "react";
-
-class Todo {
-  constructor(item, isDone = false) {
-    this.item = item;
-    this.isDone = isDone;
-  }
-
-  markDone() {
-    this.isDone = true;
-  }
-
-
-}
+import Todo from "./data/todo";
 
 function TodoList({ todoList }) {
   const [todos, setTodos] = useState(todoList);
@@ -19,6 +7,17 @@ function TodoList({ todoList }) {
   const todosToDisplay = isAllVisible
     ? todos
     : todos.filter((todoItem) => !todoItem.isDone);
+
+  const handleMarkDone = (item) => {
+    const updatedTodos = todosToDisplay.map((todo) => {
+      if (todo.item === item) {
+        todo.markDone();
+        // todo.isDone = true;
+      }
+      return todo;
+    });
+    setTodos([...updatedTodos]);
+  };
 
   return (
     <Fragment>
@@ -31,7 +30,7 @@ function TodoList({ todoList }) {
           ) : (
             <Fragment>
               {item}
-              <button>x</button>
+              <button onClick={() => handleMarkDone(item)}>Mark Done</button>
             </Fragment>
           )}
         </p>
@@ -41,15 +40,9 @@ function TodoList({ todoList }) {
 }
 
 function showToDoList() {
-  const todoList = [
-    new Todo("Feed the plants"),
-    new Todo("Water the dishes"),
-    new Todo("Clean the cat"),
-    new Todo("Reading", true),
-  ];
   return (
     <main>
-      <TodoList todoList={todoList}></TodoList>
+      <TodoList todoList={Todo.generateDemoTodos()}></TodoList>
     </main>
   );
 }
