@@ -24,17 +24,21 @@ function FilterButton({ selected, setSelected, filterName }) {
   );
 }
 
-function Task({ todo }) {
+function Task({ todo, markDone }) {
   const { item, isDone } = todo;
 
   const todoItemStyle = { color: isDone ? "gray" : "black" };
 
   return (
-    <p className="todo-item" style={todoItemStyle}>
+    <p
+      className="todo-item"
+      style={todoItemStyle}
+    //   onClick={() => markDone(item)}
+    >
       {/* <input type="checkbox" name="is-done" id={item} />
       <label htmlFor={item}>{item}</label> */}
 
-      <button className="todo-check">
+      <button className="todo-check" onClick={() => markDone(todo)}>
         {isDone ? "\u2705" : "\u25FB\uFE0F"}
       </button>
       {item}
@@ -46,7 +50,22 @@ function TodoList({ todoList }) {
   const [todos, setTodos] = useState(todoList);
   const [selected, setSelected] = useState(filters.showAll);
   const isAllVisible = selected === filters.showAll;
+  const todosFilterApplied = isAllVisible
+    ? todos
+    : todos.filter((todo) => !todo.isDone);
 
+  const markDone = (targetTodo) => {
+    console.log("mark done");
+    if (!targetTodo.isDone) {
+      const updatedTodos = todosFilterApplied.map((todo) => {
+        if (todo.item === targetTodo.item) {
+          todo.markDone();
+        }
+        return todo;
+      });
+      setTodos(updatedTodos);
+    }
+  };
   return (
     <Fragment>
       <>
@@ -61,8 +80,8 @@ function TodoList({ todoList }) {
           filterName={filters.hideDone}
         ></FilterButton>
       </>
-      {todos.map((todo) => (
-        <Task todo={todo}></Task>
+      {todosFilterApplied.map((todo) => (
+        <Task key={todo.item} todo={todo} markDone={markDone}></Task>
       ))}
     </Fragment>
   );
@@ -72,9 +91,7 @@ function displayTodoList() {
   return (
     <main>
       <div className="container">
-        <TodoList
-          todoList={Todo.generateDemoTodos()}
-        ></TodoList>
+        <TodoList todoList={Todo.generateDemoTodos()}></TodoList>
       </div>
     </main>
   );

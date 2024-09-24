@@ -16,7 +16,7 @@ function TodoList({ todoList }) {
       }
       return todo;
     });
-    setTodos([...updatedTodos]);
+    setTodos(updatedTodos);
   };
 
   return (
