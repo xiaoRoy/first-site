@@ -1,12 +1,11 @@
 import { Component } from "react";
+import displayStarWarCharacters from "./chap6/starWarCharacters";
 
-import displayTodoList from "./chap5/todoListMultipleComponents";
-import showToDoList from "./chap5/todoListWithFilter";
+
 
 class DemoApp extends Component {
   render() {
-    // return showToDoList();
-    return displayTodoList();
+    return displayStarWarCharacters();
   }
 }
 
