@@ -1,0 +1,28 @@
+.toggle-watch {
+  padding: 5px;
+  font: bold 0.6em sans-serif;
+  border: 2px solid #333;
+  border-radius: 5px;
+  background: none;
+  cursor: pointer;
+
+  &:hover,
+  :focus {
+    background-color: #000;
+    color: #fff;
+    transition: background-color 1s;
+  }
+}
+
+.container {
+
+  width: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 120px;
+}
+
+.stop-watch {
+    display: flex;
+    flex-flow: column nowrap;
+}

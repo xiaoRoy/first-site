@@ -1,11 +1,11 @@
 import { Component } from "react";
-import displayStarWarCharacters from "./chap6/starWarCharacters";
+import showEmailSelectors from "./chap6/emailInput";
 
 
 
 class DemoApp extends Component {
   render() {
-    return displayStarWarCharacters();
+    return showEmailSelectors()
   }
 }
 

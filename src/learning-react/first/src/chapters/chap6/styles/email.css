@@ -1,0 +1,13 @@
+
+.container {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 30%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.email-select {
+    margin-bottom: 24px;
+    width: 50%;
+}
