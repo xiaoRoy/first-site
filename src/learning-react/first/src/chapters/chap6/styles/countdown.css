@@ -1,0 +1,25 @@
+.functional-button {
+  padding: 5px;
+  font: bold 0.6em sans-serif;
+  border: 2px solid #333;
+  border-radius: 5px;
+  background: none;
+  cursor: pointer;
+  margin: 5px;
+
+  &:hover,
+  :focus {
+    background-color: #000;
+    color: #fff;
+    transition: background-color 1s;
+  }
+
+  
+}
+
+.countdown-container {
+  width: 20%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
