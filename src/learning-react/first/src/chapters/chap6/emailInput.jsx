@@ -47,7 +47,7 @@ function EmailsSelect() {
   );
 }
 
-function showEmailSelectors() {
+function EmailSelectorsDemo() {
   return (
     <div className="container">
       <h2>Select a email:</h2>
@@ -56,4 +56,4 @@ function showEmailSelectors() {
   );
 }
 
-export default showEmailSelectors;
+export default EmailSelectorsDemo;

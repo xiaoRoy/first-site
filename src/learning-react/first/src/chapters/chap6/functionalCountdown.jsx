@@ -4,7 +4,7 @@ import "./styles/countdown.css";
 function Countdown({ from }) {
   const [seconds, setSeconds] = useState(from);
   const [isRunning, setRunning] = useState(false);
-  
+
   useEffect(() => {
     console.log("useEffect");
     if (!isRunning) {
@@ -21,7 +21,10 @@ function Countdown({ from }) {
       1000
     );
 
-    return () => clearInterval(interval);
+    return () => {
+      console.log("useEffect: clean up");
+      clearInterval(interval);
+    };
   }, [isRunning]);
   return (
     <div className="countdown-container">
@@ -39,6 +42,7 @@ function Countdown({ from }) {
         <button
           className="functional-button"
           onClick={() => setRunning((isRunning) => !isRunning)}
+          disabled={seconds === 0}
         >
           {isRunning ? "pause" : "resume"}
         </button>
@@ -47,8 +51,8 @@ function Countdown({ from }) {
   );
 }
 
-function showCountdown() {
+function CountdownDemo() {
   return <Countdown from={10}></Countdown>;
 }
 
-export default showCountdown;
+export default CountdownDemo;
