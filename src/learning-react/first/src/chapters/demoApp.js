@@ -1,15 +1,12 @@
 import { Component } from "react";
-import CountdownDemo from "./chap6/functionalCountdown";
-import TextCounterDemo from "./chap6/textCounter";
-import EmailSelectorsDemo from "./chap6/emailInput";
+import StopWatchDemo from "./chap6/stopWatch";
+import ButtonDemo from "./chap6/button";
 
 
 
 class DemoApp extends Component {
   render() {
-    // return <TextCounterDemo></TextCounterDemo>
-    // return <CountdownDemo></CountdownDemo>
-    return <EmailSelectorsDemo></EmailSelectorsDemo>
+    return <ButtonDemo></ButtonDemo>
   }
 }
 

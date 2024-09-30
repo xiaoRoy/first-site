@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import "./styles/star-war-characters.css";
 
 function StarWarCharacters() {
@@ -7,7 +7,10 @@ function StarWarCharacters() {
   useEffect(() => {
     const abortController = new AbortController();
     fetch("//www.swapi.tech/api/people")
-      .then((response) => response.json())
+      .then((response) => {
+        console.log("Characters Loaded");
+        return response.json();
+      })
       .then((charactersJson) =>
         charactersJson.results.map((character) => character.name)
       )
@@ -27,8 +30,16 @@ function StarWarCharacters() {
   );
 }
 
-function displayStarWarCharacters() {
-  return <StarWarCharacters></StarWarCharacters>;
+function StarWarCharactersDemo() {
+  const [isCharactersVisible, setCharactersVisible] = useState(false);
+  return (
+    <Fragment>
+      <button onClick={() => setCharactersVisible((value) => !value)}>
+        Toggle
+      </button>
+      {isCharactersVisible && <StarWarCharacters></StarWarCharacters>}
+    </Fragment>
+  );
 }
 
-export default displayStarWarCharacters;
+export default StarWarCharactersDemo;

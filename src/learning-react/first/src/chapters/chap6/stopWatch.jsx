@@ -37,7 +37,7 @@ function StopWatchV2() {
   return <p>Seconds: {seconds}</p>;
 }
 
-function showStopWatch() {
+function StopWatchDemo() {
   return (
     <div className="container">
       <StopWatchV2Running></StopWatchV2Running>
@@ -60,4 +60,4 @@ function StopWatchV2Running() {
   );
 }
 
-export default showStopWatch;
+export default StopWatchDemo;

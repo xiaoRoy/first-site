@@ -18,17 +18,36 @@ function TextCounter({ content }) {
 }
 
 function TextCounterDemo() {
+  const [textContent, setTextContent] = useState("");
+  const [textOutput, setTextOutput] = useState("");
+
   return (
-    <div className="container">
+    <div className="container-text-counter">
       <div className="text-input">
-        <textarea rows="5" cols="15" placeholder="tell us your story?"></textarea>
+        <textarea
+          rows="5"
+          cols="15"
+          placeholder="tell us your story?"
+          onChange={(event) => setTextContent(event.target.value)}
+          value={textContent}
+        ></textarea>
         <div>
-          <button>Apply</button>
-          <button>Reset</button>
+          <button className="button" onClick={() => setTextOutput(textContent)}>
+            Apply
+          </button>
+          <button
+            className="button"
+            onClick={() => {
+              setTextContent("");
+              setTextOutput("");
+            }}
+          >
+            Reset
+          </button>
         </div>
       </div>
       <div className="text-output">
-        <TextCounter content={"test"}></TextCounter>
+        <TextCounter content={textOutput}></TextCounter>
       </div>
     </div>
   );
