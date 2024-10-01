@@ -1,0 +1,14 @@
+.die {
+    border: 2px solid black;
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    text-align: center;
+    line-height: 2;
+}
+
+.container {
+    width: 200px;
+    margin: 0 auto;
+    
+}
