@@ -1,9 +1,9 @@
 import { Component } from "react";
-import PhantomCursorDemo from "./chap6/phantomCursor";
+import { LockButtonV2Demo } from "./chap6/button";
 
 class DemoApp extends Component {
   render() {
-    return <PhantomCursorDemo></PhantomCursorDemo>
+    return <LockButtonV2Demo></LockButtonV2Demo>
   }
 }
 
