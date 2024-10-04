@@ -1,9 +1,9 @@
 import { Component } from "react";
-import { LockButtonV2Demo } from "./chap6/button";
+import AutoFocusInputDemo from "./chap7/autoFocusInput";
 
 class DemoApp extends Component {
   render() {
-    return <LockButtonV2Demo></LockButtonV2Demo>
+    return <AutoFocusInputDemo></AutoFocusInputDemo>;
   }
 }
 
