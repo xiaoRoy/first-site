@@ -1,9 +1,9 @@
 import { Component } from "react";
-import AutoFocusInputDemo from "./chap7/autoFocusInput";
+import MouseStatusDemo from "./chap8/mouseStatus";
 
 class DemoApp extends Component {
   render() {
-    return <AutoFocusInputDemo></AutoFocusInputDemo>;
+    return <MouseStatusDemo></MouseStatusDemo>
   }
 }
 
