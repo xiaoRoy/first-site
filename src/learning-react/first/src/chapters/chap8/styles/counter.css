@@ -1,0 +1,10 @@
+.counter-buttons-container {
+  display: flex;
+  width: 160px;
+  justify-content: space-between;
+  margin: 20px auto;
+}
+
+h1 {
+    text-align: center;
+}

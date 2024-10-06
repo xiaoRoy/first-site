@@ -1,9 +1,9 @@
 import { Component } from "react";
-import MouseStatusDemo from "./chap8/mouseStatus";
+import CounterDemo from "./chap8/counter";
 
 class DemoApp extends Component {
   render() {
-    return <MouseStatusDemo></MouseStatusDemo>
+    return <CounterDemo></CounterDemo>
   }
 }
 
