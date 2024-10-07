@@ -1,9 +1,9 @@
 import { Component } from "react";
-import CounterDemo from "./chap8/counter";
+import VideoPlayerDemo from "./chap8/videoPlayer";
 
 class DemoApp extends Component {
   render() {
-    return <CounterDemo></CounterDemo>
+    return <VideoPlayerDemo></VideoPlayerDemo>
   }
 }
 
