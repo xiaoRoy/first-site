@@ -1,0 +1,22 @@
+.container {
+  width: 30%;
+  max-width: 300px;
+}
+
+fieldset:focus {
+  background-color: red;
+}
+
+.field {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.contact-input:focus {
+  outline: none;
+  border: 1px solid rgb(181, 132, 41);
+}
+
+form {
+  padding: 20px;
+}
