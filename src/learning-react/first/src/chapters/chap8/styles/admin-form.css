@@ -1,0 +1,15 @@
+.container {
+    margin: 60px auto;
+    width: 30%;
+    max-width: 500px;
+}
+
+label {
+  display: block;
+  margin: 0.5rem 0;
+}
+
+
+button {
+    margin-top: 40px;
+}

@@ -1,9 +1,10 @@
 import { Component } from "react";
-import ContactDemo from "./chap8/contact";
+import AdminFormDemo from "./chap8/adminForm";
+
 
 class DemoApp extends Component {
   render() {
-    return <ContactDemo></ContactDemo>
+    return <AdminFormDemo></AdminFormDemo>
   }
 }
 
