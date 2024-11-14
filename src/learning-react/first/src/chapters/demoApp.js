@@ -1,10 +1,11 @@
 import { Component } from "react";
-import AdminFormDemo from "./chap8/adminForm";
+// import StyledCounterDemo from "./chap8/styledCounter";
+import EmailSelectorsDemo from "./chap6/emailInput";
 
 
 class DemoApp extends Component {
   render() {
-    return <AdminFormDemo></AdminFormDemo>
+    return <EmailSelectorsDemo></EmailSelectorsDemo>
   }
 }
 
