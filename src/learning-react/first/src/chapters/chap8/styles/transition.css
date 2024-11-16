@@ -1,0 +1,4 @@
+p {
+  color: blue;
+  transition: color 5s linear;
+}
