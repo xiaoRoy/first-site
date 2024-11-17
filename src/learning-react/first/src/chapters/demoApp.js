@@ -1,10 +1,9 @@
 import { Component } from "react";
-import WindowSizeDemo from "./chap8/WindowsSize";
-import TransitionDemo from "./chap8/transition";
+import PopupMenuDemo from"./chap8/popupMenu"
 
 class DemoApp extends Component {
   render() {
-    return <TransitionDemo></TransitionDemo>;
+    return <PopupMenuDemo></PopupMenuDemo>;
   }
 }
 
