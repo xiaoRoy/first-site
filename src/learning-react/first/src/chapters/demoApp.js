@@ -1,9 +1,9 @@
 import { Component } from "react";
-import PopupMenuDemo from"./chap8/popupMenu"
+import InputsShowcaseDemo from "./chap9/inputShowcase.jsx";
 
 class DemoApp extends Component {
   render() {
-    return <PopupMenuDemo></PopupMenuDemo>;
+    return <InputsShowcaseDemo></InputsShowcaseDemo>;
   }
 }
 
