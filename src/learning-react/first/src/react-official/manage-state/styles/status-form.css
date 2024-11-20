@@ -1,0 +1,15 @@
+.state-form {
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: 300px;
+  width: 20%;
+}
+
+.button-submit {
+  width: 20%;
+}
+
+section {
+  border-bottom: 1px solid #aaa;
+  padding: 20px;
+}
