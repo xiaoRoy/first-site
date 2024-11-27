@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  padding: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.label-name--visible {
+  display: initial;
+}
+
+.label-name--invisible {
+  display: none;
+}
+
+.input-name--visible {
+  display: initial;
+}
+
+.input-name--invisible {
+  display: none;
+}
