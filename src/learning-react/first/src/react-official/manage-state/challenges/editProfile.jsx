@@ -15,12 +15,15 @@ function EditProfile() {
   };
   const labelClasses = new Set();
   const inputStatusClasses = new Set();
+  let profileBtnText;
   if (isEditing) {
     labelClasses.add("label-name--invisible");
     inputStatusClasses.add("input-name--visible");
+    profileBtnText = "Save"
   } else {
     labelClasses.add("label-name--visible");
     inputStatusClasses.add("input-name--invisible");
+    profileBtnText = "Edit";
   }
 
   const labelStatus = [...labelClasses];
@@ -51,7 +54,7 @@ function EditProfile() {
           />
         </label>
 
-        <button type="submit">Edit Profile</button>
+        <button type="submit">{profileBtnText} Profile</button>
       </form>
       <p>
         Hello <i>{`${firstName} ${lastName}`}</i>
