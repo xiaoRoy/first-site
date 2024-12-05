@@ -1,5 +1,5 @@
-import EditProfileDemo from "./manage-state/challenges/editProfile";
+import MovingDotDemo from "./manage-state/state-structure/movingDot";
 
 export default function ReactOfficialDemoApp() {
-  return <EditProfileDemo></EditProfileDemo>;
+  return <MovingDotDemo></MovingDotDemo>;
 }
