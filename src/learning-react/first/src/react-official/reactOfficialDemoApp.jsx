@@ -1,5 +1,5 @@
-import MovingDotDemo from "./manage-state/state-structure/movingDot";
+import FeedbackFormDemo from "./manage-state/state-structure/feedbackForm";
 
 export default function ReactOfficialDemoApp() {
-  return <MovingDotDemo></MovingDotDemo>;
+  return <FeedbackFormDemo></FeedbackFormDemo>;
 }
