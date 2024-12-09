@@ -1,5 +1,5 @@
-import FeedbackFormDemo from "./manage-state/state-structure/feedbackForm";
+import CheckInFormDemo from "./manage-state/state-structure/checkIn";
 
 export default function ReactOfficialDemoApp() {
-  return <FeedbackFormDemo></FeedbackFormDemo>;
+  return <CheckInFormDemo></CheckInFormDemo>;
 }
