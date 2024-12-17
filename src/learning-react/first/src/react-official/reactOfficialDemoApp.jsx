@@ -1,5 +1,5 @@
-import CheckInFormDemo from "./manage-state/state-structure/checkIn";
+import SnackMenuDemo from "./manage-state/state-structure/snackMenu"
 
 export default function ReactOfficialDemoApp() {
-  return <CheckInFormDemo></CheckInFormDemo>;
+  return <SnackMenuDemo></SnackMenuDemo>;
 }
