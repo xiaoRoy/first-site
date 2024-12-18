@@ -1,5 +1,5 @@
-import SnackMenuDemo from "./manage-state/state-structure/snackMenu"
+import TravelPlanDemo from "./manage-state/state-structure/travelPlan";
 
 export default function ReactOfficialDemoApp() {
-  return <SnackMenuDemo></SnackMenuDemo>;
+  return <TravelPlanDemo></TravelPlanDemo>;
 }
