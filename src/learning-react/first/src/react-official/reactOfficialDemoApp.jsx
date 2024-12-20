@@ -1,6 +1,5 @@
-import TravelPlanDemo from "./manage-state/state-structure/travelPlan";
-import ColorClockDemo from "./manage-state/state-structure/challenges/colorClock"
+import TravelPackPlanDemo from "./manage-state/state-structure/challenges/travelPackPlan";
 
 export default function ReactOfficialDemoApp() {
-  return <ColorClockDemo></ColorClockDemo>;
+  return <TravelPackPlanDemo></TravelPackPlanDemo>;
 }
