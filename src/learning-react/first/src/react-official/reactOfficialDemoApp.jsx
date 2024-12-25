@@ -1,5 +1,5 @@
-import TravelPackPlanDemo from "./manage-state/state-structure/challenges/travelPackPlan";
+import InboxDemo from "./manage-state/state-structure/challenges/inbox";
 
 export default function ReactOfficialDemoApp() {
-  return <TravelPackPlanDemo></TravelPackPlanDemo>;
+  return <InboxDemo></InboxDemo>;
 }
