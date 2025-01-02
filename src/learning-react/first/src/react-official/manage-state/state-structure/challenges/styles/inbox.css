@@ -3,7 +3,25 @@ button {
 }
 li {
   border-radius: 5px;
+  height: 32px;
 }
 .highlighted {
   background: #d2eaff;
+}
+
+.inbox-title-container {
+  margin: 32px;
+  h2 {
+    margin: 0;
+    padding: 0;
+  }
+
+  border: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.btn-multiple-selection {
+  height: fit-content;
 }
