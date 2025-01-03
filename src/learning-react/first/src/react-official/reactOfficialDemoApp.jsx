@@ -1,5 +1,5 @@
-import InboxDemo from "./manage-state/state-structure/challenges/inbox";
+import AccordionDemo from "./manage-state/sharing-state/accordion";
 
 export default function ReactOfficialDemoApp() {
-  return <InboxDemo></InboxDemo>;
+  return <AccordionDemo></AccordionDemo>;
 }

@@ -1,0 +1,10 @@
+h3,
+p {
+  margin: 5px 0px;
+}
+.panel {
+  width: 30%;
+  max-width: 640px;
+  padding: 10px;
+  border: 1px solid #aaa;
+}
