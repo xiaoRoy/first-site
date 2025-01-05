@@ -1,0 +1,10 @@
+.synced-inputs-container {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+label {
+  display: inline-block;
+  min-width: 120px;
+}
+

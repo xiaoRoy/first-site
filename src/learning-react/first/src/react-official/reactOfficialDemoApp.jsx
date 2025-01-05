@@ -1,5 +1,5 @@
-import AccordionDemo from "./manage-state/sharing-state/accordion";
+import SyncedInputsDemo from "./manage-state/sharing-state/challenges/syncedInputs";
 
 export default function ReactOfficialDemoApp() {
-  return <AccordionDemo></AccordionDemo>;
+  return <SyncedInputsDemo></SyncedInputsDemo>;
 }
