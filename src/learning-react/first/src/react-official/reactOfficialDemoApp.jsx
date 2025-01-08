@@ -1,5 +1,5 @@
-import FoodListWithSearchDemo from "./manage-state/sharing-state/challenges/foodList";
+import ProductTableDemo from "./quick-start/products-table";
 
 export default function ReactOfficialDemoApp() {
-  return <FoodListWithSearchDemo></FoodListWithSearchDemo>;
+  return <ProductTableDemo></ProductTableDemo>;
 }
