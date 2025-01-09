@@ -1,9 +1,9 @@
 import { Component } from "react";
-import InputsShowcaseDemo from "./chap9/inputShowcase.jsx";
+import SimpleSumDemo from "./chap9/simpleSum.jsx";
 
 class DemoApp extends Component {
   render() {
-    return <InputsShowcaseDemo></InputsShowcaseDemo>;
+    return <SimpleSumDemo></SimpleSumDemo>;
   }
 }
 
