@@ -1,0 +1,8 @@
+.hex-color-form {
+  display: flex;
+}
+
+.output {
+  width: 20px;
+  border: 1px solid;
+}

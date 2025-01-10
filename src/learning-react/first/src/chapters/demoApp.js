@@ -1,9 +1,9 @@
 import { Component } from "react";
-import SimpleSumDemo from "./chap9/simpleSum.jsx";
+import HexColorDemo from "./chap9/hexColor.jsx";
 
 class DemoApp extends Component {
   render() {
-    return <SimpleSumDemo></SimpleSumDemo>;
+    return <HexColorDemo></HexColorDemo>;
   }
 }
 
