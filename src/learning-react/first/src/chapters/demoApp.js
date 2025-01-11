@@ -1,9 +1,9 @@
 import { Component } from "react";
-import HexColorDemo from "./chap9/hexColor.jsx";
+import TicketNumberDemo from "./chap9/ticketNumber.jsx";
 
 class DemoApp extends Component {
   render() {
-    return <HexColorDemo></HexColorDemo>;
+    return <TicketNumberDemo></TicketNumberDemo>;
   }
 }
 
