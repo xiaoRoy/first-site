@@ -1,9 +1,9 @@
 import { Component } from "react";
-import TicketNumberDemo from "./chap9/ticketNumber.jsx";
+import AddressFormDemo from "./chap9/address.jsx";
 
 class DemoApp extends Component {
   render() {
-    return <TicketNumberDemo></TicketNumberDemo>;
+    return <AddressFormDemo></AddressFormDemo>;
   }
 }
 

@@ -1,0 +1,21 @@
+.address-form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 12px;
+  width: 320px;
+}
+
+.address-item {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.address-label {
+  width: 8rem;
+  margin-right: 0.5rem;
+}
+
+.address-input {
+    flex: 1;
+}
