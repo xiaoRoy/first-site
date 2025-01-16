@@ -1,9 +1,9 @@
 import { Component } from "react";
-import AddressFormDemo from "./chap9/address.jsx";
+import TodoAppDemo from "./chap9/todos";
 
 class DemoApp extends Component {
   render() {
-    return <AddressFormDemo></AddressFormDemo>;
+    return <TodoAppDemo></TodoAppDemo>;
   }
 }
 
