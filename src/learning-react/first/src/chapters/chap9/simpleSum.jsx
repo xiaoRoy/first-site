@@ -21,13 +21,13 @@ function SimpleSum() {
   let result;
 
   const onNumberChanged = (setNumber) => {
-    return (event) => setNumber(event.target.value);
+    return (event) => setNumber(event.target.valueAsNumber);
   };
   const onFirstNumberChanged = onNumberChanged(setFirst);
   const onSecondNumberChanged = onNumberChanged(setSecond);
 
   if (first && second) {
-    result = new Number(first) + new Number(second);
+    result = first + second;
   }
   return (
     <div className="simple-sum-container">

@@ -1,9 +1,9 @@
 import { Component } from "react";
-import TodoAppDemo from "./chap9/todos";
+import SimpleSumDemo from "./chap9/simpleSum";
 
 class DemoApp extends Component {
   render() {
-    return <TodoAppDemo></TodoAppDemo>;
+    return <SimpleSumDemo></SimpleSumDemo>;
   }
 }
 
