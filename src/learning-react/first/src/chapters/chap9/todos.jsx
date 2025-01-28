@@ -6,6 +6,34 @@ const sections = {
   todoList: 1,
 };
 
+const IMPORTANCE = {
+  LOW: {
+    value: "low",
+    label: "Low",
+  },
+  MEDIUM: {
+    value: "medium",
+    label: "Medium",
+  },
+  HIGH: {
+    value: "high",
+    label: "High",
+  },
+  URGENT: {
+    value: "urgent",
+    label: "Urgent",
+  },
+};
+
+function Importance({ importance }) {
+  return (
+    <label>
+      <input type="radio" name="importance" value={importance.value} />
+      {importance.label}
+    </label>
+  );
+}
+
 function TodoHeader({ onVisibleSectionChanged }) {
   const internalOnVisibleSectionChanged = (visibleSectionId) => {
     return (event) => {
