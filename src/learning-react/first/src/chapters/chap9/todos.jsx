@@ -25,10 +25,17 @@ const IMPORTANCE = {
   },
 };
 
-function Importance({ importance }) {
+function Importance({ importance, checked = false, onImportanceChanged }) {
+  const internalOnImportanceChanged = (event) => onImportanceChanged(event);
   return (
     <label>
-      <input type="radio" name="importance" value={importance.value} />
+      <input
+        type="radio"
+        name={todoNames.importance}
+        value={importance.value}
+        checked={checked}
+        onChange={internalOnImportanceChanged}
+      />
       {importance.label}
     </label>
   );
@@ -60,7 +67,14 @@ function TodoHeader({ onVisibleSectionChanged }) {
 
 function generateTodoList() {
   return [
-    new Todo("Walking the dog", "a little puppy", "chore", "2024-12-22", false),
+    new Todo(
+      "Walking the dog",
+      "a little puppy",
+      "chore",
+      "2024-12-22",
+      IMPORTANCE.LOW.value,
+      false
+    ),
   ];
 }
 
@@ -115,11 +129,12 @@ function TodoApp() {
 }
 
 class Todo {
-  constructor(title, description, category, dueDate, isCompleted) {
+  constructor(title, description, category, dueDate, importance, isCompleted) {
     this.title = title;
     this.description = description;
     this.category = category;
     this.dueDate = dueDate;
+    this.importance = importance;
     this.isCompleted = isCompleted;
   }
 
@@ -135,15 +150,17 @@ class Todo {
       this.description,
       this.category,
       this.dueDate,
+      this.importance,
       this.isCompleted
     );
   }
 
-  static EMPTY = new Todo("", "", "", "", false);
+  static EMPTY = new Todo("", "", "", "", "", false);
   static NAME_TITLE = "title";
   static NAME_DESCRIPTION = "description";
   static NAME_CATEGORY = "category";
   static NAME_DUE_DATE = "dueDate";
+  static NAME_IMPORTANCE = "importance";
 }
 
 function TodoInput({ label, onTodoInputting, type = "text", ...rest }) {
@@ -207,17 +224,20 @@ function TodoFilters({ selectedFilter, onFilterChange }) {
   );
 }
 
+const todoNames = {
+  title: "todo-title",
+  description: "todo-description",
+  category: "todo-category",
+  importance: "todo-importance",
+  dueDate: "todo-due-date",
+};
+
 function AddNewItemSection({ onTodoAdded, onCancel }) {
-  const todoNames = {
-    title: "todo-title",
-    description: "todo-description",
-    category: "todo-category",
-    dueDate: "todo-due-date",
-  };
   const todoNamesToFields = {
     [todoNames.title]: Todo.NAME_TITLE,
     [todoNames.description]: Todo.NAME_DESCRIPTION,
     [todoNames.category]: Todo.NAME_CATEGORY,
+    [todoNames.importance]: Todo.NAME_IMPORTANCE,
     [todoNames.dueDate]: Todo.NAME_DUE_DATE,
   };
   const internalOnTodoAdded = (event) => {
@@ -228,6 +248,7 @@ function AddNewItemSection({ onTodoAdded, onCancel }) {
   const internalOnCancel = (event) => {
     onCancel();
   };
+
   const [todo, setTodo] = useState(Todo.EMPTY);
 
   const onTodoPartChanged = (event) => {
@@ -238,6 +259,13 @@ function AddNewItemSection({ onTodoAdded, onCancel }) {
     const filedName = todoNamesToFields[name];
     const newlyTodo = todo.clone();
     newlyTodo[filedName] = value;
+    setTodo(newlyTodo);
+  };
+
+  const onTodoImportanceChanged = (event) => {
+    const value = event.target.value;
+    const newlyTodo = todo.clone();
+    newlyTodo.importance = value;
     setTodo(newlyTodo);
   };
 
@@ -268,7 +296,21 @@ function AddNewItemSection({ onTodoAdded, onCancel }) {
         onTodoInputting={onTodoPartChanged}
         name={todoNames.dueDate}
       ></TodoInput>
-
+      <div className="todo-input-group">
+        <span className="importance-section-title">Importance:</span>
+        {Object.keys(IMPORTANCE).map((key) => {
+          const importance = IMPORTANCE[key];
+          const checked = importance.value === todo.importance;
+          return (
+            <Importance
+              importance={importance}
+              checked={checked}
+              key={key}
+              onImportanceChanged={onTodoImportanceChanged}
+            ></Importance>
+          );
+        })}
+      </div>
       <div className="todo-submit-cancel">
         <button>Submit</button>
         <button type="button" onClick={internalOnCancel}>
@@ -306,6 +348,7 @@ function TodoListSection({
         <td>{todo.description}</td>
         <td>{todo.category}</td>
         <td>{todo.dueDate}</td>
+        <td>{todo.importance}</td>
         <td>
           {todo.isCompleted ? (
             <span>Done!</span>
@@ -335,6 +378,7 @@ function TodoListSection({
             <th scope="col">Description</th>
             <th scope="col">Category</th>
             <th scope="col">Due Date</th>
+            <th scope="col">Importance</th>
             <th scope="col">Mark as Done</th>
           </tr>
         </thead>

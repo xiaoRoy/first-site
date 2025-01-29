@@ -14,6 +14,7 @@
 .todo-input-group {
   display: flex;
   flex-flow: column nowrap;
+  margin-bottom: 16px;
 }
 
 .todo-input-part {
@@ -26,7 +27,7 @@
 }
 
 .todo-submit-cancel {
-    margin: 32px;
+  margin: 32px;
 }
 
 .todo-list {
@@ -61,11 +62,15 @@
 }
 
 .todo-filters {
-    margin: 20px;
-    display: flex;
+  margin: 20px;
+  display: flex;
 }
 
 .filter-button {
-    border: 1px solid dimgray;
-    padding: 4px 10px;
+  border: 1px solid dimgray;
+  padding: 4px 10px;
+}
+
+.importance-section-title {
+  display: block;
 }
