@@ -41,6 +41,23 @@ function Importance({ importance, checked = false, onImportanceChanged }) {
   );
 }
 
+function ImportanceUrgent({ todoImportance, onUrgentChanged }) {
+  const internalOnUrgentChanged = (event) => onUrgentChanged(event);
+  const urgent = IMPORTANCE.URGENT;
+  return (
+    <label>
+      <input
+        type="checkbox"
+        name={todoNames.importance}
+        value={urgent.value}
+        checked={todoImportance === urgent.value}
+        onChange={internalOnUrgentChanged}
+      ></input>
+      {`${urgent.label}?`}
+    </label>
+  );
+}
+
 function TodoHeader({ onVisibleSectionChanged }) {
   const internalOnVisibleSectionChanged = (visibleSectionId) => {
     return (event) => {
@@ -232,6 +249,45 @@ const todoNames = {
   dueDate: "todo-due-date",
 };
 
+const IMPORTANCE_SECTIONS = {
+  LIST_ALL: 0,
+  URGENT_ONLY: 1,
+};
+
+function ImportanceSection({
+  sectionId,
+  todoImportance,
+  onTodoImportanceChanged,
+}) {
+  let importanceSection;
+  switch (sectionId) {
+    case IMPORTANCE_SECTIONS.LIST_ALL:
+      importanceSection = Object.keys(IMPORTANCE).map((key) => {
+        const importance = IMPORTANCE[key];
+        const checked = importance.value === todoImportance;
+        return (
+          <Importance
+            importance={importance}
+            checked={checked}
+            key={key}
+            onImportanceChanged={onTodoImportanceChanged}
+          ></Importance>
+        );
+      });
+      break;
+    case IMPORTANCE_SECTIONS.URGENT_ONLY:
+      importanceSection = (
+        <ImportanceUrgent
+          todoImportance={todoImportance}
+          onUrgentChanged={onTodoImportanceChanged}
+        ></ImportanceUrgent>
+      );
+      break;
+    default:
+      throw new Error("Not a valid section id.");
+  }
+  return importanceSection;
+}
 function AddNewItemSection({ onTodoAdded, onCancel }) {
   const todoNamesToFields = {
     [todoNames.title]: Todo.NAME_TITLE,
@@ -263,7 +319,11 @@ function AddNewItemSection({ onTodoAdded, onCancel }) {
   };
 
   const onTodoImportanceChanged = (event) => {
-    const value = event.target.value;
+    const target = event.target;
+    let value = target.value;
+    if (target.type === "checkbox" && !target.checked) {
+      value = "";
+    }
     const newlyTodo = todo.clone();
     newlyTodo.importance = value;
     setTodo(newlyTodo);
@@ -298,18 +358,11 @@ function AddNewItemSection({ onTodoAdded, onCancel }) {
       ></TodoInput>
       <div className="todo-input-group">
         <span className="importance-section-title">Importance:</span>
-        {Object.keys(IMPORTANCE).map((key) => {
-          const importance = IMPORTANCE[key];
-          const checked = importance.value === todo.importance;
-          return (
-            <Importance
-              importance={importance}
-              checked={checked}
-              key={key}
-              onImportanceChanged={onTodoImportanceChanged}
-            ></Importance>
-          );
-        })}
+        <ImportanceSection
+          sectionId={IMPORTANCE_SECTIONS.URGENT_ONLY}
+          todoImportance={todo.importance}
+          onTodoImportanceChanged={onTodoImportanceChanged}
+        ></ImportanceSection>
       </div>
       <div className="todo-submit-cancel">
         <button>Submit</button>
