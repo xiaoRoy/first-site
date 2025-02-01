@@ -252,6 +252,7 @@ const todoNames = {
 const IMPORTANCE_SECTIONS = {
   LIST_ALL: 0,
   URGENT_ONLY: 1,
+  DROP_DOWN: 2,
 };
 
 function ImportanceSection({
@@ -283,11 +284,33 @@ function ImportanceSection({
         ></ImportanceUrgent>
       );
       break;
+
+    case IMPORTANCE_SECTIONS.DROP_DOWN:
+      importanceSection = (
+        <select
+          name={todoNames.importance}
+          id={IMPORTANCE_SECTIONS_ID}
+          onChange={onTodoImportanceChanged}
+        >
+          {Object.keys(IMPORTANCE).map((key) => {
+            const importance = IMPORTANCE[key];
+            return (
+              <option value={importance.value} key={importance.value}>
+                {importance.label}
+              </option>
+            );
+          })}
+        </select>
+      );
+      break;
     default:
       throw new Error("Not a valid section id.");
   }
   return importanceSection;
 }
+
+const IMPORTANCE_SECTIONS_ID = "importance-section";
+
 function AddNewItemSection({ onTodoAdded, onCancel }) {
   const todoNamesToFields = {
     [todoNames.title]: Todo.NAME_TITLE,
@@ -357,9 +380,14 @@ function AddNewItemSection({ onTodoAdded, onCancel }) {
         name={todoNames.dueDate}
       ></TodoInput>
       <div className="todo-input-group">
-        <span className="importance-section-title">Importance:</span>
+        <label
+          className="importance-section-title"
+          htmlFor={IMPORTANCE_SECTIONS_ID}
+        >
+          Importance:
+        </label>
         <ImportanceSection
-          sectionId={IMPORTANCE_SECTIONS.URGENT_ONLY}
+          sectionId={IMPORTANCE_SECTIONS.DROP_DOWN}
           todoImportance={todo.importance}
           onTodoImportanceChanged={onTodoImportanceChanged}
         ></ImportanceSection>
