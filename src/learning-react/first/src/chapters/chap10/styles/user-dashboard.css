@@ -1,0 +1,26 @@
+#welcome-section {
+  padding-left: 32px;
+  margin-top: 32px;
+}
+
+.dashboard-nav {
+  display: flex;
+  justify-content: flex-end;
+  flex-flow: row nowrap;
+  border: none;
+  border-bottom: 1px solid black;
+  margin-left: 32px;
+  margin-right: 32px;
+  gap: 24px;
+}
+
+.button-nav {
+  display: inline-block;
+  padding: 4px 10px;
+  background: transparent;
+  border: none;
+  &:hover {
+    background-color: #dfdfe2;
+    cursor: pointer;
+  }
+}
