@@ -1,19 +1,10 @@
+import { createContext, useContext } from "react";
 import "./styles/user-dashboard.css";
 
-function DashboardNav() {
-  return (
-    <nav className="dashboard-nav">
-      <ul>
-        <li>Home</li>
-        <li>Groups</li>
-        <li>Profile</li>
-        <li></li>
-      </ul>
-    </nav>
-  );
-}
+const NameContext = createContext();
 
-function DashboardNavSecond({ name }) {
+function DashboardNavSecond() {
+  const name = useContext(NameContext);
   return (
     <nav className="dashboard-nav">
       <button className="button-nav">Home</button>
@@ -27,7 +18,8 @@ function DashboardNavSecond({ name }) {
   );
 }
 
-function WelcomeSection({ name }) {
+function WelcomeSection() {
+  const name = useContext(NameContext);
   return (
     <section id="welcome-section">
       <span>Welcome, {name} !</span>
@@ -36,16 +28,20 @@ function WelcomeSection({ name }) {
 }
 
 function DashBoardMain() {
-  
+  return (
+    <main>
+      <WelcomeSection></WelcomeSection>
+    </main>
+  );
 }
 
 function UserDashboard() {
   const name = "Smith";
   return (
-    <>
-      <DashboardNavSecond name={name}></DashboardNavSecond>
-      <WelcomeSection name={name}></WelcomeSection>
-    </>
+    <NameContext.Provider value={name}>
+      <DashboardNavSecond></DashboardNavSecond>
+      <DashBoardMain></DashBoardMain>
+    </NameContext.Provider>
   );
 }
 
