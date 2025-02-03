@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 import "./styles/user-dashboard.css";
 
 const NameContext = createContext();
@@ -22,7 +22,7 @@ function WelcomeSection() {
   const name = useContext(NameContext);
   return (
     <section id="welcome-section">
-      <span>Welcome, {name} !</span>
+      <span>Welcome, {name}!</span>
     </section>
   );
 }
@@ -35,8 +35,25 @@ function DashBoardMain() {
   );
 }
 
-function UserDashboard() {
-  const name = "Smith";
+function AdminDashboard() {
+  const users = ["one", "two", "smith", "four", "zero"];
+  const [user, setUser] = useState(users[0]);
+  const onUserChanged = (event) => setUser(event.target.value);
+  return (
+    <>
+      <select name="users" id="users" value={user} onChange={onUserChanged}>
+        {users.map((user) => (
+          <option key={user} value={user}>
+            {user}
+          </option>
+        ))}
+      </select>
+      <UserDashboard name={user}></UserDashboard>
+    </>
+  );
+}
+
+function UserDashboard({ name }) {
   return (
     <NameContext.Provider value={name}>
       <DashboardNavSecond></DashboardNavSecond>
@@ -46,5 +63,5 @@ function UserDashboard() {
 }
 
 export default function UserDashboardDemo() {
-  return <UserDashboard></UserDashboard>;
+  return <AdminDashboard></AdminDashboard>;
 }
