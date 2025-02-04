@@ -1,9 +1,9 @@
 import { Component } from "react";
-import UserDashboardDemo from "./chap10/userDashboard";
+import CounterReducerDemo from "./chap10/counterUsingReducer";
 
 class DemoApp extends Component {
   render() {
-    return <UserDashboardDemo></UserDashboardDemo>;
+    return <CounterReducerDemo></CounterReducerDemo>;
   }
 }
 
