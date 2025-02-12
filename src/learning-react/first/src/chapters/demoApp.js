@@ -1,9 +1,10 @@
 import { Component } from "react";
-import CounterReducerDemo from "./chap10/counterUsingReducer";
+import TodoAppDemo from "./chap9/todos";
+// import TasksManagerDemo from "../react-official/manage-state/reducer/tasks";
 
 class DemoApp extends Component {
   render() {
-    return <CounterReducerDemo></CounterReducerDemo>;
+    return <TodoAppDemo></TodoAppDemo>;
   }
 }
 

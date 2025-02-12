@@ -1,0 +1,20 @@
+.task-item-button {
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 4px;
+}
+
+.task-list {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.task-name {
+  display: inline-block;
+  min-width: 185px;
+}
+
+.task-editing {
+  display: inline-block;
+  min-width: 160px;
+}

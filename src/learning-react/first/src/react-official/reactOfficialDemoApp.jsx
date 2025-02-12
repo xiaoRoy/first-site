@@ -1,5 +1,6 @@
-import ProductTableDemo from "./quick-start/products-table";
+import TasksManagerDemo from "./manage-state/reducer/tasks";
+
 
 export default function ReactOfficialDemoApp() {
-  return <ProductTableDemo></ProductTableDemo>;
+  return <TasksManagerDemo></TasksManagerDemo>;
 }
