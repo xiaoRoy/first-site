@@ -43,9 +43,7 @@ function AddTask({ onTaskAdded }) {
   );
 }
 
-
-
-function TaskItem({ task, onTaskChanged }) {
+function TaskItem({ task, onTaskChanged, onTaskDeleted }) {
   const TASK_NAMES = {
     name: "task-name",
     completed: "task-completed",
@@ -54,8 +52,9 @@ function TaskItem({ task, onTaskChanged }) {
     [TASK_NAMES.name]: "name",
     [TASK_NAMES.completed]: "isCompleted",
   };
-  let taskName = task.name;
+
   const [isEditing, setEditing] = useState(false);
+  const [draftTask, setDraftTask] = useState(task);
 
   const internalOnTaskChanged = (event) => {
     const updatedTask = task.copy();
@@ -80,18 +79,22 @@ function TaskItem({ task, onTaskChanged }) {
     setEditing((value) => !value);
 
     if (isEditing) {
+      onTaskChanged(draftTask);
     }
   };
 
   const onTaskNameChanged = (event) => {
-    taskName = event.target.value;
+    const updatedTaskName = event.target.value;
+    const updatedDraftTask = draftTask.copy();
+    updatedDraftTask.name = updatedTaskName;
+    setDraftTask(updatedDraftTask);
   };
 
   const EditingTask = (
     <label htmlFor="task-editing" className="task-editing">
       <input
         type="text"
-        value={taskName}
+        value={draftTask.name}
         id="task-editing"
         name={TASK_NAMES.name}
         onChange={onTaskNameChanged}
@@ -99,7 +102,7 @@ function TaskItem({ task, onTaskChanged }) {
     </label>
   );
 
-  const DisplayingTask = <span className="task-name"> {task.name}</span>;
+  const DisplayingTask = <span className="task-name"> {draftTask.name}</span>;
 
   const editingTaskState = {
     component: EditingTask,
@@ -112,7 +115,15 @@ function TaskItem({ task, onTaskChanged }) {
   };
   const taskState = isEditing ? editingTaskState : displayingTaskState;
 
-  const onAbortClicked = () => setEditing(false);
+  const onAbortClicked = () => {
+    setEditing(false);
+    setDraftTask(task.copy());
+  };
+
+  const internalOnTaskDeleted = () => {
+    onTaskDeleted(draftTask);
+  };
+
   return (
     <div>
       <label htmlFor="task-completed" className="task-completed-check-box">
@@ -150,12 +161,13 @@ function TaskItem({ task, onTaskChanged }) {
         name="delete-task"
         id="delete-task"
         value="Delete"
+        onClick={internalOnTaskDeleted}
       ></input>
     </div>
   );
 }
 
-function TaskList({ tasks, onTaskChanged }) {
+function TaskList({ tasks, onTaskChanged, onTaskDeleted }) {
   const internalOnTaskChanged = (task) => {
     onTaskChanged(task);
   };
@@ -166,6 +178,7 @@ function TaskList({ tasks, onTaskChanged }) {
           task={task}
           key={task.id}
           onTaskChanged={internalOnTaskChanged}
+          onTaskDeleted={onTaskDeleted}
         ></TaskItem>
       ))}
     </div>
@@ -192,11 +205,22 @@ function TasksManager() {
     });
     setTaskList(updatedTasks);
   };
+
+  const onTaskDeleted = (deletedTask) => {
+    const updatedTaskList = taskList.filter(
+      (task) => task.id !== deletedTask.id
+    );
+    setTaskList(updatedTaskList);
+  };
   return (
     <div>
       <h1>Task manager</h1>
       <AddTask onTaskAdded={onTaskAdded}></AddTask>
-      <TaskList tasks={taskList} onTaskChanged={onTaskChanged}></TaskList>
+      <TaskList
+        tasks={taskList}
+        onTaskChanged={onTaskChanged}
+        onTaskDeleted={onTaskDeleted}
+      ></TaskList>
     </div>
   );
 }
