@@ -54,7 +54,7 @@ function TaskItem({ task, onTaskChanged, onTaskDeleted }) {
   };
 
   const [isEditing, setEditing] = useState(false);
-  const [draftTask, setDraftTask] = useState(task);
+  const [draftTask, setDraftTask] = useState(task.copy());
 
   const internalOnTaskChanged = (event) => {
     const updatedTask = task.copy();
