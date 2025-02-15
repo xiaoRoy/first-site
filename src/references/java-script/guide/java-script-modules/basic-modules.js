@@ -4,9 +4,9 @@ import {
   draw,
   reportArea,
   reportPerimeter,
-} from "./basic-modules/square.js";
+} from "square";
 
-import randomSquare from "./basic-modules/square.js";
+import randomSquare from "square";
 
 const canvas = create("canvas", document.body, 480, 320);
 const reportList = createReportList(canvas.id);

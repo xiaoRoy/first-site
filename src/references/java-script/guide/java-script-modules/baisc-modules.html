@@ -5,7 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Basic modules</title>
     <link rel="stylesheet" href="./styles/basic-modules.css"></link>
-    <script type="module" src="./basic-modules.js" ></script>
+    <script type="importmap">
+
+        {
+          "imports": {
+            "square": "./basic-modules/square.js"
+          }
+        }
+      </script>
   </head>
-  <body></body>
+  <body>
+   
+    <script type="module" src="./basic-modules.js" ></script>
+  </body>
 </html>
