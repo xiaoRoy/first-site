@@ -1,4 +1,6 @@
-const squareName = "square";
+import { createListItem } from "./shapes.js";
+
+const shapeName = "square";
 
 function draw(context, length, x, y, color) {
   context.fillStyle = color;
@@ -19,18 +21,14 @@ function random(min, max) {
 
 function reportArea(length, listId) {
   const listItem = createListItem();
-  listItem.textContent = `${squareName} area is ${length * length}px square`;
+  listItem.textContent = `${shapeName} area is ${length * length}px square`;
   const list = document.getElementById(listId);
   list.appendChild(listItem);
 }
 
-function createListItem() {
-  return document.createElement("li");
-}
-
 function reportPerimeter(length, listId) {
   const listItem = createListItem();
-  listItem.textContent = `${squareName} perimeter is ${length * 4}px.`;
+  listItem.textContent = `${shapeName} perimeter is ${length * 4}px.`;
 
   const list = document.getElementById(listId);
   list.appendChild(listItem);
@@ -57,6 +55,6 @@ function randomSquare(context) {
   };
 }
 
-export { squareName, draw, reportArea, reportPerimeter };
+export { shapeName, draw, reportArea, reportPerimeter };
 
 export default randomSquare;
