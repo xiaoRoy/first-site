@@ -11,6 +11,8 @@ import randomSquare from "./basic-modules/square.js";
 import * as Circle from "./basic-modules/circle.js";
 import * as Triangle from "./basic-modules/triangle.js";
 
+import { Circle as CircleClass } from "./basic-modules/shapes.js";
+
 const canvas = create("canvas", document.body, 480, 320);
 const reportList = createReportList(canvas.id);
 
