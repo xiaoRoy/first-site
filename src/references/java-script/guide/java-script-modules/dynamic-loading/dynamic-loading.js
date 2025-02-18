@@ -1,4 +1,5 @@
 import * as Canvas from "../basic-modules/canvas.js";
+import colors from "../basic-modules/getColors.js";
 
 const btnCircle = document.querySelector(".circle");
 const btnTriangle = document.querySelector(".triangle");
@@ -9,7 +10,7 @@ const listId = Canvas.createReportList(canvas.id);
 
 btnCircle.addEventListener("click", () => {
   import("../basic-modules/circle.js").then((Circle) => {
-    const circle = Circle.draw(canvas.context, 50, 50, 100, "blue");
+    const circle = Circle.draw(canvas.context, 50, 50, 100, colors.blue);
     Circle.reportArea(circle.radius, listId);
     Circle.reportPerimeter(circle.radius, listId);
   });
@@ -17,7 +18,7 @@ btnCircle.addEventListener("click", () => {
 
 btnTriangle.addEventListener("click", () => {
   import("../basic-modules/triangle.js").then((Triangle) => {
-    const triangle = Triangle.draw(canvas.context, 100, 75, 190, "yellow");
+    const triangle = Triangle.draw(canvas.context, 100, 75, 190, colors.yellow);
     Triangle.reportArea(triangle.length, listId);
     Triangle.reportPerimeter(triangle.length, listId);
   });
@@ -25,7 +26,7 @@ btnTriangle.addEventListener("click", () => {
 
 btnSquare.addEventListener("click", () => {
   import("../basic-modules/square.js").then((Square) => {
-    const square = Square.draw(canvas.context, 75, 200, 100, "green");
+    const square = Square.draw(canvas.context, 75, 200, 100, colors.green);
     Square.reportArea(square.length, listId);
     Square.reportPerimeter(square.length, listId);
   });
