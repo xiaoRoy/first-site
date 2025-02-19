@@ -1,5 +1,3 @@
-// function sum(one, another) {}
-
-export default function sum(one, another) {
+exports.sum = function (one, another) {
   return one + another;
-}
+};
