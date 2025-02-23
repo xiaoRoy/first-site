@@ -7,7 +7,7 @@ export default function LoginForm({ onSubmit }) {
   const onPasswordChanged = (event) => setPassword(event.target.value);
   const internOnSubmit = (event) => {
     event.preventDefault();
-    onSubmit(event, { username, password });
+    onSubmit({ username, password });
   };
   return (
     <form onSubmit={internOnSubmit}>
@@ -32,7 +32,7 @@ export default function LoginForm({ onSubmit }) {
           onChange={onPasswordChanged}
         ></input>
       </label>
-      <button>Submit</button>
+      <button>Login</button>
     </form>
   );
 }
