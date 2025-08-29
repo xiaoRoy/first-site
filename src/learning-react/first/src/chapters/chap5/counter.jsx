@@ -1,8 +1,10 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
-function Counter({ start, isVisible = true }) {
+function Counter({ init, isVisible = true }) {
   // const [counter, setCounter] = useState(offsetStart(start));
-  const [counter, setCounter] = useState(() => offsetStart(start));
+  // const [counter, setCounter] = useState(() => offsetStart(start));
+  console.log(`Counter${init}`);
+  const [counter, setCounter] = useState(init);
   if (!isVisible) {
     return null;
   }
@@ -27,14 +29,28 @@ function offsetStart(start) {
   return start + offset;
 }
 
-function showCounter() {
+function CounterWithInitial() {
+  const [init, setInit] = useState(10);
+  const onClick = () => {
+    console.log("CounterWithStart.click");
+    setInit(value => value - 10);
+  }
+  return (<Fragment>
+    <Counter init={init}></Counter>
+    <p>Start:{init}</p>
+    <button onClick={onClick}>Lower Start</button>
+  </Fragment>)
+}
+
+function CounterDemo() {
   return (
-    <Fragment>
-      <Counter start={1}></Counter>
-      {/* <Counter start={14}></Counter> */}
-      {/* <Counter start={8}></Counter> */}
-    </Fragment>
+    // <Fragment>
+    //   <Counter start={1}></Counter>
+    //   {/* <Counter start={14}></Counter> */}
+    //   {/* <Counter start={8}></Counter> */}
+    // </Fragment>
+    <CounterWithInitial></CounterWithInitial>
   );
 }
 
-export default showCounter;
+export default CounterDemo;

@@ -8,7 +8,7 @@ import ReactOfficialDemoApp from "./react-official/reactOfficialDemoApp";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ReactOfficialDemoApp />
+    <DemoApp />
   </React.StrictMode>
 );
 
