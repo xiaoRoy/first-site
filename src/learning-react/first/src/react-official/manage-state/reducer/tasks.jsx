@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import "./styles/tasks.css";
 
 function AddTask({ onTaskAdded }) {
@@ -185,32 +185,68 @@ function TaskList({ tasks, onTaskChanged, onTaskDeleted }) {
   );
 }
 
+const TASK_ACTIONS = {
+  ADD: "add",
+  EDIT: "edit",
+  DEL: "delete",
+};
+
+function tasksReducer(tasks, action) {
+  const newTask = action.task;
+  let updatedTasks;
+  switch (action.type) {
+    case TASK_ACTIONS.ADD: {
+      updatedTasks = Array.from(tasks);
+      updatedTasks.push(newTask);
+      break;
+    }
+ 
+    case TASK_ACTIONS.EDIT: {
+        updatedTasks = tasks.map((task) => {
+        let result;
+        if (task.id === newTask.id) {
+          result = newTask;
+        } else {
+          result = task;
+        }
+        return result;
+      });
+      break;
+    }
+
+    case TASK_ACTIONS.DEL: {
+       updatedTasks = tasks.filter((task) => task.id !== newTask.id);
+       break;
+    }
+    default: {
+      throw Error(`Unknown action:${action.type}`);
+    }
+  }
+  return updatedTasks;
+}
+
 function TasksManager() {
-  const [taskList, setTaskList] = useState(TASK_LIST);
+  // const [taskList, setTaskList] = useState(TASK_LIST);
+  const [taskList, dispatch] = useReducer(tasksReducer,TASK_LIST);
   const onTaskAdded = (addedTask) => {
-    const updatedTasks = Array.from(taskList);
-    updatedTasks.push(addedTask);
-    setTaskList(updatedTasks);
+    dispatch({
+      task:addedTask,
+      type: TASK_ACTIONS.ADD
+    });
   };
 
   const onTaskChanged = (updatedTask) => {
-    const updatedTasks = taskList.map((task) => {
-      let result;
-      if (task.id === updatedTask.id) {
-        result = updatedTask;
-      } else {
-        result = task;
-      }
-      return result;
+     dispatch({
+      task:updatedTask,
+      type: TASK_ACTIONS.EDIT
     });
-    setTaskList(updatedTasks);
   };
 
   const onTaskDeleted = (deletedTask) => {
-    const updatedTaskList = taskList.filter(
-      (task) => task.id !== deletedTask.id
-    );
-    setTaskList(updatedTaskList);
+     dispatch({
+      task:deletedTask,
+      type: TASK_ACTIONS.DEL
+    });
   };
   return (
     <div>
