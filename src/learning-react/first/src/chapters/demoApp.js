@@ -4,6 +4,7 @@ import { Component } from "react";
 
 import ShopDemo from "./chap10/shop";
 import UserDashboardDemo from "./chap10/userDashboard";
+import ContactCardDemo from "../react-official/manage-state/reducer/contacts";
 
 class DemoApp extends Component {
   render() {
