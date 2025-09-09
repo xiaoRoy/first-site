@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.main-content {
+    padding: 20px;
+}
+
+.spacer {
+    height: 1500px; /* A tall element to force scrolling */
+    background-color: #f0f0f0;
+    border: 1px dashed #ccc;
+    margin: 20px 0;
+}
+
+.sticky-footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    
+    /* This is the key part */
+    position: sticky;
+    bottom: 120px;
+}
+
+.block {
+    height: 149px;
+    background-color: aqua;
+}

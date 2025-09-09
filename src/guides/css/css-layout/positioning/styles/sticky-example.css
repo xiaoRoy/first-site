@@ -1,0 +1,50 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.sticky-header {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  /* This makes the header stick to the top */
+  position: sticky;
+  top: 0;
+  z-index: 100; /* Ensures the header is on top of other content */
+}
+
+.content-container {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+}
+
+.sticky-sidebar {
+  width: 200px;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-right: 1px solid #ddd;
+  /* This makes the sidebar stick to the top */
+  position: sticky;
+  top: 92.625px; /* Offset to account for the header's height */
+  align-self: flex-start; /* Prevents the sidebar from stretching */
+  height: fit-content; /* Limits the sidebar's height to its content */
+}
+
+.main-content {
+  flex-grow: 1;
+}
+
+.main-content section {
+  padding: 20px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+}
+
+h1,
+h2 {
+  margin-top: 0;
+}

@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  position: sticky; 
+  top: 0;
+  width: 200px;
+  height: 100vh; /* full height of viewport */
+  background: #333;
+  color: white;
+  padding-left: 1rem;
+  /* padding: 1rem; */
+}
+
+.content {
+  padding: 1rem;
+  background: #f9f9f9;
+  flex: 1;
+}
+
+.content p {
+  margin-bottom: 1.5rem;
+}

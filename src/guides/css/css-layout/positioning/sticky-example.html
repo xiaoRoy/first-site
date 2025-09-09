@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Position Sticky Example</title>
+    <link rel="stylesheet" href="./styles/sticky-example.css" />
+  </head>
+  <body>
+    <header class="sticky-header">
+      <h1>My Website Header</h1>
+    </header>
+
+    <div class="content-container">
+      <aside class="sticky-sidebar">
+        <h2>Sidebar Navigation</h2>
+        <ul>
+          <li><a href="#section1">Section 1</a></li>
+          <li><a href="#section2">Section 2</a></li>
+          <li><a href="#section3">Section 3</a></li>
+        </ul>
+      </aside>
+
+      <main class="main-content">
+        <section id="section1">
+          <h2>Section 1</h2>
+          <p>
+            This is the first section. The content here is just to fill up space
+            and make the page long enough to scroll. Notice how the header and
+            sidebar stick when you scroll.
+          </p>
+          <div style="height: 1000px"></div>
+        </section>
+
+        <section id="section2">
+          <h2>Section 2</h2>
+          <p>
+            This is the second section. The sticky elements will remain in place
+            as you scroll down this section, demonstrating their 'fixed'
+            behavior.
+          </p>
+          <div style="height: 1000px"></div>
+        </section>
+
+        <section id="section3">
+          <h2>Section 3</h2>
+          <p>
+            This is the third and final section. The sticky elements will remain
+            visible until their parent containers are scrolled out of view.
+          </p>
+          <div style="height: 1000px"></div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
