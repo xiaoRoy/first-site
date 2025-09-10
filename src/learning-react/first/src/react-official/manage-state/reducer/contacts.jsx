@@ -58,9 +58,11 @@ function ContactCardList({ contacts, chosenContact, onChosen }) {
 const MESSAGE_ACTION = {
   CONTACT_CHOSEN: "contact_chosen",
   MESSAGE_CHANGED: "message_changed",
+  SEND: "send",
 };
 
 function messageReducer(state, action) {
+  let defaultMessage = "Hello";
   let updated = { ...state };
   switch (action.type) {
     case MESSAGE_ACTION.CONTACT_CHOSEN:
@@ -70,19 +72,28 @@ function messageReducer(state, action) {
     case MESSAGE_ACTION.MESSAGE_CHANGED:
       updated.message = action.message;
       break;
+
+    case MESSAGE_ACTION.SEND:
+      updated.message = "Hello";
+      break;
     default:
       throw Error(`Unknown action:${action.type}`);
   }
   return updated;
 }
 
-function ChatBox({ contact, message, onMessageChanged }) {
+function ChatBox({ contact, message, onMessageChanged, onMessageSend }) {
   const email = contact ? contact.email : "";
   const name = contact ? contact.name : "";
   const buttonContent = `Send to ${email}`;
   const placeholder = `Chat to ${name}`;
   const internalOnMessageChange = (event) => {
     onMessageChanged(event.target.value);
+  };
+
+  const internalOnMessageSend = () => {
+    window.alert(`Sending ${message} to ${email}`);
+    onMessageSend();
   };
   return (
     <section className="chat-box-container">
@@ -93,14 +104,12 @@ function ChatBox({ contact, message, onMessageChanged }) {
         onChange={internalOnMessageChange}
         value={message}
       ></textarea>
-      <button>{buttonContent}</button>
+      <button onClick={internalOnMessageSend}>{buttonContent}</button>
     </section>
   );
 }
 
 function ChatApp() {
-  //   const [chosenContact, setChosenContact] = useState(null);
-  //   const onChosen = (chosenContact) => setChosenContact(chosenContact);
   const message = "hello";
   const initialState = {
     chosenContact: null,
@@ -119,7 +128,13 @@ function ChatApp() {
       type: MESSAGE_ACTION.MESSAGE_CHANGED,
       message,
     });
-  //   const chosenContact = contacts.find((contact) => contact.email === chosenEmail);
+
+  const onMessageSent = () => {
+    dispatch({
+      type: MESSAGE_ACTION.SEND,
+    });
+  };
+
   return (
     <div className="chap-app-container">
       <ContactCardList
@@ -131,6 +146,7 @@ function ChatApp() {
         contact={state.chosenContact}
         onMessageChanged={onMessageChanged}
         message={state.message}
+        onMessageSend={onMessageSent}
       ></ChatBox>
     </div>
   );
