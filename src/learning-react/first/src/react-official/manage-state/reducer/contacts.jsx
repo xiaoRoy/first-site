@@ -1,5 +1,5 @@
 import "./styles/contact.css";
-import { useState } from "react";
+import { useReducer, useState } from "react";
 
 class Contact {
   constructor(name, email) {
@@ -8,8 +8,10 @@ class Contact {
   }
 }
 
-function ContactCard({ name, email, isChosen, onChosen }) {
-  const internalOnChosen = () => onChosen(email);
+function ContactCard({ contact, isChosen, onChosen }) {
+  const email = contact.email;
+  const name = contact.name;
+  const internalOnChosen = () => onChosen(contact);
   const cardClassArray = ["contact-card"];
   if (isChosen) {
     cardClassArray.push("chosen");
@@ -23,7 +25,7 @@ function ContactCard({ name, email, isChosen, onChosen }) {
     : "";
 
   return (
-    <div className={cardClassArray.join(" ")} onClick={internalOnChosen}>
+    <li className={cardClassArray.join(" ")} onClick={internalOnChosen}>
       <div className="avatar">
         <span className="initials">{initials}</span>
       </div>
@@ -31,24 +33,107 @@ function ContactCard({ name, email, isChosen, onChosen }) {
         <p className="contact-name">{name}</p>
         <p className="contact-email">{email}</p>
       </div>
-    </div>
+    </li>
   );
 }
 
-function ContactCardList({ contacts }) {
-  const [chosenEmail, setChosenEmail] = useState(null);
-  const onChosen = (email) => setChosenEmail(email);
-  return contacts.map((contact) => {
-    const email = contact.email;
-    return (
-      <ContactCard
-        key={email}
-        {...contact}
-        isChosen={email === chosenEmail}
-        onChosen={onChosen}
-      ></ContactCard>
-    );
-  });
+function ContactCardList({ contacts, chosenContact, onChosen }) {
+  const chosenEmail = chosenContact ? chosenContact.email : null;
+  return (
+    <ul className="contact-list">
+      {contacts.map((contact) => {
+        const email = contact.email;
+        return (
+          <ContactCard
+            key={email}
+            contact={contact}
+            isChosen={email === chosenEmail}
+            onChosen={onChosen}
+          ></ContactCard>
+        );
+      })}
+    </ul>
+  );
+}
+const MESSAGE_ACTION = {
+  CONTACT_CHOSEN: "contact_chosen",
+  MESSAGE_CHANGED: "message_changed",
+};
+
+function messageReducer(state, action) {
+  let updated = { ...state };
+  switch (action.type) {
+    case MESSAGE_ACTION.CONTACT_CHOSEN:
+      updated.chosenContact = action.chosenContact;
+      updated.message = "Hello";
+      break;
+    case MESSAGE_ACTION.MESSAGE_CHANGED:
+      updated.message = action.message;
+      break;
+    default:
+      throw Error(`Unknown action:${action.type}`);
+  }
+  return updated;
+}
+
+function ChatBox({ contact, message, onMessageChanged }) {
+  const email = contact ? contact.email : "";
+  const name = contact ? contact.name : "";
+  const buttonContent = `Send to ${email}`;
+  const placeholder = `Chat to ${name}`;
+  const internalOnMessageChange = (event) => {
+    onMessageChanged(event.target.value);
+  };
+  return (
+    <section className="chat-box-container">
+      <textarea
+        name="chat-box"
+        className="chat-box"
+        placeholder={placeholder}
+        onChange={internalOnMessageChange}
+        value={message}
+      ></textarea>
+      <button>{buttonContent}</button>
+    </section>
+  );
+}
+
+function ChatApp() {
+  //   const [chosenContact, setChosenContact] = useState(null);
+  //   const onChosen = (chosenContact) => setChosenContact(chosenContact);
+  const message = "hello";
+  const initialState = {
+    chosenContact: null,
+    message,
+  };
+
+  const [state, dispatch] = useReducer(messageReducer, initialState);
+  const onContactChosen = (chosenContact) =>
+    dispatch({
+      type: MESSAGE_ACTION.CONTACT_CHOSEN,
+      chosenContact,
+    });
+
+  const onMessageChanged = (message) =>
+    dispatch({
+      type: MESSAGE_ACTION.MESSAGE_CHANGED,
+      message,
+    });
+  //   const chosenContact = contacts.find((contact) => contact.email === chosenEmail);
+  return (
+    <div className="chap-app-container">
+      <ContactCardList
+        contacts={contacts}
+        chosenContact={state.chosenContact}
+        onChosen={onContactChosen}
+      ></ContactCardList>
+      <ChatBox
+        contact={state.chosenContact}
+        onMessageChanged={onMessageChanged}
+        message={state.message}
+      ></ChatBox>
+    </div>
+  );
 }
 
 const contacts = [
@@ -64,6 +149,6 @@ const contacts = [
   new Contact("Julia Roberts", "julia@example.com"),
 ];
 
-export default function ContactCardDemo() {
-  return <ContactCardList contacts={contacts}></ContactCardList>;
+export default function ChatAppDemo() {
+  return <ChatApp></ChatApp>;
 }

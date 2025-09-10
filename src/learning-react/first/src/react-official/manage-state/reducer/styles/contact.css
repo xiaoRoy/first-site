@@ -1,4 +1,18 @@
-.contact-card  {
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 20vw;
+  min-width: 160px;
+  /* height: 300px; */
+  background-color: #4b5563;
+  max-height: 100vh;
+  overflow-y: auto;
+  position: sticky;
+  top: 0;
+}
+
+.contact-card {
   display: flex;
   font-family: sans-serif;
   flex-wrap: row nowrap;
@@ -12,6 +26,7 @@
   max-width: 16rem;
   gap: 1rem;
   margin: 12px;
+  cursor: pointer;
 }
 
 .contact-card.chosen {
@@ -52,4 +67,20 @@
   color: #4b5563;
   font-size: 0.875rem;
   margin: 0;
+}
+
+.chat-box-container {
+  display: flex;
+  flex-flow: column nowrap;
+
+  /* margin-left: 20vw; */
+}
+
+.chat-box {
+  resize: none;
+  height: 200px;
+}
+
+.chap-app-container {
+  display: flex;
 }

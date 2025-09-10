@@ -200,9 +200,9 @@ function tasksReducer(tasks, action) {
       updatedTasks.push(newTask);
       break;
     }
- 
+
     case TASK_ACTIONS.EDIT: {
-        updatedTasks = tasks.map((task) => {
+      updatedTasks = tasks.map((task) => {
         let result;
         if (task.id === newTask.id) {
           result = newTask;
@@ -215,8 +215,8 @@ function tasksReducer(tasks, action) {
     }
 
     case TASK_ACTIONS.DEL: {
-       updatedTasks = tasks.filter((task) => task.id !== newTask.id);
-       break;
+      updatedTasks = tasks.filter((task) => task.id !== newTask.id);
+      break;
     }
     default: {
       throw Error(`Unknown action:${action.type}`);
@@ -227,25 +227,25 @@ function tasksReducer(tasks, action) {
 
 function TasksManager() {
   // const [taskList, setTaskList] = useState(TASK_LIST);
-  const [taskList, dispatch] = useReducer(tasksReducer,TASK_LIST);
+  const [taskList, dispatch] = useReducer(tasksReducer, TASK_LIST);
   const onTaskAdded = (addedTask) => {
     dispatch({
-      task:addedTask,
-      type: TASK_ACTIONS.ADD
+      task: addedTask,
+      type: TASK_ACTIONS.ADD,
     });
   };
 
   const onTaskChanged = (updatedTask) => {
-     dispatch({
-      task:updatedTask,
-      type: TASK_ACTIONS.EDIT
+    dispatch({
+      task: updatedTask,
+      type: TASK_ACTIONS.EDIT,
     });
   };
 
   const onTaskDeleted = (deletedTask) => {
-     dispatch({
-      task:deletedTask,
-      type: TASK_ACTIONS.DEL
+    dispatch({
+      task: deletedTask,
+      type: TASK_ACTIONS.DEL,
     });
   };
   return (
