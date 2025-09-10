@@ -1,10 +1,19 @@
 import "./styles/contact.css";
-import { useReducer, useState } from "react";
+import { lazy, useReducer, useState } from "react";
 
 class Contact {
-  constructor(name, email) {
+  constructor(name, email, message = "") {
     this.name = name;
     this.email = email;
+    this.message = message ? message : `Hello, ${name}!`;
+  }
+
+  resetMessage() {
+    this.message = "";
+  }
+
+  copy() {
+    return new Contact(this.name, this.email, this.message);
   }
 }
 
@@ -67,14 +76,25 @@ function messageReducer(state, action) {
   switch (action.type) {
     case MESSAGE_ACTION.CONTACT_CHOSEN:
       updated.chosenContact = action.chosenContact;
-      updated.message = "Hello";
       break;
     case MESSAGE_ACTION.MESSAGE_CHANGED:
-      updated.message = action.message;
+      const currentContact = state.chosenContact;
+      const newContact = currentContact.copy();
+      newContact.message = action.message;
+      updated.chosenContact = newContact;
+      updated.contacts = updated.contacts.map((contact) => {
+        let result;
+        if (contact.email === newContact.email) {
+          result = newContact;
+        } else {
+          result = contact;
+        }
+        return result;
+      });
       break;
 
     case MESSAGE_ACTION.SEND:
-      updated.message = "Hello";
+      updated.message = defaultMessage;
       break;
     default:
       throw Error(`Unknown action:${action.type}`);
@@ -82,9 +102,10 @@ function messageReducer(state, action) {
   return updated;
 }
 
-function ChatBox({ contact, message, onMessageChanged, onMessageSend }) {
+function ChatBox({ contact, onMessageChanged, onMessageSend }) {
   const email = contact ? contact.email : "";
   const name = contact ? contact.name : "";
+  const message = contact ? contact.message : "Hello";
   const buttonContent = `Send to ${email}`;
   const placeholder = `Chat to ${name}`;
   const internalOnMessageChange = (event) => {
@@ -95,6 +116,7 @@ function ChatBox({ contact, message, onMessageChanged, onMessageSend }) {
     window.alert(`Sending ${message} to ${email}`);
     onMessageSend();
   };
+  console.log(`Message ${message}`);
   return (
     <section className="chat-box-container">
       <textarea
@@ -110,10 +132,9 @@ function ChatBox({ contact, message, onMessageChanged, onMessageSend }) {
 }
 
 function ChatApp() {
-  const message = "hello";
   const initialState = {
     chosenContact: null,
-    message,
+    contacts,
   };
 
   const [state, dispatch] = useReducer(messageReducer, initialState);
@@ -138,14 +159,13 @@ function ChatApp() {
   return (
     <div className="chap-app-container">
       <ContactCardList
-        contacts={contacts}
+        contacts={state.contacts}
         chosenContact={state.chosenContact}
         onChosen={onContactChosen}
       ></ContactCardList>
       <ChatBox
         contact={state.chosenContact}
         onMessageChanged={onMessageChanged}
-        message={state.message}
         onMessageSend={onMessageSent}
       ></ChatBox>
     </div>
