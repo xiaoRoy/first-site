@@ -1,6 +1,6 @@
 import TasksManagerDemo from "./manage-state/reducer/tasks";
-import ContactCardDemo from "./manage-state/reducer/contacts";
+import ChatAppDemoV2 from "./manage-state/reducer/contacts-v2";
 
 export default function ReactOfficialDemoApp() {
-  return <ContactCardDemo></ContactCardDemo>;
+  return <ChatAppDemoV2></ChatAppDemoV2>;
 }
