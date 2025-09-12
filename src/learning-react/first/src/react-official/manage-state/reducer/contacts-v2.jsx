@@ -1,5 +1,5 @@
 import "./styles/contact.css";
-import { useReducer } from "react";
+import { useState, useReducer } from "react";
 
 class Contact {
   constructor(name, email) {
@@ -119,8 +119,15 @@ function ChatBox({ contact, message, onMessageChanged, onMessageSend }) {
   );
 }
 
+function useMyReducer(reducer, initial) {
+  const [state, setState] = useState(initial);
+  const dispatch = (action) => {
+    setState((currentState) => reducer(currentState, action));
+  };
+  return [state, dispatch];
+}
+
 function ChatApp() {
-  console.log("v2");
   const messages = contacts.reduce((acc, contact) => {
     acc[contact.email] = `Hello, ${contact.name}!`;
     return acc;
@@ -130,7 +137,7 @@ function ChatApp() {
     messages,
   };
 
-  const [state, dispatch] = useReducer(messageReducer, initialState);
+  const [state, dispatch] = useMyReducer(messageReducer, initialState);
   const onContactChosen = (chosenEmail) =>
     dispatch({
       type: MESSAGE_ACTION.CONTACT_CHOSEN,
