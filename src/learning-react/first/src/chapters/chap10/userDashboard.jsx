@@ -3,8 +3,12 @@ import "./styles/user-dashboard.css";
 
 const NameContext = createContext();
 
+function useName() {
+  return useContext(NameContext);
+}
+
 function DashboardNavSecond() {
-  const name = useContext(NameContext);
+  const name = useName();
   return (
     <nav className="dashboard-nav">
       <button className="button-nav">Home</button>
@@ -19,7 +23,7 @@ function DashboardNavSecond() {
 }
 
 function WelcomeSection() {
-  const name = useContext(NameContext);
+  const name = useName();
   return (
     <section id="welcome-section">
       <span>Welcome, {name}!</span>

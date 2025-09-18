@@ -9,7 +9,7 @@ import LoaderDemo from "./chap10/loader";
 
 class DemoApp extends Component {
   render() {
-    return <LoaderDemo></LoaderDemo>;
+    return <UserDashboardDemo></UserDashboardDemo>;
   }
 }
 
