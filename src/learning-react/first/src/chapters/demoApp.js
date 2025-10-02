@@ -1,15 +1,9 @@
 import { Component } from "react";
-// import TodoAppDemo from "./chap9/todos";
-// import TasksManagerDemo from "../react-official/manage-state/reducer/tasks";
-
-import ShopDemo from "./chap10/shop";
-import UserDashboardDemo from "./chap10/userDashboard";
-import ContactCardDemo from "../react-official/manage-state/reducer/contacts";
-import LoaderDemo from "./chap10/loader";
+import WebsiteMenuDemo from "./chap11/website-menu";
 
 class DemoApp extends Component {
   render() {
-    return <UserDashboardDemo></UserDashboardDemo>;
+    return <WebsiteMenuDemo></WebsiteMenuDemo>;
   }
 }
 
