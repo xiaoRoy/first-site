@@ -4,6 +4,24 @@ import { ReactComponent as ServicesIcon } from "./icons/services.svg";
 import { ReactComponent as PricingIcon } from "./icons/pricing.svg";
 import { ReactComponent as BlogIcon } from "./icons/blog.svg";
 
+//data
+
+class MenuInfo {
+  constructor(title, icon, href = null) {
+    this.title = title;
+    this.icon = icon;
+    this.href = href;
+  }
+
+  static generateMenuList() {
+    const homeMenu = new MenuInfo("Home", "home");
+    const servicesMenu = new MenuInfo("Services", "services");
+    const pricingMenu = new MenuInfo("Pricing", "pricing");
+    const blogMenu = new MenuInfo("Blog", "blog");
+    return [homeMenu, servicesMenu, pricingMenu, blogMenu];
+  }
+}
+
 const ICON_MAPPING = {
   home: HomeIcon,
   services: ServicesIcon,
@@ -25,23 +43,30 @@ function MenuItem({ href, icon, children }) {
   );
 }
 
-function WebsiteMenu() {
+function WebsiteMenu({ menuList }) {
   return (
-    <nav className="menu-container">
+    <nav className="container">
       <ul className="nav-links">
-        <MenuItem icon={"home"}>Home</MenuItem>
-        <MenuItem icon={"services"}>Services</MenuItem>
-        <MenuItem icon={"pricing"}>Pricing</MenuItem>
-        <MenuItem icon={"blog"}>Blog</MenuItem>
+        {menuList.map((menu) => {
+          return (
+            <MenuItem
+              key={menu.title}
+              href={menu.href}
+              icon={menu.icon}
+              children={menu.title}
+            ></MenuItem>
+          );
+        })}
       </ul>
     </nav>
   );
 }
 
 function WebsiteDemo() {
+  const menuList = MenuInfo.generateMenuList();
   return (
     <div className="root-website">
-      <WebsiteMenu></WebsiteMenu>
+      <WebsiteMenu menuList={menuList}></WebsiteMenu>
     </div>
   );
 }
