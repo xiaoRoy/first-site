@@ -66,7 +66,28 @@ function WebsiteDemo() {
   const menuList = MenuInfo.generateMenuList();
   return (
     <div className="root-website">
-      <WebsiteMenu menuList={menuList}></WebsiteMenu>
+      <header>
+        <div className="header-container">
+          <a href="#" className="logo">
+            Fly Cats
+          </a>
+          <WebsiteMenu menuList={menuList}></WebsiteMenu>
+        </div>
+      </header>
+      <main></main>
+      <footer>
+        <div className="footer-info">
+          <h3 className="footer-logo">Fly Fly Inc.</h3>
+          <p className="footer-text">© 2024. All rights reserved.</p>
+        </div>
+        <div>
+          <div className="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact</a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
