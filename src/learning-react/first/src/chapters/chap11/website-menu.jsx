@@ -3,6 +3,7 @@ import { ReactComponent as HomeIcon } from "./icons/home.svg";
 import { ReactComponent as ServicesIcon } from "./icons/services.svg";
 import { ReactComponent as PricingIcon } from "./icons/pricing.svg";
 import { ReactComponent as BlogIcon } from "./icons/blog.svg";
+import { createContext, useContext } from "react";
 
 //data
 
@@ -43,7 +44,8 @@ function MenuItem({ href, icon, children }) {
   );
 }
 
-function WebsiteMenu({ menuList }) {
+function WebsiteMenu() {
+  const menuList = useContext(MenuContext);
   return (
     <nav className="container">
       <ul className="nav-links">
@@ -62,6 +64,8 @@ function WebsiteMenu({ menuList }) {
   );
 }
 
+const MenuContext = createContext([]);
+
 function WebsiteDemo() {
   const menuList = MenuInfo.generateMenuList();
   return (
@@ -71,7 +75,9 @@ function WebsiteDemo() {
           <a href="#" className="logo">
             Fly Cats
           </a>
-          <WebsiteMenu menuList={menuList}></WebsiteMenu>
+          <MenuContext.Provider value={menuList}>
+            <WebsiteMenu></WebsiteMenu>
+          </MenuContext.Provider>
         </div>
       </header>
       <main></main>
