@@ -113,6 +113,25 @@ header {
   fill: currentColor; /* Ensures the icon color matches the text color */
 }
 
+.login-button {
+  display: inline-block;
+  background-color: var(--calm-blue);
+  color: var(--deep-blue);
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  min-width: 100px;
+  text-align: center;
+}
+.login-button:hover {
+  background-color: var(--white);
+  color: var(--deep-blue);
+}
+
 main {
   flex-grow: 1;
   padding: 40px 16px;

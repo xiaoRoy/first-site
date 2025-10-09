@@ -1,33 +1,21 @@
 import "./styles/website-menu.css";
+import MenuInfo from "./website-data";
 import { ReactComponent as HomeIcon } from "./icons/home.svg";
 import { ReactComponent as ServicesIcon } from "./icons/services.svg";
 import { ReactComponent as PricingIcon } from "./icons/pricing.svg";
 import { ReactComponent as BlogIcon } from "./icons/blog.svg";
-import { createContext, useContext } from "react";
+import { ReactComponent as ProfileIcon } from "./icons/profile.svg";
+import { createContext, useContext, useState } from "react";
+import { useMenuContext, MenuProvider } from "./website-context";
 
 //data
-
-class MenuInfo {
-  constructor(title, icon, href = null) {
-    this.title = title;
-    this.icon = icon;
-    this.href = href;
-  }
-
-  static generateMenuList() {
-    const homeMenu = new MenuInfo("Home", "home");
-    const servicesMenu = new MenuInfo("Services", "services");
-    const pricingMenu = new MenuInfo("Pricing", "pricing");
-    const blogMenu = new MenuInfo("Blog", "blog");
-    return [homeMenu, servicesMenu, pricingMenu, blogMenu];
-  }
-}
 
 const ICON_MAPPING = {
   home: HomeIcon,
   services: ServicesIcon,
   pricing: PricingIcon,
   blog: BlogIcon,
+  profile: ProfileIcon,
 };
 
 function MenuItem({ href, icon, children }) {
@@ -45,7 +33,7 @@ function MenuItem({ href, icon, children }) {
 }
 
 function WebsiteMenu() {
-  const menuList = useContext(MenuContext);
+  const menuList = useMenuContext().links;
   return (
     <nav className="container">
       <ul className="nav-links">
@@ -66,20 +54,31 @@ function WebsiteMenu() {
 
 const MenuContext = createContext([]);
 
+function LoginButton() {
+  const { isLoggedIn, loginOrLogout } = useMenuContext();
+  const text = isLoggedIn ? "Log out" : "Log in";
+  const onClick = () => loginOrLogout();
+  return (
+    <a href="#" className="login-button" onClick={onClick}>
+      {text}
+    </a>
+  );
+}
+
 function WebsiteDemo() {
-  const menuList = MenuInfo.generateMenuList();
   return (
     <div className="root-website">
-      <header>
-        <div className="header-container">
-          <a href="#" className="logo">
-            Fly Cats
-          </a>
-          <MenuContext.Provider value={menuList}>
+      <MenuProvider>
+        <header>
+          <div className="header-container">
+            <a href="#" className="logo">
+              Fly Cats
+            </a>
             <WebsiteMenu></WebsiteMenu>
-          </MenuContext.Provider>
-        </div>
-      </header>
+            <LoginButton></LoginButton>
+          </div>
+        </header>
+      </MenuProvider>
       <main></main>
       <footer>
         <div className="footer-info">
