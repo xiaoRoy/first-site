@@ -5,7 +5,6 @@ body {
   background-color: #f4f4f9;
 }
 
-
 .app {
   max-width: 900px; /* Constrain the overall width */
   margin: 0 auto; /* Center the application container */
@@ -17,7 +16,7 @@ body {
 /*
   Header (h1 element)
 */
-h1 {
+h1.title {
   background-color: #007bff;
   color: white;
   padding: 20px;
@@ -40,7 +39,7 @@ nav {
 /*
   Navigation Links (Link components)
 */
-nav a {
+.link {
   text-decoration: none;
   color: #007bff;
   padding: 8px 15px;
@@ -49,7 +48,14 @@ nav a {
   transition: background-color 0.3s, color 0.3s;
 }
 
-nav a:hover {
+.active-link {
+  background-color: #0056b3;
+  color: white;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.link:hover {
   background-color: #007bff;
   color: white;
 }
@@ -65,8 +71,108 @@ main {
 /*
   Main Content Headers
 */
-main h2 {
+.section-title {
   color: #343a40;
   border-bottom: 2px solid #ced4da;
   padding-bottom: 5px;
+}
+
+.background-404 {
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+  background-color: #0d1117; /* Deep dark blue/gray */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  margin: 0; /* Ensure no unwanted margin */
+}
+
+.container-404 {
+  /* Layout and Sizing */
+  width: 92%; /* w-11/12 */
+  max-width: 512px; /* max-w-lg */
+  text-align: center;
+  padding: 2rem; /* p-8 (default padding) */
+  border-radius: 1.5rem; /* rounded-3xl */
+
+  /* Glass/Crystalline background effect */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Responsive adjustments for medium/desktop devices */
+@media (min-width: 768px) {
+  .container-404 {
+    padding: 4rem; /* md:p-16 */
+  }
+  .error-code-static {
+    font-size: 10rem; /* md:text-[10rem] */
+  }
+  .main-message {
+    font-size: 1.875rem; /* md:text-3xl */
+  }
+}
+
+.error-code-static {
+  /* text-9xl font-extrabold mb-4 */
+  font-size: 6rem; /* text-9xl */
+  font-weight: 800; /* font-extrabold */
+  margin-bottom: 1rem; /* mb-4 */
+
+  color: #0e918c; /* Primary teal color */
+  text-shadow: 0 0 10px rgba(14, 145, 140, 0.5),
+    0 0 20px rgba(14, 145, 140, 0.2);
+}
+
+.main-message {
+  /* text-2xl font-light text-white mb-4 tracking-wider */
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 300; /* font-light */
+  color: #fff; /* text-white */
+  margin-bottom: 1rem; /* mb-4 */
+  letter-spacing: 0.05em; /* tracking-wider */
+}
+
+.sub-message {
+  /* text-xl text-gray-400 mb-8 max-w-sm mx-auto */
+  font-size: 1.25rem; /* text-xl */
+  color: #9ca3af; /* text-gray-400 */
+  margin-bottom: 2rem; /* mb-8 */
+  max-width: 28rem; /* max-w-sm */
+  margin-left: auto; /* mx-auto */
+  margin-right: auto; /* mx-auto */
+}
+
+.btn-return {
+  /* inline-block bg-teal-500 text-gray-900 font-bold py-3 px-8 rounded-xl shadow-lg */
+  display: inline-block;
+  background-color: #14b8a6; /* bg-teal-500 */
+  color: #111827; /* text-gray-900 */
+  font-weight: 700; /* font-bold */
+  padding: 0.75rem 2rem; /* py-3 px-8 */
+  border-radius: 0.75rem; /* rounded-xl */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+  text-decoration: none; /* remove underline from link */
+
+  /* Simple hover and active state */
+  transition: background-color 0.1s ease, transform 0.1s ease;
+}
+
+.btn-return:hover {
+  background-color: #2dd4bf; /* hover:bg-teal-400 */
+}
+.btn-return:active {
+  transform: scale(0.95); /* active:scale-95 */
+}
+
+.footer-text {
+  /* mt-8 text-sm text-gray-600 */
+  margin-top: 2rem; /* mt-8 */
+  font-size: 0.875rem; /* text-sm */
+  color: #4b5563; /* text-gray-600 */
 }
