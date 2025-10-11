@@ -1,0 +1,72 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+}
+
+
+.app {
+  max-width: 900px; /* Constrain the overall width */
+  margin: 0 auto; /* Center the application container */
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+}
+
+/*
+  Header (h1 element)
+*/
+h1 {
+  background-color: #007bff;
+  color: white;
+  padding: 20px;
+  margin: 0;
+  text-align: center;
+  border-bottom: 5px solid #0056b3;
+}
+
+/*
+  Navigation (nav element)
+*/
+nav {
+  display: flex; /* Use Flexbox for navigation links */
+  justify-content: center; /* Center links horizontally */
+  padding: 10px 0;
+  background-color: #e9ecef;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/*
+  Navigation Links (Link components)
+*/
+nav a {
+  text-decoration: none;
+  color: #007bff;
+  padding: 8px 15px;
+  margin: 0 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+/*
+  Main Content (main element, Home/Users component content)
+*/
+main {
+  padding: 20px;
+  min-height: 50vh; /* Ensure content area takes up space */
+}
+
+/*
+  Main Content Headers
+*/
+main h2 {
+  color: #343a40;
+  border-bottom: 2px solid #ced4da;
+  padding-bottom: 5px;
+}

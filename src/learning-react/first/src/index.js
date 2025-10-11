@@ -4,11 +4,12 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import DemoApp from "./chapters/demoApp";
 import ReactOfficialDemoApp from "./react-official/reactOfficialDemoApp";
+import TheThirdDemoApp from "./3rd/theThirdDemoApp";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <DemoApp />
+    <TheThirdDemoApp />
   </React.StrictMode>
 );
 
