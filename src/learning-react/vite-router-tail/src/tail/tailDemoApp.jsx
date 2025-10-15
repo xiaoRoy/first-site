@@ -1,5 +1,6 @@
-import { HelloWorldDemo } from "./basic/helloWorld";
+import ThemeDemo from "./directives/themeDemo";
+import UtilitiesDemo from "./directives/utilitiesDemo";
 
 export default function TailDemoApp() {
-  return <HelloWorldDemo></HelloWorldDemo>;
+  return <UtilitiesDemo></UtilitiesDemo>;
 }

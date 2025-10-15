@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --color-mint-500: oklch(0.72 0.11 178);
+  /* --color-red: var(--color-orange-500); */
+}
+
+@theme inline {
+  --color-red: var(--color-orange-500);
+}
+
+@utility text-highlight-* {
+  color: --value(--color-*);
+}
