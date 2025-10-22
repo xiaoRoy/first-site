@@ -1,6 +1,5 @@
-import ThemeDemo from "./directives/themeDemo";
-import UtilitiesDemo from "./directives/utilitiesDemo";
+import DarkAppDemo from "./dart-demo/dark";
 
 export default function TailDemoApp() {
-  return <UtilitiesDemo></UtilitiesDemo>;
+  return <DarkAppDemo></DarkAppDemo>;
 }
