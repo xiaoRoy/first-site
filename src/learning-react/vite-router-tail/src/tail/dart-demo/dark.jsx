@@ -2,13 +2,21 @@ import "./styles/dart-index.css";
 import { LinkInfo } from "./dark-data";
 import { useState } from "react";
 
-function Header() {
-  const mode = "Night Mode";
+function Header({ isDarkMode, onDarkModeChanged }) {
+  const internalOnDarkModeChanged = () => {
+    onDarkModeChanged();
+  };
+  const mode = isDarkMode ? "Light Mode" : "Dark Mode";
   return (
     <header className="bg-secondary-bg px-0 py-4 text-center border-b-[3px] border-gold-accent border-solid header-box-shadow">
       <div className="flex justify-around mx-0 my-auto items-center px-8 py-0">
         <h1 className="text-3xl">The Rococo Console</h1>
-        <input type="button" value={mode} className="toggle-button"></input>
+        <input
+          type="button"
+          value={mode}
+          className="toggle-button"
+          onClick={internalOnDarkModeChanged}
+        ></input>
       </div>
     </header>
   );
@@ -64,9 +72,22 @@ function SideNavigation({ className }) {
 }
 
 function DarkApp() {
+  const [isDarkMode, setDarkMode] = useState(false);
+  const onDarkModeChanged = () => {
+    setDarkMode((value) => !value);
+  };
+  const styles = [
+    "bg-primary-bg min-h-screen bg-image-dots font-main flex flex-col text-primary-text",
+  ];
+  if (isDarkMode) {
+    styles.push("dark-mode");
+  }
   return (
-    <div className="bg-primary-bg min-h-screen bg-image-dots font-main flex flex-col">
-      <Header></Header>
+    <div className={styles.join(" ")}>
+      <Header
+        isDarkMode={isDarkMode}
+        onDarkModeChanged={onDarkModeChanged}
+      ></Header>
       <div className="main-container grow items-start">
         <SideNavigation
           className={
@@ -74,7 +95,7 @@ function DarkApp() {
           }
         ></SideNavigation>
         <main className="my-8 mx-auto bg-color-accent-bg">
-          <div className="p-8 rounded-3xl border-3 border-solid border-gold-accent rococo-box-shadow">
+          <div className="bg-accent-bg p-8 rounded-3xl border-3 border-solid border-gold-accent rococo-box-shadow">
             <h2>The Art of Light and Shadow</h2>
             <p className=" .description">
               Welcome to this modest dwelling, designed in the delicate style of

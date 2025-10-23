@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
-
+@custom-variant dark-mode (&:where(.dark-mode, .dark-mode *));
 @theme {
   --color-primary-bg: #f8f4e8;
   --color-secondary-bg: #eae0e9;
@@ -10,10 +10,18 @@
   --color-gold-accent: #c5a565;
   --color-shadow-color: rgba(0, 0, 0, 0.1);
   --color-border-color: #d4c6c9;
-
   --font-main: "Cormorant Garamond", Georgia, serif;
 }
-
+.dark-mode {
+  --color-primary-bg: #2e2a2c; /* Deep Charcoal */
+  --color-secondary-bg: #4a3c4a; /* Dark Violet/Burgundy */
+  --color-accent-bg: #3f393c; /* Slightly lighter dark background */
+  --color-primary-text: #f8f4e8; /* Ivory */
+  --color-secondary-text: #d4c6c9; /* Faded Mauve */
+  --color-gold-accent: #e6c58b; /* Rich Gold */
+  --color-shadow-color: rgba(0, 0, 0, 0.5);
+  --color-border-color: #5c5254;
+}
 @utility heading-base-style {
   /*
     Define a hidden component/base style block 
@@ -104,6 +112,17 @@
 
     @variant hover {
       @apply opacity-90 scale-105;
+    }
+
+    @variant dark-mode {
+      @apply text-primary-bg border-primary-bg;
+      background: linear-gradient(
+        145deg,
+        var(--color-gold-accent),
+        var(--color-secondary-bg)
+      );
+      box-shadow: 0 0 15px var(--color-gold-accent),
+        0 0 3px var(--color-gold-accent);
     }
   }
   .sub-title {
