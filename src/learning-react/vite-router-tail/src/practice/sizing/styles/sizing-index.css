@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@layer components {
+  .child-container {
+    @apply bg-amber-100;
+  }
+
+  .title {
+    @apply my-0 mx-auto w-48 text-2xl font-bold;
+  }
+
+  .sub-title {
+    @apply m-4 font-bold;
+  }
+
+  .content {
+    @apply bg-blue-500 m-4;
+  }
+}
