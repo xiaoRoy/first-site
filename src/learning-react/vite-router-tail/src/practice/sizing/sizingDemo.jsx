@@ -1,5 +1,6 @@
 import "./styles/sizing-index.css";
 import { useState, useRef } from "react";
+import FigureCationDemo from "./sizing-examples/figureCaption";
 
 function MinContentDemo() {
   return (
@@ -195,7 +196,7 @@ function ResizableBox({ children }) {
 export default function SizingDemoApp() {
   return (
     <div className="h-screen">
-      <SizingContainer></SizingContainer>
+      <FigureCationDemo></FigureCationDemo>
     </div>
   );
 }

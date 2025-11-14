@@ -17,3 +17,7 @@
     @apply bg-blue-500 m-4;
   }
 }
+
+@utility center-block-size {
+  @apply my-0 mx-auto;
+}
