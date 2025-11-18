@@ -16,8 +16,57 @@
   .content {
     @apply bg-blue-500 m-4;
   }
+
+  .underline-title {
+    @apply mx-auto w-fit border-b-[#e2deed] border-b-2;
+  }
+
+  .nav-menu-item {
+    @apply py-3 px-5 transition-all duration-700 rounded-xl block;
+    @variant hover {
+      @apply text-rose-400 bg-slate-700 font-normal tracking-widest;
+    }
+  }
+
+  .left-nav-menu-item {
+    @apply block p-3 rounded-xl text-xl font-light text-slate-300 transition duration-300;
+    @variant hover {
+      @apply bg-slate-700/70 text-rose-400;
+    }
+  }
+
+  .left-nav-menu-item-selected {
+    @apply bg-slate-700 text-rose-400  border-l-4 border-rose-400;
+  }
+
+  .header-title {
+    @apply text-blue-400 font-bold text-2xl w-max;
+  }
+
+  .demo-content {
+    @apply text-neutral-800;
+  }
+
+  .demo-section {
+    @apply center-block-size text-center mb-10 w-min;
+  }
 }
 
 @utility center-block-size {
   @apply my-0 mx-auto;
+}
+
+@layer components {
+  .section-title {
+    @apply relative text-center text-[1.25rem];
+
+    span {
+      @apply relative -top-2 inline-block w-min bg-[#fafafa] py-0 px-4;
+    }
+
+    &::before {
+      content: "";
+      @apply absolute left-0 top-[9px] -z-1 w-full h-[50px] border-4 border-b-0;
+    }
+  }
 }
