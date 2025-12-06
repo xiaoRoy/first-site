@@ -6,10 +6,10 @@ class MenuInfo {
   }
 
   static generateMenuList() {
-    const homeMenu = new MenuInfo("Home", "home");
+    const homeMenu = new MenuInfo("Home", "home", "/");
     const servicesMenu = new MenuInfo("Services", "services");
     const pricingMenu = new MenuInfo("Pricing", "pricing");
-    const blogMenu = new MenuInfo("Blog", "blog");
+    const blogMenu = new MenuInfo("Blog", "blog", "/blog");
     return [homeMenu, servicesMenu, pricingMenu, blogMenu];
   }
 

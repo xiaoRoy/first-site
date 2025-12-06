@@ -1,12 +1,13 @@
 import "./styles/website-menu.css";
-import MenuInfo from "./website-data";
+
 import { ReactComponent as HomeIcon } from "./icons/home.svg";
 import { ReactComponent as ServicesIcon } from "./icons/services.svg";
 import { ReactComponent as PricingIcon } from "./icons/pricing.svg";
 import { ReactComponent as BlogIcon } from "./icons/blog.svg";
 import { ReactComponent as ProfileIcon } from "./icons/profile.svg";
-import { createContext, useContext, useState } from "react";
+import { createContext } from "react";
 import { useMenuContext, MenuProvider } from "./website-context";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router";
 
 //data
 
@@ -65,7 +66,7 @@ function LoginButton() {
   );
 }
 
-function WebsiteDemo() {
+function Website() {
   return (
     <div className="root-website">
       <MenuProvider>
@@ -79,7 +80,12 @@ function WebsiteDemo() {
           </div>
         </header>
       </MenuProvider>
-      <main></main>
+      <main>
+        <Routes>
+          <Route index element={<Home></Home>}></Route>
+          <Route path="blog" element={<Blog></Blog>}></Route>
+        </Routes>
+      </main>
       <footer>
         <div className="footer-info">
           <h3 className="footer-logo">Fly Fly Inc.</h3>
@@ -97,6 +103,26 @@ function WebsiteDemo() {
   );
 }
 
+function Home() {
+  return (
+    <div>
+      <h1>Home</h1>
+    </div>
+  );
+}
+
+function Blog() {
+  return (
+    <div>
+      <h1>Blog</h1>
+    </div>
+  );
+}
+
 export default function WebsiteMenuDemo() {
-  return <WebsiteDemo></WebsiteDemo>;
+  return (
+    <BrowserRouter>
+      <Website></Website>
+    </BrowserRouter>
+  );
 }

@@ -33,7 +33,6 @@ header {
   margin: 0 16px;
   display: flex;
   flex-flow: column nowrap;
-  background-color: var(--deep-blue);
   align-items: center;
 }
 @media (min-width: 768px) {
