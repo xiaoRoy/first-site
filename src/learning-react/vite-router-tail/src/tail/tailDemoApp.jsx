@@ -1,5 +1,7 @@
-import DarkAppDemo from "./dart-demo/dark";
+// import AddressBookAppDemo from "../router/address-book/address-book";
+import ThemeDemo from "./directives/themeDemo";
+
 
 export default function TailDemoApp() {
-  return <DarkAppDemo></DarkAppDemo>;
+  return <ThemeDemo></ThemeDemo>;
 }
