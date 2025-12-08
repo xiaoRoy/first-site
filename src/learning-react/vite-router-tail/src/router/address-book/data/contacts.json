@@ -1,0 +1,200 @@
+[
+  {
+    "id": 1,
+    "firstName": "Alex",
+    "lastName": "Rivera",
+    "avatar": "https://i.pravatar.cc/150?img=1",
+    "twitter": "alex_r",
+    "notes": "Met at the 2024 Dev Conference. Interested in React.",
+    "favorite": true
+  },
+  {
+    "id": 2,
+    "firstName": "Bela",
+    "lastName": "Chen",
+    "avatar": "https://i.pravatar.cc/150?img=2",
+    "twitter": "bela_dev",
+    "notes": "Lead designer for the mobile app project.",
+    "favorite": false
+  },
+  {
+    "id": 3,
+    "firstName": "Caleb",
+    "lastName": "Jones",
+    "avatar": "https://i.pravatar.cc/150?img=3",
+    "twitter": "cj_tech",
+    "notes": "Always punctual. Follow up on the Q3 report.",
+    "favorite": true
+  },
+  {
+    "id": 4,
+    "firstName": "Dana",
+    "lastName": "Smith",
+    "avatar": "https://i.pravatar.cc/150?img=4",
+    "twitter": "dsmith",
+    "notes": "Works in marketing. Attended the last webinar.",
+    "favorite": false
+  },
+  {
+    "id": 5,
+    "firstName": "Ethan",
+    "lastName": "Miller",
+    "avatar": "https://i.pravatar.cc/150?img=5",
+    "twitter": "emiller_code",
+    "notes": "Expert in Python backend. Needs help with deployment.",
+    "favorite": true
+  },
+  {
+    "id": 6,
+    "firstName": "Fiona",
+    "lastName": "Garcia",
+    "avatar": "https://i.pravatar.cc/150?img=6",
+    "twitter": "fiona_g",
+    "notes": "Remote contributor from Lisbon.",
+    "favorite": false
+  },
+  {
+    "id": 7,
+    "firstName": "George",
+    "lastName": "Brown",
+    "avatar": "https://i.pravatar.cc/150?img=7",
+    "twitter": "george_b",
+    "notes": "Hired last month. Still onboarding.",
+    "favorite": true
+  },
+  {
+    "id": 8,
+    "firstName": "Hannah",
+    "lastName": "Lee",
+    "avatar": "https://i.pravatar.cc/150?img=8",
+    "twitter": "hannah_dev",
+    "notes": "Excellent presentation skills. Team lead.",
+    "favorite": false
+  },
+  {
+    "id": 9,
+    "firstName": "Isaac",
+    "lastName": "Wilson",
+    "avatar": "https://i.pravatar.cc/150?img=9",
+    "twitter": "isaac_w",
+    "notes": "Potential client. Send proposal by end of week.",
+    "favorite": false
+  },
+  {
+    "id": 10,
+    "firstName": "Jasmine",
+    "lastName": "Taylor",
+    "avatar": "https://i.pravatar.cc/150?img=10",
+    "twitter": "jasm_tay",
+    "notes": "Co-authored a paper on machine learning.",
+    "favorite": true
+  },
+  {
+    "id": 11,
+    "firstName": "Kevin",
+    "lastName": "Moore",
+    "avatar": "https://i.pravatar.cc/150?img=11",
+    "twitter": "kmoore_io",
+    "notes": "Previous manager. Ask about a job reference.",
+    "favorite": false
+  },
+  {
+    "id": 12,
+    "firstName": "Lily",
+    "lastName": "Clark",
+    "avatar": "https://i.pravatar.cc/150?img=12",
+    "twitter": "lilyc",
+    "notes": "Focusing on UX research this quarter.",
+    "favorite": false
+  },
+  {
+    "id": 13,
+    "firstName": "Marcus",
+    "lastName": "Hall",
+    "avatar": "https://i.pravatar.cc/150?img=13",
+    "twitter": "marcus_h",
+    "notes": "Needs API key access by tomorrow.",
+    "favorite": true
+  },
+  {
+    "id": 14,
+    "firstName": "Nora",
+    "lastName": "Wright",
+    "avatar": "https://i.pravatar.cc/150?img=14",
+    "twitter": "noraw",
+    "notes": "Great sense of humor. Discussed new architecture.",
+    "favorite": true
+  },
+  {
+    "id": 15,
+    "firstName": "Oliver",
+    "lastName": "King",
+    "avatar": "https://i.pravatar.cc/150?img=15",
+    "twitter": "oking_dev",
+    "notes": "Has experience with serverless functions.",
+    "favorite": false
+  },
+  {
+    "id": 16,
+    "firstName": "Piper",
+    "lastName": "Scott",
+    "avatar": "https://i.pravatar.cc/150?img=16",
+    "twitter": "piper_s",
+    "notes": "The lead on the new database migration project.",
+    "favorite": false
+  },
+  {
+    "id": 17,
+    "firstName": "Quinn",
+    "lastName": "Adams",
+    "avatar": "https://i.pravatar.cc/150?img=17",
+    "twitter": "quinn_a",
+    "notes": "Attended the last industry summit.",
+    "favorite": true
+  },
+  {
+    "id": 18,
+    "firstName": "Ryan",
+    "lastName": "Baker",
+    "avatar": "https://i.pravatar.cc/150?img=18",
+    "twitter": "ryan_baker",
+    "notes": "Contact for technical support issues.",
+    "favorite": false
+  },
+  {
+    "id": 19,
+    "firstName": "Sara",
+    "lastName": "Harris",
+    "avatar": "https://i.pravatar.cc/150?img=19",
+    "twitter": "sarah",
+    "notes": "Investor in the company. Check in monthly.",
+    "favorite": true
+  },
+  {
+    "id": 20,
+    "firstName": "Tom",
+    "lastName": "White",
+    "avatar": "https://i.pravatar.cc/150?img=20",
+    "twitter": "tom_white",
+    "notes": "In charge of infrastructure scaling.",
+    "favorite": false
+  },
+  {
+    "id": 21,
+    "firstName": "Uma",
+    "lastName": "Nelson",
+    "avatar": "https://i.pravatar.cc/150?img=21",
+    "twitter": "umanel",
+    "notes": "Collaborator on open-source project X.",
+    "favorite": true
+  },
+  {
+    "id": 22,
+    "firstName": "Victor",
+    "lastName": "Parker",
+    "avatar": "https://i.pravatar.cc/150?img=22",
+    "twitter": "victorp",
+    "notes": "New hire mentor. Discussed career goals.",
+    "favorite": false
+  }
+]
