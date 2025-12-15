@@ -4,10 +4,11 @@ import { createRoot } from "react-dom/client";
 // import App from "./App.jsx";
 // import TailDemoApp from "./tail/tailDemoApp.jsx";
 // import PracticeDemoApp from "./practice/practice";
-import AddressBookAppDemo from "./router/address-book/address-book";
+// import AddressBookAppDemo from "./router/address-book/address-book";
+import SvgDemoApp from "./svg-learning/svgDemo";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AddressBookAppDemo />
+    <SvgDemoApp />
   </StrictMode>
 );

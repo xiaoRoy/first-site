@@ -1,4 +1,5 @@
 import "./address-book-index.css";
+import ContactCard from "./contact";
 import { readContacts, ContactInfo } from "./data/data";
 
 function Search() {
@@ -33,10 +34,11 @@ function ContactList({ contacts, className }) {
   const internalClassNames = ["pt-4 overflow-auto"];
   internalClassNames.push(className);
   const actualClassNames = internalClassNames.join(" ");
+  const actualContacts = contacts.slice(0, 5);
   return (
     <nav className={actualClassNames}>
       <ul className="">
-        {contacts.map((contact) => {
+        {actualContacts.map((contact) => {
           const { id } = contact;
           const fullName = contact.fullName;
           return (
@@ -59,7 +61,7 @@ function ContactSideBar() {
   //use react context to pass the contact list
   const contacts = readContacts();
   return (
-    <aside className="flex flex-col w-[22rem] bg-x1 h-full border-r border-solid border-x2 padding-h">
+    <aside className="flex flex-col w-[22rem] bg-red-x1 h-full border-r border-solid border-x2 padding-h">
       <ToolBar></ToolBar>
       <ContactList contacts={contacts} className={"grow"}></ContactList>
       <div className="flex border-t border-solid border-x2 items-center justify-items-start py-4 m-0">
@@ -73,9 +75,21 @@ function ContactSideBar() {
 }
 
 function AddressBookApp() {
+  const fakeContact = new ContactInfo({
+    id: "c1a2b3d4-e5f6-7890-a1b2-c3d4e5f67890",
+    firstName: "Alexandra",
+    lastName: "Reed",
+    avatar: "https://i.pravatar.cc/150?img=1",
+    twitter: "@AlexReedDev",
+    notes: "Met at the JS Conference. Interested in open-source projects.",
+    favorite: true,
+  });
   return (
-    <div className="h-screen">
+    <div className="flex h-full overflow-hidden">
       <ContactSideBar></ContactSideBar>
+      <div className="grow-1 overflow-auto py-8 px-16">
+        <ContactCard contact={fakeContact}></ContactCard>
+      </div>
     </div>
   );
 }
