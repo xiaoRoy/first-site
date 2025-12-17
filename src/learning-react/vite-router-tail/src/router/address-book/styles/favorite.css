@@ -1,0 +1,33 @@
+@layer components {
+  .test {
+    @apply bg-green-900;
+  }
+  .favorite-hover {
+    @apply border-white;
+    @variant hover {
+      @apply border-red-400 scale-105;
+    }
+  }
+
+  .favorite-focus {
+    @variant focus {
+      @apply outline-none ring-4 ring-red-500/50;
+    }
+  }
+
+  #icon-star {
+    @apply transition-all duration-200 ease-in-out;
+  }
+}
+
+#favorite-label:has(#favorite-button:checked) {
+  @apply border-red-500 text-red-500;
+}
+
+#favorite-button:checked ~ #icon-star {
+  @apply scale-110;
+
+  & path {
+    @apply fill-red-500;
+  }
+}

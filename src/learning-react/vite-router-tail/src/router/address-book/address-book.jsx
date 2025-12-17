@@ -1,6 +1,7 @@
 import "./address-book-index.css";
 import ContactCard from "./contact";
 import { readContacts, ContactInfo } from "./data/data";
+import { FavoriteButtonDemo } from "./favorite-button";
 
 function Search() {
   return (
@@ -95,5 +96,5 @@ function AddressBookApp() {
 }
 
 export default function AddressBookAppDemo() {
-  return <AddressBookApp></AddressBookApp>;
+  return <FavoriteButtonDemo></FavoriteButtonDemo>;
 }

@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "./styles/favorite.css";
+
 
 @theme {
   --color-x1: #f7f7f7;
