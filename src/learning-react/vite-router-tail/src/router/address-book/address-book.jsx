@@ -26,7 +26,7 @@ function ToolBar({ className }) {
   return (
     <section className="flex flex-row gap-2 py-4 items-center border-b-1 border-solid border-x2">
       <Search></Search>
-      <input type="button" value="New" className="new-button"></input>
+      <input type="button" value="New" className="primary-button"></input>
     </section>
   );
 }
@@ -96,5 +96,5 @@ function AddressBookApp() {
 }
 
 export default function AddressBookAppDemo() {
-  return <FavoriteButtonDemo></FavoriteButtonDemo>;
+  return <AddressBookApp></AddressBookApp>;
 }

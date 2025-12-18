@@ -5,7 +5,9 @@
 @theme {
   --color-x1: #f7f7f7;
   --color-x2: #e3e3e3;
+  --color-x3: #c8c8c8;
   --color-action: #3992ff;
+  --color-focus: #2b63fd;
 }
 
 @utility padding-h {
@@ -30,7 +32,7 @@
     }
   }
 
-  .new-button {
+  .primary-button {
     @apply rounded-xl outline-1 outline-gray-300 transition-all duration-300 text-blue-400;
     @variant hover {
       @apply bg-blue-50/50 text-blue-700;

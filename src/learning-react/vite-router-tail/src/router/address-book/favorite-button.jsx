@@ -68,13 +68,11 @@ function FavoriteButtonDemo() {
   const initFavorites = generateRandomBooleanArray(5);
   const [favorites, setFavorites] = useState(initFavorites);
   const resetFavorites = () => {
-    console.log("resetFavorites");
-
     setFavorites(generateRandomBooleanArray(5));
   };
   return (
     <div className="test">
-      {initFavorites.map((favorite, index) => (
+      {favorites.map((favorite, index) => (
         <FavoriteButton
           initIsFavorite={favorite}
           key={index}
@@ -104,4 +102,4 @@ function generateRandomBooleanArray(count) {
   return randomBooleanArray;
 }
 
-export { FavoriteButtonDemo };
+export { FavoriteButtonDemo, FavoriteButton };

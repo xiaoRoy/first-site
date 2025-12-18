@@ -1,19 +1,33 @@
+import { FavoriteButton } from "./favorite-button";
+
 function ContactCard({ contact }) {
   return (
-    <div className="flex items-start">
-      <img src={contact.avatar} alt="avatar" className="rounded-3xl" />
+    <div className="flex">
+      <img
+        src={contact.avatar}
+        alt="avatar"
+        className="rounded-3xl w-48 h-48 mr-8 bg-x3 object-cover"
+      />
       <div>
-        <div className="flex">
-          <h1 className="text-4xl/tight font-bold outline-none">{contact.fullName}</h1>
-          <img src="" alt="favorite" />
+        <div className="flex items-center gap-2">
+          <h1
+            className="text-[2rem]/tight font-bold outline-none focus:text-focus"
+            tabIndex="0"
+          >
+            {contact.fullName}
+          </h1>
+          <FavoriteButton size={56} initIsFavorite={false}></FavoriteButton>
         </div>
-        <a href="">
+        <a
+          href=""
+          className="text-[1.5rem] text-action hover:underline decoration-2"
+        >
           <span>{contact.twitter}</span>
         </a>
         <p>{contact.notes}</p>
-        <div>
-          <button className="inline-block">Edit</button>
-          <button className="inline-block">Delete</button>
+        <div className="my-4">
+          <button className="inline-block mx-4 primary-button">Edit</button>
+          <button className="inline-block mx-4 primary-button">Delete</button>
         </div>
       </div>
     </div>
