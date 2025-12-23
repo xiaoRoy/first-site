@@ -1,7 +1,6 @@
 import "./address-book-index.css";
-import ContactCard from "./contact";
+import ContactCard from "./Contact";
 import { readContacts, ContactInfo } from "./data/data";
-import { FavoriteButtonDemo } from "./favorite-button";
 
 function Search() {
   return (

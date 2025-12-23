@@ -1,4 +1,4 @@
-import { FavoriteButton } from "./favorite-button";
+import { FavoriteButton } from "./FavoriteButton";
 
 function ContactCard({ contact }) {
   return (

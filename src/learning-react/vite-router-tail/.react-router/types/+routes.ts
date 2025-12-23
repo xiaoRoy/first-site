@@ -14,30 +14,25 @@ type Pages = {
   "/": {
     params: {};
   };
-  "/*": {
-    params: {
-      "*": string;
-    };
-  };
 };
 
 type RouteFiles = {
   "root.jsx": {
     id: "root";
-    page: "/" | "/*";
+    page: "/";
   };
   "./rr-main.jsx": {
     id: "rr-main";
     page: "/";
   };
-  "catch-all.jsx": {
-    id: "catch-all";
-    page: "/" | "/*";
+  "./router/address-book/AddressBook.jsx": {
+    id: "router/address-book/AddressBook";
+    page: "/";
   };
 };
 
 type RouteModules = {
   "root": typeof import("./src/root.jsx");
   "rr-main": typeof import("./src/./rr-main.jsx");
-  "catch-all": typeof import("./src/catch-all.jsx");
+  "router/address-book/AddressBook": typeof import("./src/./router/address-book/AddressBook.jsx");
 };
