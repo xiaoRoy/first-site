@@ -9,7 +9,7 @@ class ContactInfo {
     this.twitter = twitter;
     this.notes = notes;
     this.favorite = favorite;
-    this.fullName = `${firstName} ${lastName}`
+    this.fullName = `${firstName} ${lastName}`;
   }
 
   static fromJSON(jsonObject) {
@@ -21,4 +21,10 @@ function readContacts() {
   return contacts.map((jsonObject) => ContactInfo.fromJSON(jsonObject));
 }
 
-export { ContactInfo, readContacts };
+const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+function getContacts() {
+  return wait(500).then(() => readContacts());
+}
+
+export { ContactInfo, readContacts, getContacts };

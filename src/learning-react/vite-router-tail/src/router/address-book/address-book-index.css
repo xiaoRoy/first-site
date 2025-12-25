@@ -1,11 +1,11 @@
 @import "tailwindcss";
 @import "./styles/favorite.css";
 
-
 @theme {
   --color-x1: #f7f7f7;
   --color-x2: #e3e3e3;
   --color-x3: #c8c8c8;
+  --color-x4: #818181;
   --color-action: #3992ff;
   --color-focus: #2b63fd;
 }

@@ -14,20 +14,29 @@ type Pages = {
   "/": {
     params: {};
   };
+  "/contacts/:contactId": {
+    params: {
+      "contactId": string;
+    };
+  };
 };
 
 type RouteFiles = {
   "root.jsx": {
     id: "root";
-    page: "/";
+    page: "/" | "/contacts/:contactId";
   };
   "./rr-main.jsx": {
     id: "rr-main";
-    page: "/";
+    page: "/" | "/contacts/:contactId";
   };
   "./router/address-book/AddressBook.jsx": {
     id: "router/address-book/AddressBook";
     page: "/";
+  };
+  "./router/address-book/routes/ContactDetailPage.jsx": {
+    id: "router/address-book/routes/ContactDetailPage";
+    page: "/contacts/:contactId";
   };
 };
 
@@ -35,4 +44,5 @@ type RouteModules = {
   "root": typeof import("./src/root.jsx");
   "rr-main": typeof import("./src/./rr-main.jsx");
   "router/address-book/AddressBook": typeof import("./src/./router/address-book/AddressBook.jsx");
+  "router/address-book/routes/ContactDetailPage": typeof import("./src/./router/address-book/routes/ContactDetailPage.jsx");
 };

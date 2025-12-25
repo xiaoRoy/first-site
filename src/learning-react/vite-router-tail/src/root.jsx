@@ -19,6 +19,15 @@ export function Layout({ children }) {
   );
 }
 
+// export function HydrateFallback() {
+//   return (
+//     <div id="loading-splash" className="bg-amber-400">
+//       <div id="loading-splash-spinner" />
+//       <p>Loading, please wait...</p>
+//     </div>
+//   );
+// }
+
 export default function Root() {
   return <Outlet></Outlet>;
 }
