@@ -1,5 +1,5 @@
-import EffectPlayGroundDemo from "./use-effects/synchronizing/EffectPlayground";
+import FirstChallenge from "./use-effects/synchronizing/challenge/FirstChallenge";
 
 export default function ReactOfficialDemoApp() {
-  return <EffectPlayGroundDemo></EffectPlayGroundDemo>;
+  return <FirstChallenge></FirstChallenge>;
 }
