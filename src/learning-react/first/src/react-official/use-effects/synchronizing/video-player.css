@@ -1,0 +1,12 @@
+input,
+button {
+  display: block;
+  margin-bottom: 20px;
+}
+video {
+  width: 250px;
+}
+
+.video-player-container {
+    margin: 4rem;
+}

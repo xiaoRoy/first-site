@@ -1,6 +1,5 @@
-import TasksManagerDemo from "./manage-state/reducer/tasks";
-import ChatAppDemoV2 from "./manage-state/reducer/contacts-v2";
+import EffectPlayGroundDemo from "./use-effects/synchronizing/EffectPlayground";
 
 export default function ReactOfficialDemoApp() {
-  return <ChatAppDemoV2></ChatAppDemoV2>;
+  return <EffectPlayGroundDemo></EffectPlayGroundDemo>;
 }
