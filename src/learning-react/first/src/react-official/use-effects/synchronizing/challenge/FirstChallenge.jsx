@@ -1,31 +1,41 @@
-import { useEffect } from "react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import "./first-challenge.css";
 
 function FirstChallenge() {
   const [isVisible, setVisible] = useState(false);
-  const [name, setName] = useState("Smith");
+  const [firstName, setFirstName] = useState("Smith");
+  const [lastName, setLastName] = useState("Alan");
   const [isUpper, setUpper] = useState(false);
 
   const onVisibleChange = () => setVisible((value) => !value);
   const buttonText = isVisible ? "hide" : "visible";
 
-  const message = isUpper ? name.toUpperCase() : name;
+  let fullName = `${firstName} ${lastName}`;
+  if (isUpper) {
+    fullName = fullName.toUpperCase();
+  }
 
-  const styles = {
-    display: "flex",
-    flexDirection: "column",
-  };
   return (
     <div>
       <button onClick={onVisibleChange}>{buttonText}</button>
       <hr />
       {isVisible && (
-        <div style={styles}>
-          <label>
-            Enter your name:
+        <div className="name-container">
+          <label className="name-label">
+            <span className="input-name-hint">Enter your first name:</span>
+
             <FocusableInput
-              value={name}
-              onChange={(name) => setName(name)}
+              shouldFocus={true}
+              value={firstName}
+              onChange={(name) => setFirstName(name)}
+            ></FocusableInput>
+          </label>
+
+          <label className="name-label">
+            <span className="input-name-hint">Enter your last name:</span>
+            <FocusableInput
+              value={lastName}
+              onChange={(name) => setLastName(name)}
             ></FocusableInput>
           </label>
 
@@ -38,7 +48,7 @@ function FirstChallenge() {
             Make it uppercase!
           </label>
           <p>
-            Hello!<b>{message}</b>
+            Hello! <b>{fullName}</b>
           </p>
         </div>
       )}
@@ -46,14 +56,21 @@ function FirstChallenge() {
   );
 }
 
-function FocusableInput({ value, onChange }) {
+function FocusableInput({ shouldFocus, value, onChange }) {
   const inputRef = useRef(null);
   useEffect(() => {
-    inputRef.current.focus();
-  }, []);
+    if (shouldFocus) {
+      inputRef.current.focus();
+    }
+  }, [shouldFocus]);
   const internalOnChange = (event) => onChange(event.target.value);
   return (
-    <input ref={inputRef} value={value} onChange={internalOnChange}></input>
+    <input
+      className="name-input"
+      ref={inputRef}
+      value={value}
+      onChange={internalOnChange}
+    ></input>
   );
 }
 

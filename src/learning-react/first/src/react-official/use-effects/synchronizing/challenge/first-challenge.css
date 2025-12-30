@@ -1,0 +1,14 @@
+.name-input {
+  min-width: 128px;
+}
+
+.name-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.name-label {
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+}
