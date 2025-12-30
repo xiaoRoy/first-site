@@ -1,5 +1,5 @@
-import FirstChallenge from "./use-effects/synchronizing/challenge/FirstChallenge";
+import BiographyPageDemo from "./use-effects/synchronizing/challenges/FourthChallenge";
 
 export default function ReactOfficialDemoApp() {
-  return <FirstChallenge></FirstChallenge>;
+  return <BiographyPageDemo></BiographyPageDemo>;
 }
