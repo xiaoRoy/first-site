@@ -1,7 +1,6 @@
+import { useCallback, useState } from "react";
+import useData from "../../not-need/useData";
 // data
-
-import { useEffect } from "react";
-import { useState } from "react";
 
 async function fetchBio(person) {
   const delay = person === "Bob" ? 2000 : 200;
@@ -19,19 +18,8 @@ const fakePersonArray = ["Alice", "Smith", "Alan", "Bob", "Jones"];
 
 function BiographyPage() {
   const [person, setPerson] = useState("Alice");
-  const [bio, setBio] = useState(null);
-  useEffect(() => {
-    let ignore = false;
-    setBio(null);
-    fetchBio(person).then((result) => {
-      if (!ignore) {
-        setBio(result);
-      }
-    });
-    return () => {
-      ignore = true;
-    };
-  }, [person]);
+  const operation = useCallback(() => fetchBio(person), [person]);
+  const bio = useData(operation);
   return (
     <div>
       <select
