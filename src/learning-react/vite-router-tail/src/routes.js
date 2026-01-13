@@ -5,4 +5,6 @@ export default [
     index("./router/address-book/AddressBook.jsx"),
     route("contacts/:contactId", `${addressBookBasePath}ContactDetailPage.jsx`),
   ]),
+
+  route("todo", "./react-official/use-effects/not-need/challenge-one/Todo.jsx"),
 ];
