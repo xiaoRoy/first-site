@@ -1,0 +1,90 @@
+*,
+::after,
+::before,
+::backdrop,
+::file-selector-button {
+  box-sizing: border-box; /* 1 */
+  margin: 0; /* 2 */
+  padding: 0; /* 2 */
+  border: 0 solid; /* 3 */
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  padding: 0.25rem;
+  gap: 0.25rem;
+  border: 1px solid #cad5a2;
+}
+
+.button-container {
+  display: flex;
+  /* flex: 1 1 auto; */
+  flex: 1;
+  justify-content: center;
+  min-width: 0;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  gap: 0.5rem;
+  border: 1px solid black;
+}
+
+.button-container button {
+    white-space: nowrap;
+}
+
+/* .box {
+  width: 32px;
+  height: 32px;
+  background: #2c2c2c;
+  margin: 6px;
+}
+
+.bg-red {
+  background-color: red;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+.flex-1 {
+  flex: 1;
+}
+
+section {
+  border: 1px solid blue;
+  margin: 16px;
+}
+.container {
+  border: 1px solid blue;
+  margin: 16px;
+  padding: 2rem 4rem;
+}
+
+.fixed-height {
+  height: 48px;
+  display: flex;
+}
+
+.flex {
+  display: flex;
+}
+
+.box-basis {
+  height: 30px;
+  flex-basis: 0%;
+  border: 1px solid #2c2c2c;
+}
+
+.button-test {
+  border: 1px solid #2c2c2c;
+} */
