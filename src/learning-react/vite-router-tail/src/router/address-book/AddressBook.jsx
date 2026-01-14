@@ -1,4 +1,3 @@
-import "./address-book-index.css";
 import { readContacts, ContactInfo, getContacts } from "./data/data";
 import { Outlet, Link } from "react-router";
 
@@ -97,7 +96,7 @@ export default function AddressBookApp({ loaderData }) {
     favorite: true,
   });
   return (
-    <div className="flex h-full overflow-hidden">
+    <div className="flex h-full overflow-hidden" id="address-book-app">
       <ContactSideBar contacts={contacts}></ContactSideBar>
       <div className="grow-1 overflow-auto py-8 px-16">
         <Outlet></Outlet>

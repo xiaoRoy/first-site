@@ -1,4 +1,5 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+import "./root.css";
 
 export function Layout({ children }) {
   return (
@@ -9,6 +10,7 @@ export function Layout({ children }) {
         <title>Address Book</title>
         <Meta />
         <Links />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico"></link>
       </head>
       <body>
         {children}

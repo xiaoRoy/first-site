@@ -1,0 +1,192 @@
+import { useState } from "react";
+import Icons from "./Icons";
+
+const classes = (...arr) => arr.filter(Boolean).join(" ");
+
+function TodoFilterButton({ filter, currentFilter, onFilterChange }) {
+  const { id, label, icon: FilterIcon } = filter;
+  const internalOnFilterChanged = () => onFilterChange(id);
+  const isCurrentFilter = currentFilter === id;
+  const containerStyles = classes(
+    "flex flex-1 items-center gap-2 px-4 py-2 transition-all rounded-lg justify-center min-w-0 cursor-pointer",
+    isCurrentFilter
+      ? "bg-todo-1 text-amber-500"
+      : "text-slate-500 hover:text-slate-800"
+  );
+  const buttonStyles = classes(
+    "text-[10px] tracking-wider transition-all font-bold uppercase whitespace-nowrap min-w-0 cursor-pointer",
+    isCurrentFilter && "bg-todo-1 shadow-md scale-[1.02]"
+  );
+  return (
+    <div className={containerStyles} onClick={internalOnFilterChanged}>
+      <FilterIcon></FilterIcon>
+      <button className={buttonStyles}>{label}</button>
+    </div>
+  );
+}
+
+function TodoFilter() {
+  const [filterId, setFilterId] = useState("all");
+  const filters = [
+    { id: "all", label: "All Chapters", icon: Icons.Layers },
+    { id: "active", label: "In Progress", icon: Icons.Zap },
+    { id: "completed", label: "Finished", icon: Icons.CheckCircle },
+  ];
+  const onFilterChange = (filterId) => setFilterId(filterId);
+  return (
+    <nav className="mb-10 flex justify-center">
+      <div className="flex bg-todo-2 rounded-xl shadow-inner border-slate-300/50 font-sans border p-1 gap-1">
+        {filters.map((filter) => (
+          <TodoFilterButton
+            key={filter.id}
+            filter={filter}
+            currentFilter={filterId}
+            onFilterChange={onFilterChange}
+          ></TodoFilterButton>
+        ))}
+      </div>
+    </nav>
+  );
+}
+
+function TodoItem({ todoItem, index }) {
+  const { completed, itemName } = todoItem;
+  const containerStyles = classes(
+    "group flex items-start gap-6 transition-all",
+    completed && "opacity-40 grayscale-[0.5]"
+  );
+
+  const buttonCompletedStyles =
+    "bg-amber-100 border-amber-200 shadow-[inset_0_2px_4px_rgba(0,0,0,0.05)]";
+  const buttonNotCompletedStyles =
+    "bg-white border-slate-200 group-hover:border-amber-400 group-hover:scale-105";
+  const buttonStyles = classes(
+    "shadow-inner todo-button rounded-full flex items-center justify-center transition-all border",
+    completed ? buttonCompletedStyles : buttonNotCompletedStyles
+  );
+
+  const itemStyles = classes(
+    "text-2xl font-medium leading-tight",
+    completed && "line-through decoration-amber-600/30"
+  );
+
+  return (
+    <div className={containerStyles}>
+      <div className="shrink-0 relative">
+        <button className={buttonStyles}>
+          {completed ? (
+            <div className="text-amber-600">
+              <Icons.Trophy></Icons.Trophy>
+            </div>
+          ) : (
+            <span className="text-sm font-sans font-black text-slate-400 group-hover:text-amber-600">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+          )}
+        </button>
+
+        {!completed && (
+          <div className="absolute -bottom-9 left-1/2 -translate-x-1/2 text-slate-300 scale-90">
+            <Icons.BookOpen>
+              No entries found in this section of the anthology.
+            </Icons.BookOpen>
+          </div>
+        )}
+      </div>
+
+      <div className="flex-1 pt-3">
+        <div className="flex justify-between items-start border-b border-slate-200/50 pb-5">
+          <p className={itemStyles}>{itemName}</p>
+          <button className="opacity-0 group-hover:opacity-100 p-1 text-slate-300 hover:text-rose-500 transition-all">
+            <Icons.Trash></Icons.Trash>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function TodoList({ todoList }) {
+  const hasTodos = todoList?.length > 0;
+  return (
+    <div className="space-y-8">
+      {hasTodos ? (
+        todoList.map((todo, index) => (
+          <TodoItem key={todo.id} todoItem={todo} index={index}></TodoItem>
+        ))
+      ) : (
+        <div className="text-center py-20 border-2 border-dashed rounded-3xl border-slate-300/30">
+          <p className="text-slate-400 italic">
+            No entries found in this section of the anthology.
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+const FAKE_TODOS = [
+  {
+    id: 1,
+    completed: true,
+    itemName: "buy groceries",
+  },
+  {
+    id: 2,
+    completed: false,
+    itemName: "finish report",
+  },
+  {
+    id: 3,
+    completed: false,
+    itemName: "call mom",
+  },
+  {
+    id: 4,
+    completed: true,
+    itemName: "wash the car",
+  },
+  {
+    id: 5,
+    completed: false,
+    itemName: "meditate",
+  },
+];
+
+function TodoInput() {
+  return (
+    <form className="flex gap-4 items-center group">
+      <div className="todo-button rounded-full bg-todo-1 flex items-center justify-center text-white shrink-0 shadow-xl group-focus-within:scale-110 transition-transform border-amber-600/30">
+        <Icons.Plus></Icons.Plus>
+      </div>
+      <input
+        type="text"
+        placeholder="Next Mile, next page.."
+        className="flex-1 bg-transparent border-b border-slate-300 py-3 text-2xl focus:outline-none focus:border-amber-700 transition-colors todo-placeholder"
+      />
+    </form>
+  );
+}
+
+function TodoListMain() {
+  return (
+    <div className="relative">
+      <div className="absolute left-0  w-14 top-0 bottom-0">
+        <div className="absolute left-1/2 w-[1px] -translate-x-1/2 h-full bg-slate-300"></div>
+      </div>
+      <main className="space-y-10 relative z-10">
+        <TodoInput></TodoInput>
+        <TodoList todoList={FAKE_TODOS}></TodoList>
+      </main>
+    </div>
+  );
+}
+
+export default function TodoAppDemo() {
+  return <TodoFilter></TodoFilter>;
+  return (
+    <div className="font-serif">
+      <TodoListMain></TodoListMain>
+    </div>
+  );
+}

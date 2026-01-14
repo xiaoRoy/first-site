@@ -1,0 +1,17 @@
+
+@theme {
+     --color-todo-1: #2c2c2c;
+     --color-todo-2: #e8e2d6;
+}
+
+@layer components {
+  .todo-placeholder {
+    @variant placeholder {
+      @apply italic text-slate-400 font-light;
+    }
+  }
+
+  .todo-button {
+    @apply w-14 h-14;
+  }
+}

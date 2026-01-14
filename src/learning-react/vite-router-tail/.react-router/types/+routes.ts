@@ -19,12 +19,15 @@ type Pages = {
       "contactId": string;
     };
   };
+  "/todo": {
+    params: {};
+  };
 };
 
 type RouteFiles = {
   "root.jsx": {
     id: "root";
-    page: "/" | "/contacts/:contactId";
+    page: "/" | "/contacts/:contactId" | "/todo";
   };
   "./rr-main.jsx": {
     id: "rr-main";
@@ -38,6 +41,10 @@ type RouteFiles = {
     id: "router/address-book/routes/ContactDetailPage";
     page: "/contacts/:contactId";
   };
+  "./react-official/use-effects/not-need/challenge-one/Todo.jsx": {
+    id: "react-official/use-effects/not-need/challenge-one/Todo";
+    page: "/todo";
+  };
 };
 
 type RouteModules = {
@@ -45,4 +52,5 @@ type RouteModules = {
   "rr-main": typeof import("./src/./rr-main.jsx");
   "router/address-book/AddressBook": typeof import("./src/./router/address-book/AddressBook.jsx");
   "router/address-book/routes/ContactDetailPage": typeof import("./src/./router/address-book/routes/ContactDetailPage.jsx");
+  "react-official/use-effects/not-need/challenge-one/Todo": typeof import("./src/./react-official/use-effects/not-need/challenge-one/Todo.jsx");
 };
