@@ -1,7 +1,7 @@
-
 @theme {
-     --color-todo-1: #2c2c2c;
-     --color-todo-2: #e8e2d6;
+  --color-todo-1: #2c2c2c;
+  --color-todo-2: #e8e2d6;
+  --color-todo-main: #f2ede4;
 }
 
 @layer components {

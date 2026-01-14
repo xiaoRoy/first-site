@@ -25,16 +25,39 @@ function TodoFilterButton({ filter, currentFilter, onFilterChange }) {
   );
 }
 
-function TodoFilter() {
-  const [filterId, setFilterId] = useState("all");
-  const filters = [
-    { id: "all", label: "All Chapters", icon: Icons.Layers },
-    { id: "active", label: "In Progress", icon: Icons.Zap },
-    { id: "completed", label: "Finished", icon: Icons.CheckCircle },
-  ];
-  const onFilterChange = (filterId) => setFilterId(filterId);
+const TODO_FILTER_IDS = {
+  ALL: "all",
+  ACTIVE: "active",
+  COMPLETED: "completed",
+};
+
+function Unread({ unreadCount }) {
   return (
-    <nav className="mb-10 flex justify-center">
+    <div className="flex flex-col items-end pr-6 border-r border-slate-300">
+      <span className="text-[9px] font-sans font-black uppercase tracking-widest text-slate-400 leading-none">
+        Unread
+      </span>
+      <span className="text-2xl font-sans font-black text-amber-700 leading-none">
+        {unreadCount}
+      </span>
+    </div>
+  );
+}
+
+function TodoFilter({ filterId, onFilterChange, unreadCount }) {
+  const filters = [
+    { id: TODO_FILTER_IDS.ALL, label: "All Chapters", icon: Icons.Layers },
+    { id: TODO_FILTER_IDS.ACTIVE, label: "In Progress", icon: Icons.Zap },
+    {
+      id: TODO_FILTER_IDS.COMPLETED,
+      label: "Finished",
+      icon: Icons.CheckCircle,
+    },
+  ];
+
+  return (
+    <nav className="mb-10 flex justify-center flex-wrap items-center gap-6">
+      <Unread unreadCount={unreadCount}></Unread>
       <div className="flex bg-todo-2 rounded-xl shadow-inner border-slate-300/50 font-sans border p-1 gap-1">
         {filters.map((filter) => (
           <TodoFilterButton
@@ -168,7 +191,7 @@ function TodoInput() {
   );
 }
 
-function TodoListMain() {
+function TodoListMain({ todoList }) {
   return (
     <div className="relative">
       <div className="absolute left-0  w-14 top-0 bottom-0">
@@ -176,17 +199,33 @@ function TodoListMain() {
       </div>
       <main className="space-y-10 relative z-10">
         <TodoInput></TodoInput>
-        <TodoList todoList={FAKE_TODOS}></TodoList>
+        <TodoList todoList={todoList}></TodoList>
       </main>
     </div>
   );
 }
 
 export default function TodoAppDemo() {
-  return <TodoFilter></TodoFilter>;
+  const [filterId, setFilterId] = useState(TODO_FILTER_IDS.ALL);
+
+  const filerAction = {
+    [TODO_FILTER_IDS.ALL]: (todo) => true,
+    [TODO_FILTER_IDS.ACTIVE]: (todo) => !todo.completed,
+    [TODO_FILTER_IDS.COMPLETED]: (todo) => todo.completed,
+  };
+  const todoResult = FAKE_TODOS.filter(filerAction[filterId]);
+  const onFilterChange = (filterId) => setFilterId(filterId);
+  const activeCount = FAKE_TODOS.filter((todo) => !todo.completed).length;
   return (
-    <div className="font-serif">
-      <TodoListMain></TodoListMain>
+    <div className="bg-amber-300 min-h-screen bg-todo-main text-todo-1 font-serif selection:bg-orange-100 overflow-hidden">
+      <div className="max-w-xl mx-auto px-6 py-12 min-h-full flex flex-col ">
+        <TodoFilter
+          filterId={filterId}
+          onFilterChange={onFilterChange}
+          unreadCount={activeCount}
+        ></TodoFilter>
+        <TodoListMain todoList={todoResult}></TodoListMain>
+      </div>
     </div>
   );
 }
