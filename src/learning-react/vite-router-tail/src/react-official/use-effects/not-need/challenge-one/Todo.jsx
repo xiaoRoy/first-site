@@ -215,18 +215,18 @@ function TodoListMain({ todoList, onTodoDelete }) {
 
 export default function TodoAppDemo() {
   const [filterId, setFilterId] = useState(TODO_FILTER_IDS.ALL);
-  const [todList, setTodoList] = useState(FAKE_TODOS);
+  const [todoList, setTodoList] = useState(FAKE_TODOS);
   const filerAction = {
     [TODO_FILTER_IDS.ALL]: (todo) => true,
     [TODO_FILTER_IDS.ACTIVE]: (todo) => !todo.completed,
     [TODO_FILTER_IDS.COMPLETED]: (todo) => todo.completed,
   };
-  const todoResult = todList.filter(filerAction[filterId]);
+  const todoResult = todoList.filter(filerAction[filterId]);
   const onFilterChange = (filterId) => setFilterId(filterId);
-  const activeCount = todList.filter((todo) => !todo.completed).length;
+  const activeCount = todoList.filter((todo) => !todo.completed).length;
 
   const onTodoDelete = (deletedTodo) => {
-    const result = todList.filter((todo) => deletedTodo.id !== todo.id);
+    const result = todoList.filter((todo) => deletedTodo.id !== todo.id);
     setTodoList(result);
   };
   return (

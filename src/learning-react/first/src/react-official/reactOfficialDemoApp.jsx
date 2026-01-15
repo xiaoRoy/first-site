@@ -1,5 +1,7 @@
-import BiographyPageDemo from "./use-effects/synchronizing/challenges/FourthChallenge";
+// import BiographyPageDemo from "./use-effects/synchronizing/challenges/FourthChallenge";
+
+import PageDemo from "./manage-state/context/Page";
 
 export default function ReactOfficialDemoApp() {
-  return <BiographyPageDemo></BiographyPageDemo>;
+  return <PageDemo></PageDemo>;
 }
