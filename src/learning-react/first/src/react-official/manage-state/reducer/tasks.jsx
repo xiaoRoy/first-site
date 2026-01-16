@@ -1,8 +1,16 @@
 import { useReducer, useState } from "react";
 import "./styles/tasks.css";
 
-function AddTask({ onTaskAdded }) {
+import { useContext } from "react";
+import TasksProvider, {
+  TasksContext,
+  TasksDispatchContext,
+  TASK_ACTIONS,
+} from "./TasksContext";
+
+function AddTask() {
   const [task, setTask] = useState(null);
+  const dispatch = useContext(TasksDispatchContext);
   const onTaskChanged = (event) => {
     const taskName = event.target.value;
     let updatedTask;
@@ -15,8 +23,11 @@ function AddTask({ onTaskAdded }) {
     setTask(updatedTask);
   };
 
-  const internalOnTaskAdded = (event) => {
-    onTaskAdded(task);
+  const onTaskAdded = (event) => {
+    dispatch({
+      task: task,
+      type: TASK_ACTIONS.ADD,
+    });
     setTask(null);
   };
   return (
@@ -36,14 +47,14 @@ function AddTask({ onTaskAdded }) {
           type="button"
           value="Add"
           id="add-task-button"
-          onClick={internalOnTaskAdded}
+          onClick={onTaskAdded}
         />
       </label>
     </div>
   );
 }
 
-function TaskItem({ task, onTaskChanged, onTaskDeleted }) {
+function TaskItem({ task }) {
   const TASK_NAMES = {
     name: "task-name",
     completed: "task-completed",
@@ -56,7 +67,9 @@ function TaskItem({ task, onTaskChanged, onTaskDeleted }) {
   const [isEditing, setEditing] = useState(false);
   const [draftTask, setDraftTask] = useState(task.copy());
 
-  const internalOnTaskChanged = (event) => {
+  const dispatch = useContext(TasksDispatchContext);
+
+  const onTaskChanged = (event) => {
     const updatedTask = task.copy();
     const target = event.target;
 
@@ -70,7 +83,10 @@ function TaskItem({ task, onTaskChanged, onTaskDeleted }) {
         updatedValue = target.value;
       }
       updatedTask[fieldOfTask] = updatedValue;
-      onTaskChanged(updatedTask);
+      dispatch({
+        task: updatedTask,
+        type: TASK_ACTIONS.EDIT,
+      });
     } else {
       throw new Error(`No such field named ${fieldOfTask}in class Task.`);
     }
@@ -79,7 +95,10 @@ function TaskItem({ task, onTaskChanged, onTaskDeleted }) {
     setEditing((value) => !value);
 
     if (isEditing) {
-      onTaskChanged(draftTask);
+      dispatch({
+        task: draftTask,
+        type: TASK_ACTIONS.EDIT,
+      });
     }
   };
 
@@ -120,8 +139,8 @@ function TaskItem({ task, onTaskChanged, onTaskDeleted }) {
     setDraftTask(task.copy());
   };
 
-  const internalOnTaskDeleted = () => {
-    onTaskDeleted(draftTask);
+  const onTaskDeleted = () => {
+    dispatch({ task: draftTask, type: TASK_ACTIONS.DEL });
   };
 
   return (
@@ -132,7 +151,7 @@ function TaskItem({ task, onTaskChanged, onTaskDeleted }) {
           id="task-completed"
           name={TASK_NAMES.completed}
           checked={task.isCompleted}
-          onChange={internalOnTaskChanged}
+          onChange={onTaskChanged}
         />
       </label>
       {taskState.component}
@@ -161,103 +180,32 @@ function TaskItem({ task, onTaskChanged, onTaskDeleted }) {
         name="delete-task"
         id="delete-task"
         value="Delete"
-        onClick={internalOnTaskDeleted}
+        onClick={onTaskDeleted}
       ></input>
     </div>
   );
 }
 
-function TaskList({ tasks, onTaskChanged, onTaskDeleted }) {
-  const internalOnTaskChanged = (task) => {
-    onTaskChanged(task);
-  };
+function TaskList() {
+  const tasks = useContext(TasksContext);
   return (
     <div className="task-list">
       {tasks.map((task) => (
-        <TaskItem
-          task={task}
-          key={task.id}
-          onTaskChanged={internalOnTaskChanged}
-          onTaskDeleted={onTaskDeleted}
-        ></TaskItem>
+        <TaskItem task={task} key={task.id}></TaskItem>
       ))}
     </div>
   );
 }
 
-const TASK_ACTIONS = {
-  ADD: "add",
-  EDIT: "edit",
-  DEL: "delete",
-};
-
-function tasksReducer(tasks, action) {
-  const newTask = action.task;
-  let updatedTasks;
-  switch (action.type) {
-    case TASK_ACTIONS.ADD: {
-      updatedTasks = Array.from(tasks);
-      updatedTasks.push(newTask);
-      break;
-    }
-
-    case TASK_ACTIONS.EDIT: {
-      updatedTasks = tasks.map((task) => {
-        let result;
-        if (task.id === newTask.id) {
-          result = newTask;
-        } else {
-          result = task;
-        }
-        return result;
-      });
-      break;
-    }
-
-    case TASK_ACTIONS.DEL: {
-      updatedTasks = tasks.filter((task) => task.id !== newTask.id);
-      break;
-    }
-    default: {
-      throw Error(`Unknown action:${action.type}`);
-    }
-  }
-  return updatedTasks;
-}
-
 function TasksManager() {
-  // const [taskList, setTaskList] = useState(TASK_LIST);
-  const [taskList, dispatch] = useReducer(tasksReducer, TASK_LIST);
-  const onTaskAdded = (addedTask) => {
-    dispatch({
-      task: addedTask,
-      type: TASK_ACTIONS.ADD,
-    });
-  };
-
-  const onTaskChanged = (updatedTask) => {
-    dispatch({
-      task: updatedTask,
-      type: TASK_ACTIONS.EDIT,
-    });
-  };
-
-  const onTaskDeleted = (deletedTask) => {
-    dispatch({
-      task: deletedTask,
-      type: TASK_ACTIONS.DEL,
-    });
-  };
   return (
-    <div>
-      <h1>Task manager</h1>
-      <AddTask onTaskAdded={onTaskAdded}></AddTask>
-      <TaskList
-        tasks={taskList}
-        onTaskChanged={onTaskChanged}
-        onTaskDeleted={onTaskDeleted}
-      ></TaskList>
-    </div>
+    <TasksProvider initialTasks={TASK_LIST}>
+      <div>
+        <h1>Task manager</h1>
+        <AddTask></AddTask>
+        <TaskList></TaskList>
+      </div>
+    </TasksProvider>
   );
 }
 
