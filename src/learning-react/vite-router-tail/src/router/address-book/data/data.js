@@ -23,8 +23,9 @@ function readContacts() {
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-function getContacts() {
+async function getContacts() {
   return wait(500).then(() => readContacts());
 }
 
-export { ContactInfo, readContacts, getContacts };
+export { ContactInfo, getContacts, readContacts };
+
