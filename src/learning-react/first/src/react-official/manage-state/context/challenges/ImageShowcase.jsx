@@ -1,14 +1,22 @@
 import "./styles.css";
 import places from "./imageData.json";
 import { useState } from "react";
+import { createContext } from "react";
+import { useContext } from "react";
 
 export default function ImagePlaceShowcaseDemo() {
   return <ImagePlaceShowcase></ImagePlaceShowcase>;
 }
+const IMAGE_SIZE = {
+  LARGE: 150,
+  SMALL: 100,
+};
+
+const ImageSizeContext = createContext(IMAGE_SIZE.LARGE);
 
 function ImagePlaceShowcase() {
   const [isLarge, setLarge] = useState(false);
-  const imageSize = isLarge ? 150 : 100;
+  const imageSize = isLarge ? IMAGE_SIZE.LARGE : IMAGE_SIZE.SMALL;
   const onLargeChange = (isLarge) => setLarge(isLarge);
   return (
     <div>
@@ -21,27 +29,29 @@ function ImagePlaceShowcase() {
         Use large images
       </label>
       <hr />
-      <ImagePlaceList imageSize={imageSize}></ImagePlaceList>
+      <ImageSizeContext.Provider value={imageSize}>
+        <ImagePlaceList></ImagePlaceList>
+      </ImageSizeContext.Provider>
     </div>
   );
 }
 
-function ImagePlaceList({ imageSize }) {
+function ImagePlaceList() {
   return (
     <ul>
       {places.map((place) => (
         <li key={place.id}>
-          <Place place={place} imageSize={imageSize}></Place>
+          <Place place={place}></Place>
         </li>
       ))}
     </ul>
   );
 }
 
-function Place({ place, imageSize }) {
+function Place({ place }) {
   return (
     <>
-      <PlaceImage place={place} imageSize={imageSize}></PlaceImage>
+      <PlaceImage place={place}></PlaceImage>
       <p>
         <b>{place.name}</b>
         {`: ${place.description}`}
@@ -50,7 +60,8 @@ function Place({ place, imageSize }) {
   );
 }
 
-function PlaceImage({ place, imageSize }) {
+function PlaceImage({ place }) {
+  const imageSize = useContext(ImageSizeContext);
   const imageUrl = `https://i.imgur.com/${place.imageId}l.jpg`;
   const styles = {
     width: imageSize,
