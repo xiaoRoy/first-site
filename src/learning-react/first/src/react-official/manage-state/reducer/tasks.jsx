@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react";
+import { useState } from "react";
 import "./styles/tasks.css";
 
 import { useContext } from "react";
