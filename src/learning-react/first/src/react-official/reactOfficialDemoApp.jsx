@@ -1,5 +1,6 @@
-import NamesInputDemo from "./manage-state/state-preserving-resetting/ challenges/ChallengeTwo";
+import ContactManagerDemo from "./manage-state/state-preserving-resetting/challenges/ChallengeThree";
 
 export default function ReactOfficialDemoApp() {
-  return <NamesInputDemo></NamesInputDemo>;
+  return <ContactManagerDemo></ContactManagerDemo>;
+
 }
