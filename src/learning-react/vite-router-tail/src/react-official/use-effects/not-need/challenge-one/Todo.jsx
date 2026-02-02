@@ -77,7 +77,8 @@ function TodoFilter({ unreadCount }) {
   );
 }
 
-function TodoItem({ todoItem, index, onTodoDelete }) {
+function TodoItem({ todoItem, index }) {
+  const dispatch = useContext(TodosDispatchContext);
   const { completed, itemName } = todoItem;
   const containerStyles = classes(
     "group flex items-start gap-6 transition-all",
@@ -97,7 +98,11 @@ function TodoItem({ todoItem, index, onTodoDelete }) {
     "text-2xl font-medium leading-tight",
     completed && "line-through decoration-amber-600/30"
   );
-  const internalOnTodoDelete = () => onTodoDelete(todoItem);
+  const onTodoDelete = () =>
+    dispatch({
+      actionType: TODO_ACTION.DEL,
+      todo: todoItem,
+    });
   return (
     <div className={containerStyles}>
       <div className="shrink-0 relative">
@@ -127,7 +132,7 @@ function TodoItem({ todoItem, index, onTodoDelete }) {
           <p className={itemStyles}>{itemName}</p>
           <button
             className="opacity-0 group-hover:opacity-100 p-1 text-slate-300 hover:text-rose-500 transition-all"
-            onClick={internalOnTodoDelete}
+            onClick={onTodoDelete}
           >
             <Icons.Trash></Icons.Trash>
           </button>
@@ -137,18 +142,13 @@ function TodoItem({ todoItem, index, onTodoDelete }) {
   );
 }
 
-function TodoList({ todoList, onTodoDelete }) {
+function TodoList({ todoList }) {
   const hasTodos = todoList?.length > 0;
   return (
     <div className="space-y-8">
       {hasTodos ? (
         todoList.map((todo, index) => (
-          <TodoItem
-            key={todo.id}
-            todoItem={todo}
-            index={index}
-            onTodoDelete={onTodoDelete}
-          ></TodoItem>
+          <TodoItem key={todo.id} todoItem={todo} index={index}></TodoItem>
         ))
       ) : (
         <div className="text-center py-20 border-2 border-dashed rounded-3xl border-slate-300/30">
@@ -204,7 +204,7 @@ function TodoInput() {
   );
 }
 
-function TodoListMain({ todoList, onTodoDelete }) {
+function TodoListMain({ todoList }) {
   return (
     <div className="relative">
       <div className="absolute left-0  w-14 top-0 bottom-0">
@@ -212,7 +212,7 @@ function TodoListMain({ todoList, onTodoDelete }) {
       </div>
       <main className="space-y-10 relative z-10">
         <TodoInput></TodoInput>
-        <TodoList todoList={todoList} onTodoDelete={onTodoDelete}></TodoList>
+        <TodoList todoList={todoList}></TodoList>
       </main>
     </div>
   );
@@ -220,8 +220,6 @@ function TodoListMain({ todoList, onTodoDelete }) {
 
 function TodoMainSection() {
   const { filterId, todoList } = useContext(TodosContext);
-  // const [filterId, setFilterId] = useState(TODO_FILTER_IDS.ALL);
-  // const [todoList, setTodoList] = useState(FAKE_TODOS);
   const filerAction = {
     [TODO_FILTER_IDS.ALL]: (todo) => true,
     [TODO_FILTER_IDS.ACTIVE]: (todo) => !todo.completed,
@@ -231,17 +229,11 @@ function TodoMainSection() {
 
   const activeCount = todoList.filter((todo) => !todo.completed).length;
 
-  const onTodoDelete = (deletedTodo) => {
-    const result = todoList.filter((todo) => deletedTodo.id !== todo.id);
-  };
   return (
     <div className="bg-amber-300 min-h-screen bg-todo-main text-todo-1 font-serif selection:bg-orange-100 overflow-hidden">
       <div className="max-w-xl mx-auto px-6 py-12 min-h-full flex flex-col ">
         <TodoFilter unreadCount={activeCount}></TodoFilter>
-        <TodoListMain
-          todoList={todoResult}
-          onTodoDelete={onTodoDelete}
-        ></TodoListMain>
+        <TodoListMain todoList={todoResult}></TodoListMain>
       </div>
     </div>
   );

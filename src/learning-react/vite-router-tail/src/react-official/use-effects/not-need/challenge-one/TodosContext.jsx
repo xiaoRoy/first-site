@@ -17,12 +17,18 @@ const TodosContext = createContext(null);
 const TodosDispatchContext = createContext(null);
 
 function todoReducer(todoState, action) {
+  const { filterId: currentFilterId, todoList } = todoState;
   const { actionType, filterId, todo } = action;
+
   let updatedTodoState = todoState;
   switch (actionType) {
     case TODO_ACTION.ADD:
       break;
     case TODO_ACTION.DEL:
+      const updatedTodoList = todoList.filter(
+        (todoItem) => todoItem.id !== todo.id
+      );
+      updatedTodoState = { ...todoState, todoList: updatedTodoList };
       break;
     case TODO_ACTION.FILTER:
       updatedTodoState = { ...todoState, filterId };
