@@ -1,11 +1,21 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Icons from "./Icons";
-
+import TodoProvider, {
+  TodosContext,
+  TodosDispatchContext,
+  TODO_ACTION,
+  TODO_FILTER_IDS,
+} from "./TodosContext";
 const classes = (...arr) => arr.filter(Boolean).join(" ");
 
-function TodoFilterButton({ filter, currentFilter, onFilterChange }) {
+function TodoFilterButton({ filter, currentFilter }) {
+  const dispatch = useContext(TodosDispatchContext);
   const { id, label, icon: FilterIcon } = filter;
-  const internalOnFilterChanged = () => onFilterChange(id);
+  const onFilterChanged = () =>
+    dispatch({
+      actionType: TODO_ACTION.FILTER,
+      filterId: id,
+    });
   const isCurrentFilter = currentFilter === id;
   const containerStyles = classes(
     "flex flex-1 items-center gap-2 px-4 py-2 transition-all rounded-lg justify-center min-w-0 cursor-pointer",
@@ -18,18 +28,12 @@ function TodoFilterButton({ filter, currentFilter, onFilterChange }) {
     isCurrentFilter && "bg-todo-1 shadow-md scale-[1.02]"
   );
   return (
-    <div className={containerStyles} onClick={internalOnFilterChanged}>
+    <div className={containerStyles} onClick={onFilterChanged}>
       <FilterIcon></FilterIcon>
       <button className={buttonStyles}>{label}</button>
     </div>
   );
 }
-
-const TODO_FILTER_IDS = {
-  ALL: "all",
-  ACTIVE: "active",
-  COMPLETED: "completed",
-};
 
 function Unread({ unreadCount }) {
   return (
@@ -44,7 +48,9 @@ function Unread({ unreadCount }) {
   );
 }
 
-function TodoFilter({ filterId, onFilterChange, unreadCount }) {
+function TodoFilter({ unreadCount }) {
+  const { filterId } = useContext(TodosContext);
+
   const filters = [
     { id: TODO_FILTER_IDS.ALL, label: "All Chapters", icon: Icons.Layers },
     { id: TODO_FILTER_IDS.ACTIVE, label: "In Progress", icon: Icons.Zap },
@@ -64,7 +70,6 @@ function TodoFilter({ filterId, onFilterChange, unreadCount }) {
             key={filter.id}
             filter={filter}
             currentFilter={filterId}
-            onFilterChange={onFilterChange}
           ></TodoFilterButton>
         ))}
       </div>
@@ -213,35 +218,39 @@ function TodoListMain({ todoList, onTodoDelete }) {
   );
 }
 
-export default function TodoAppDemo() {
-  const [filterId, setFilterId] = useState(TODO_FILTER_IDS.ALL);
-  const [todoList, setTodoList] = useState(FAKE_TODOS);
+function TodoMainSection() {
+  const { filterId, todoList } = useContext(TodosContext);
+  // const [filterId, setFilterId] = useState(TODO_FILTER_IDS.ALL);
+  // const [todoList, setTodoList] = useState(FAKE_TODOS);
   const filerAction = {
     [TODO_FILTER_IDS.ALL]: (todo) => true,
     [TODO_FILTER_IDS.ACTIVE]: (todo) => !todo.completed,
     [TODO_FILTER_IDS.COMPLETED]: (todo) => todo.completed,
   };
   const todoResult = todoList.filter(filerAction[filterId]);
-  const onFilterChange = (filterId) => setFilterId(filterId);
+
   const activeCount = todoList.filter((todo) => !todo.completed).length;
 
   const onTodoDelete = (deletedTodo) => {
     const result = todoList.filter((todo) => deletedTodo.id !== todo.id);
-    setTodoList(result);
   };
   return (
     <div className="bg-amber-300 min-h-screen bg-todo-main text-todo-1 font-serif selection:bg-orange-100 overflow-hidden">
       <div className="max-w-xl mx-auto px-6 py-12 min-h-full flex flex-col ">
-        <TodoFilter
-          filterId={filterId}
-          onFilterChange={onFilterChange}
-          unreadCount={activeCount}
-        ></TodoFilter>
+        <TodoFilter unreadCount={activeCount}></TodoFilter>
         <TodoListMain
           todoList={todoResult}
           onTodoDelete={onTodoDelete}
         ></TodoListMain>
       </div>
     </div>
+  );
+}
+
+export default function TodoAppDemo() {
+  return (
+    <TodoProvider initTodos={FAKE_TODOS}>
+      <TodoMainSection></TodoMainSection>
+    </TodoProvider>
   );
 }
