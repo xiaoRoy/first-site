@@ -4,7 +4,7 @@ const TODO_ACTION = {
   ADD: "add",
   DEL: "del",
   FILTER: "filter",
-  UPDATE: "update",
+  TOGGLE: "toggle",
 };
 
 const TODO_FILTER_IDS = {
@@ -25,15 +25,22 @@ function todoReducer(todoState, action) {
     case TODO_ACTION.ADD:
       break;
     case TODO_ACTION.DEL:
-      const updatedTodoList = todoList.filter(
-        (todoItem) => todoItem.id !== todo.id
-      );
-      updatedTodoState = { ...todoState, todoList: updatedTodoList };
+      updatedTodoState = {
+        ...todoState,
+        todoList: todoList.filter((todoItem) => todoItem.id !== todo.id),
+      };
       break;
     case TODO_ACTION.FILTER:
       updatedTodoState = { ...todoState, filterId };
       break;
-    case TODO_ACTION.UPDATE:
+    case TODO_ACTION.TOGGLE:
+      const updatedTodo = { ...todo, completed: !todo.completed };
+      updatedTodoState = {
+        ...todoState,
+        todoList: todoList.map((todo) => {
+          return todo.id === updatedTodo.id ? updatedTodo : todo;
+        }),
+      };
       break;
     default:
       throw new Error(`Unknown Action:${actionType}`);
@@ -55,4 +62,4 @@ export default function TodoProvider({ initTodos, children }) {
   );
 }
 
-export { TODO_FILTER_IDS, TODO_ACTION, TodosContext, TodosDispatchContext };
+export { TODO_ACTION, TODO_FILTER_IDS, TodosContext, TodosDispatchContext };

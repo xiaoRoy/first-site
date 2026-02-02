@@ -1,10 +1,10 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Icons from "./Icons";
 import TodoProvider, {
-  TodosContext,
-  TodosDispatchContext,
   TODO_ACTION,
   TODO_FILTER_IDS,
+  TodosContext,
+  TodosDispatchContext,
 } from "./TodosContext";
 const classes = (...arr) => arr.filter(Boolean).join(" ");
 
@@ -103,10 +103,17 @@ function TodoItem({ todoItem, index }) {
       actionType: TODO_ACTION.DEL,
       todo: todoItem,
     });
+
+  const onTodoToggle = () => {
+    dispatch({
+      actionType: TODO_ACTION.TOGGLE,
+      todo: todoItem,
+    });
+  };
   return (
     <div className={containerStyles}>
       <div className="shrink-0 relative">
-        <button className={buttonStyles}>
+        <button className={buttonStyles} onClick={onTodoToggle}>
           {completed ? (
             <div className="text-amber-600">
               <Icons.Trophy></Icons.Trophy>
