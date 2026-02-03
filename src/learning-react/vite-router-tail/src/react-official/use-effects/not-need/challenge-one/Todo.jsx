@@ -1,10 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Icons from "./Icons";
 import TodoProvider, {
   TODO_ACTION,
   TODO_FILTER_IDS,
   TodosContext,
   TodosDispatchContext,
+  FAKE_TODOS,
 } from "./TodosContext";
 const classes = (...arr) => arr.filter(Boolean).join(" ");
 
@@ -21,11 +22,11 @@ function TodoFilterButton({ filter, currentFilter }) {
     "flex flex-1 items-center gap-2 px-4 py-2 transition-all rounded-lg justify-center min-w-0 cursor-pointer",
     isCurrentFilter
       ? "bg-todo-1 text-amber-500"
-      : "text-slate-500 hover:text-slate-800"
+      : "text-slate-500 hover:text-slate-800",
   );
   const buttonStyles = classes(
     "text-[10px] tracking-wider transition-all font-bold uppercase whitespace-nowrap min-w-0 cursor-pointer",
-    isCurrentFilter && "bg-todo-1 shadow-md scale-[1.02]"
+    isCurrentFilter && "bg-todo-1 shadow-md scale-[1.02]",
   );
   return (
     <div className={containerStyles} onClick={onFilterChanged}>
@@ -82,7 +83,7 @@ function TodoItem({ todoItem, index }) {
   const { completed, itemName } = todoItem;
   const containerStyles = classes(
     "group flex items-start gap-6 transition-all",
-    completed && "opacity-40 grayscale-[0.5]"
+    completed && "opacity-40 grayscale-[0.5]",
   );
 
   const buttonCompletedStyles =
@@ -91,12 +92,12 @@ function TodoItem({ todoItem, index }) {
     "bg-white border-slate-200 group-hover:border-amber-400 group-hover:scale-105";
   const buttonStyles = classes(
     "shadow-inner todo-button rounded-full flex items-center justify-center transition-all border",
-    completed ? buttonCompletedStyles : buttonNotCompletedStyles
+    completed ? buttonCompletedStyles : buttonNotCompletedStyles,
   );
 
   const itemStyles = classes(
     "text-2xl font-medium leading-tight",
-    completed && "line-through decoration-amber-600/30"
+    completed && "line-through decoration-amber-600/30",
   );
   const onTodoDelete = () =>
     dispatch({
@@ -168,44 +169,32 @@ function TodoList({ todoList }) {
   );
 }
 
-const FAKE_TODOS = [
-  {
-    id: 1,
-    completed: true,
-    itemName: "buy groceries",
-  },
-  {
-    id: 2,
-    completed: false,
-    itemName: "finish report",
-  },
-  {
-    id: 3,
-    completed: false,
-    itemName: "call mom",
-  },
-  {
-    id: 4,
-    completed: true,
-    itemName: "wash the car",
-  },
-  {
-    id: 5,
-    completed: false,
-    itemName: "meditate",
-  },
-];
-
 function TodoInput() {
+  const [todoName, setTodoName] = useState("");
+  const dispatch = useContext(TodosDispatchContext);
+  const onTodoChange = (event) => setTodoName(event.target.value);
+  const onTodoAdd = (event) => {
+    event.preventDefault();
+    dispatch({
+      actionType: TODO_ACTION.ADD,
+      todoName,
+    });
+  };
   return (
     <form className="flex gap-4 items-center group">
-      <div className="todo-button rounded-full bg-todo-1 flex items-center justify-center text-white shrink-0 shadow-xl group-focus-within:scale-110 transition-transform border-amber-600/30">
+      <button
+        type="submit"
+        className="todo-button rounded-full bg-todo-1 flex items-center justify-center text-white shrink-0 shadow-xl hover:scale-110 active:scale-95 group-focus-within:scale-110 transition-transform border border-amber-600/30 cursor-pointer"
+        onClick={onTodoAdd}
+      >
         <Icons.Plus></Icons.Plus>
-      </div>
+      </button>
       <input
         type="text"
         placeholder="Next Mile, next page.."
         className="flex-1 bg-transparent border-b border-slate-300 py-3 text-2xl focus:outline-none focus:border-amber-700 transition-colors todo-placeholder"
+        value={todoName}
+        onChange={onTodoChange}
       />
     </form>
   );
